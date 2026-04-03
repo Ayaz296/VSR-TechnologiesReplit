@@ -4,12 +4,12 @@ import { Link } from "wouter";
 export function Footer() {
   return (
     <footer className="bg-[#0A1628] text-slate-300 py-20 border-t border-slate-800">
-      <div className="container mx-auto px-4 md:px-6">
+      <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-          <div className="col-span-1 md:col-span-1">
+          <div className="col-span-1">
             <Link href="/" className="flex items-center gap-3 mb-6 group">
               <div className="bg-primary text-white p-2 rounded-lg shadow-md group-hover:scale-105 transition-transform duration-300">
-                <Shield size={24} strokeWidth={2} />
+                <Shield size={22} strokeWidth={2} />
               </div>
               <span className="font-bold text-xl tracking-tight text-white">
                 VSR<span className="text-primary font-light">Technologies</span>
@@ -23,22 +23,22 @@ export function Footer() {
           <div>
             <h4 className="text-white font-semibold mb-6 tracking-wide text-sm uppercase">Solutions</h4>
             <ul className="space-y-4 text-sm text-slate-400">
-              <li><a href="#services" className="hover:text-primary transition-colors">CCTV Surveillance</a></li>
-              <li><a href="#services" className="hover:text-primary transition-colors">Video Analytics</a></li>
-              <li><a href="#services" className="hover:text-primary transition-colors">Entrance Control</a></li>
-              <li><a href="#services" className="hover:text-primary transition-colors">Fire Alarm Systems</a></li>
-              <li><a href="#services" className="hover:text-primary transition-colors">Building Management</a></li>
+              <li><Link href="/services" className="hover:text-primary transition-colors">CCTV Surveillance</Link></li>
+              <li><Link href="/services" className="hover:text-primary transition-colors">Video Analytics</Link></li>
+              <li><Link href="/services" className="hover:text-primary transition-colors">Entrance Control</Link></li>
+              <li><Link href="/services" className="hover:text-primary transition-colors">Fire Alarm Systems</Link></li>
+              <li><Link href="/services" className="hover:text-primary transition-colors">Building Management</Link></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-white font-semibold mb-6 tracking-wide text-sm uppercase">Industries</h4>
+            <h4 className="text-white font-semibold mb-6 tracking-wide text-sm uppercase">Company</h4>
             <ul className="space-y-4 text-sm text-slate-400">
-              <li><a href="#industries" className="hover:text-primary transition-colors">Aviation & Airports</a></li>
-              <li><a href="#industries" className="hover:text-primary transition-colors">Commercial Real Estate</a></li>
-              <li><a href="#industries" className="hover:text-primary transition-colors">Industrial Facilities</a></li>
-              <li><a href="#industries" className="hover:text-primary transition-colors">Critical Infrastructure</a></li>
-              <li><a href="#industries" className="hover:text-primary transition-colors">Smart Cities</a></li>
+              <li><Link href="/about" className="hover:text-primary transition-colors">About Us</Link></li>
+              <li><Link href="/projects" className="hover:text-primary transition-colors">Our Projects</Link></li>
+              <li><Link href="/services" className="hover:text-primary transition-colors">All Services</Link></li>
+              <li><a href="/#industries" className="hover:text-primary transition-colors">Industries</a></li>
+              <li><a href="/#contact" className="hover:text-primary transition-colors">Contact Sales</a></li>
             </ul>
           </div>
 
@@ -46,15 +46,15 @@ export function Footer() {
             <h4 className="text-white font-semibold mb-6 tracking-wide text-sm uppercase">Contact</h4>
             <ul className="space-y-5 text-sm text-slate-400">
               <li className="flex items-start gap-3">
-                <MapPin size={18} className="text-primary shrink-0 mt-0.5" />
+                <MapPin size={17} className="text-primary shrink-0 mt-0.5" />
                 <span>1200 Infrastructure Way<br />Suite 400<br />Dallas, TX 75201</span>
               </li>
               <li className="flex items-center gap-3">
-                <Phone size={18} className="text-primary shrink-0" />
+                <Phone size={17} className="text-primary shrink-0" />
                 <span>+1 (800) 555-0199</span>
               </li>
               <li className="flex items-center gap-3">
-                <Mail size={18} className="text-primary shrink-0" />
+                <Mail size={17} className="text-primary shrink-0" />
                 <span>procurement@vsrtech.com</span>
               </li>
             </ul>

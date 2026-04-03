@@ -1,73 +1,9 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, ShieldCheck } from "lucide-react";
+import { ArrowRight, ShieldCheck, ChevronDown } from "lucide-react";
 import heroBg from "@/assets/images/hero-bg.png";
 import { useRef } from "react";
-
-function CentralOrb() {
-  return (
-    <div className="relative w-full h-[400px] md:h-[600px] flex items-center justify-center perspective-[1000px]">
-      <motion.div
-        animate={{ rotateY: 360, rotateX: 10 }}
-        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-        className="relative w-64 h-64 md:w-96 md:h-96 preserve-3d"
-        style={{ transformStyle: "preserve-3d" }}
-      >
-        {/* Outer Ring */}
-        <motion.div
-          animate={{ rotateZ: -360 }}
-          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-          className="absolute inset-0 rounded-full border border-primary/20 shadow-[0_0_50px_rgba(var(--primary),0.1)]"
-          style={{ transform: "translateZ(50px)" }}
-        >
-          <div className="absolute top-0 left-1/2 w-2 h-2 -ml-1 -mt-1 rounded-full bg-primary shadow-[0_0_10px_rgba(var(--primary),0.8)]" />
-          <div className="absolute bottom-0 left-1/2 w-2 h-2 -ml-1 -mb-1 rounded-full bg-primary shadow-[0_0_10px_rgba(var(--primary),0.8)]" />
-        </motion.div>
-
-        {/* Middle Ring */}
-        <motion.div
-          animate={{ rotateZ: 360, rotateX: 20 }}
-          transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-          className="absolute inset-4 rounded-full border-[2px] border-dashed border-teal-500/30"
-          style={{ transform: "translateZ(0px)" }}
-        />
-
-        {/* Inner Core */}
-        <div className="absolute inset-12 rounded-full bg-gradient-to-br from-white/90 to-white/40 backdrop-blur-md border border-white/50 shadow-2xl flex items-center justify-center overflow-hidden" style={{ transform: "translateZ(-20px)" }}>
-          <motion.div 
-            className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(var(--primary),0.1)_0%,transparent_70%)]"
-            animate={{ scale: [1, 1.2, 1], opacity: [0.5, 1, 0.5] }}
-            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-          />
-          
-          {/* Lens */}
-          <div className="relative w-24 h-24 md:w-32 md:h-32 rounded-full bg-slate-900 border-4 border-slate-800 shadow-inner flex items-center justify-center">
-            <motion.div 
-              className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-blue-500/20 border border-blue-400/50 flex items-center justify-center relative overflow-hidden"
-              animate={{ scale: [1, 1.05, 1] }}
-              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-            >
-              <div className="w-4 h-4 rounded-full bg-teal-400/40 blur-[2px]" />
-              <div className="absolute top-2 right-2 w-2 h-2 rounded-full bg-white/80" />
-            </motion.div>
-          </div>
-        </div>
-
-        {/* Scanning lines */}
-        <motion.svg
-          viewBox="0 0 100 100"
-          className="absolute inset-0 w-full h-full text-primary/30"
-          style={{ transform: "translateZ(30px)" }}
-          animate={{ rotateZ: 360 }}
-          transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-        >
-          <circle cx="50" cy="50" r="48" fill="none" stroke="currentColor" strokeWidth="0.5" strokeDasharray="4 8" />
-          <path d="M50 2 L50 15 M50 85 L50 98 M2 50 L15 50 M85 50 L98 50" stroke="currentColor" strokeWidth="1" />
-        </motion.svg>
-      </motion.div>
-    </div>
-  );
-}
+import { Link } from "wouter";
 
 export function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -75,110 +11,129 @@ export function Hero() {
     target: containerRef,
     offset: ["start start", "end start"]
   });
-  
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
-  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "25%"]);
+  const opacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
 
   return (
-    <section ref={containerRef} className="relative min-h-[100dvh] flex items-center overflow-hidden bg-background pt-24 md:pt-32">
-      {/* Background Image & Overlay */}
-      <motion.div style={{ y, opacity }} className="absolute inset-0 z-0">
-        <img src={heroBg} alt="Abstract futuristic background" className="w-full h-full object-cover opacity-60" />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/80 to-background" />
+    <section ref={containerRef} className="relative min-h-[100dvh] flex items-center overflow-hidden">
+      {/* Full-bleed background with parallax */}
+      <motion.div style={{ y }} className="absolute inset-0 z-0">
+        <img
+          src={heroBg}
+          alt="Security infrastructure"
+          className="w-full h-full object-cover object-center scale-110"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0A1628]/95 via-[#0A1628]/75 to-[#0A1628]/20" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628]/90 via-transparent to-transparent" />
       </motion.div>
 
-      {/* Floating Particles */}
-      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-        {Array.from({ length: 20 }).map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-1 h-1 rounded-full bg-primary/40 blur-[1px]"
-            initial={{ 
-              x: Math.random() * window.innerWidth, 
-              y: Math.random() * window.innerHeight,
-              scale: Math.random() * 0.5 + 0.5
-            }}
-            animate={{ 
-              y: [null, Math.random() * -200],
-              opacity: [0, 0.8, 0]
-            }}
-            transition={{ 
-              duration: Math.random() * 10 + 10,
-              repeat: Infinity,
-              ease: "linear",
-              delay: Math.random() * 5
-            }}
-          />
-        ))}
-      </div>
+      {/* Animated grid lines */}
+      <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.04]"
+        style={{ backgroundImage: "linear-gradient(to right, #fff 1px, transparent 1px), linear-gradient(to bottom, #fff 1px, transparent 1px)", backgroundSize: "80px 80px" }}
+      />
 
-      <div className="container mx-auto px-4 md:px-6 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
-          
-          <div className="max-w-2xl">
+      {/* Glowing orbs */}
+      <div className="absolute top-1/4 left-1/3 w-[600px] h-[600px] rounded-full bg-primary/10 blur-[120px] pointer-events-none z-0" />
+      <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] rounded-full bg-sky-500/10 blur-[100px] pointer-events-none z-0" />
+
+      {/* Floating scan line */}
+      <motion.div
+        className="absolute left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-sky-400/40 to-transparent z-0 pointer-events-none"
+        animate={{ top: ["10%", "90%"] }}
+        transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+      />
+
+      <motion.div style={{ opacity }} className="relative z-10 w-full">
+        <div className="container mx-auto px-6 md:px-8 pt-28 pb-20">
+          <div className="max-w-4xl">
+            {/* Badge */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
+              transition={{ duration: 0.7 }}
+              className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-sky-400/30 bg-sky-400/10 text-sky-300 text-sm font-medium mb-10 backdrop-blur-sm"
             >
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/50 backdrop-blur-md border border-primary/10 text-primary font-medium text-sm mb-8 shadow-sm">
-                <ShieldCheck size={16} />
-                <span>Enterprise Grade Security Infrastructure</span>
-              </div>
-              <h1 className="text-5xl md:text-7xl lg:text-[5.5rem] font-bold tracking-tight text-foreground leading-[1.05] mb-6 drop-shadow-sm">
-                Advanced Security,{" "}
-                <br />
-                <span className="text-slate-400 font-light">Built for</span>
-                <br />
-                Critical Infrastructure.
-              </h1>
-              <p className="text-lg md:text-xl text-slate-600 mb-10 leading-relaxed max-w-xl">
-                End-to-end physical security, structured cabling, and intelligent threat surveillance. We install, maintain, and network systems for airports, commercial buildings, and industrial facilities.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-5">
-                <Button size="lg" className="text-base h-14 px-8 shadow-lg shadow-primary/20 hover:scale-105 transition-all duration-300">
-                  Explore Solutions
-                </Button>
-                <Button size="lg" variant="outline" className="text-base h-14 px-8 group bg-white/50 backdrop-blur-md hover:bg-white hover:scale-105 transition-all duration-300">
-                  Contact Us
-                  <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </div>
+              <ShieldCheck size={15} />
+              Enterprise Physical Security Infrastructure
             </motion.div>
 
+            {/* Headline */}
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.9, delay: 0.1 }}
+              className="text-5xl md:text-7xl lg:text-[5.5rem] font-bold tracking-tight text-white leading-[1.05] mb-8"
+            >
+              Advanced
+              <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-primary">
+                Security Systems
+              </span>
+              <br />
+              for Critical Sites.
+            </motion.h1>
+
+            {/* Description */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.25 }}
+              className="text-lg md:text-xl text-slate-300 mb-12 leading-relaxed max-w-2xl"
+            >
+              End-to-end physical security, structured cabling, and intelligent threat surveillance — designed, installed, and maintained for airports, commercial buildings, and industrial facilities.
+            </motion.p>
+
+            {/* CTA buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="flex flex-col sm:flex-row gap-4 mb-20"
+            >
+              <Link href="/services">
+                <Button size="lg" className="text-base h-14 px-8 bg-primary hover:bg-primary/90 shadow-xl shadow-primary/30 hover:scale-[1.03] transition-all duration-300">
+                  Explore Services
+                  <ArrowRight size={18} className="ml-2" />
+                </Button>
+              </Link>
+              <Link href="/projects">
+                <Button size="lg" variant="outline" className="text-base h-14 px-8 border-white/20 text-white bg-white/5 hover:bg-white/10 backdrop-blur-sm hover:scale-[1.03] transition-all duration-300">
+                  View Projects
+                </Button>
+              </Link>
+            </motion.div>
+
+            {/* Stats */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 0.6 }}
-              className="grid grid-cols-3 gap-6 mt-16 pt-8 border-t border-slate-200/50"
+              className="grid grid-cols-3 gap-8 pt-8 border-t border-white/10 max-w-xl"
             >
-              <div>
-                <div className="text-3xl font-bold text-foreground">500+</div>
-                <div className="text-sm text-slate-500 font-medium mt-1">Enterprise Sites</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-foreground">99.9%</div>
-                <div className="text-sm text-slate-500 font-medium mt-1">Uptime SLA</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-foreground">24/7</div>
-                <div className="text-sm text-slate-500 font-medium mt-1">Active Monitoring</div>
-              </div>
+              {[
+                { value: "500+", label: "Enterprise Sites" },
+                { value: "99.9%", label: "Uptime SLA" },
+                { value: "24/7", label: "Active Monitoring" },
+              ].map((stat) => (
+                <div key={stat.label}>
+                  <div className="text-3xl font-bold text-white">{stat.value}</div>
+                  <div className="text-sm text-slate-400 font-medium mt-1">{stat.label}</div>
+                </div>
+              ))}
             </motion.div>
           </div>
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 0.2 }}
-            className="hidden lg:block relative"
-          >
-            <CentralOrb />
-          </motion.div>
-          
         </div>
-      </div>
+      </motion.div>
+
+      {/* Scroll cue */}
+      <motion.div
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 text-white/40 flex flex-col items-center gap-1"
+        animate={{ y: [0, 8, 0] }}
+        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+      >
+        <span className="text-xs tracking-widest uppercase">Scroll</span>
+        <ChevronDown size={18} />
+      </motion.div>
     </section>
   );
 }
