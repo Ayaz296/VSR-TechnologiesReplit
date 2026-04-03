@@ -1,144 +1,131 @@
-import { motion } from "framer-motion";
-import { Card, CardContent } from "@/components/ui/card";
-import { 
-  Video, 
-  Network, 
-  Building2, 
-  Map, 
-  DoorClosed, 
-  Flame, 
-  Car, 
-  Eye
-} from "lucide-react";
-import serviceCctv from "@/assets/images/service-cctv-2.png";
-import serviceNetworking from "@/assets/images/service-network.png";
-import serviceSmartcity from "@/assets/images/service-smartcity-2.png";
-import serviceFire from "@/assets/images/service-fire-2.png";
-import serviceParking from "@/assets/images/service-parking.png";
-import serviceTurnstiles from "@/assets/images/service-turnstiles.png";
-import serviceBuilding from "@/assets/images/service-building.png";
-import serviceFiber from "@/assets/images/service-fiber.png";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { Video, Eye, Network, Building2, Map, DoorClosed, Flame, Car, ArrowRight } from "lucide-react";
+import { Link } from "wouter";
+import { useRef, useState } from "react";
 
 const services = [
-  {
-    title: "CCTV Surveillance",
-    description: "High-definition, networked camera systems designed for comprehensive perimeter and internal monitoring.",
-    icon: <Video className="w-6 h-6" />,
-    image: serviceCctv
-  },
-  {
-    title: "Video Analytics",
-    description: "AI-driven insights for automated threat detection, facial recognition, and behavioral analysis.",
-    icon: <Eye className="w-6 h-6" />,
-    image: serviceFiber
-  },
-  {
-    title: "Networking Solutions",
-    description: "Robust structured cabling and fiber optics forming the backbone of secure facility communications.",
-    icon: <Network className="w-6 h-6" />,
-    image: serviceNetworking
-  },
-  {
-    title: "Building Management",
-    description: "Integrated control systems unifying HVAC, lighting, and security into a single pane of glass.",
-    icon: <Building2 className="w-6 h-6" />,
-    image: serviceBuilding
-  },
-  {
-    title: "Smart City Solutions",
-    description: "Macro-scale infrastructure connecting municipal services for safer, more efficient urban environments.",
-    icon: <Map className="w-6 h-6" />,
-    image: serviceSmartcity
-  },
-  {
-    title: "Entrance Control",
-    description: "Biometric and credential-based access systems managing flow and restricting unauthorized entry.",
-    icon: <DoorClosed className="w-6 h-6" />,
-    image: serviceTurnstiles
-  },
-  {
-    title: "Fire Alarm Systems",
-    description: "Advanced detection and suppression integration compliant with stringent industrial safety standards.",
-    icon: <Flame className="w-6 h-6" />,
-    image: serviceFire
-  },
-  {
-    title: "Parking Management",
-    description: "Automated License Plate Recognition (ALPR) and occupancy tracking for secure vehicular flow.",
-    icon: <Car className="w-6 h-6" />,
-    image: serviceParking
-  }
+  { icon: Video, title: "CCTV Surveillance", desc: "HD networked camera systems for total site visibility.", color: "from-blue-500 to-blue-700", num: "01" },
+  { icon: Eye, title: "Video Analytics", desc: "AI-driven threat detection and behavioral analysis.", color: "from-violet-500 to-purple-700", num: "02" },
+  { icon: Network, title: "Networking Solutions", desc: "Structured cabling and fiber backbone infrastructure.", color: "from-teal-500 to-cyan-700", num: "03" },
+  { icon: Building2, title: "Building Management", desc: "Unified control of HVAC, access, and security systems.", color: "from-amber-500 to-orange-700", num: "04" },
+  { icon: Map, title: "Smart City Solutions", desc: "Municipal-scale surveillance and public safety networks.", color: "from-sky-500 to-blue-600", num: "05" },
+  { icon: DoorClosed, title: "Entrance Control", desc: "Biometric and credential access for restricted zones.", color: "from-green-500 to-emerald-700", num: "06" },
+  { icon: Flame, title: "Fire Alarm Systems", desc: "NFPA-compliant fire detection and suppression control.", color: "from-red-500 to-rose-700", num: "07" },
+  { icon: Car, title: "Parking Management", desc: "ALPR-controlled vehicle flow and occupancy tracking.", color: "from-slate-500 to-slate-700", num: "08" },
 ];
 
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: { staggerChildren: 0.1 }
-  }
-};
+function ServiceCard({ service, index }: { service: typeof services[0]; index: number }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [hovered, setHovered] = useState(false);
+  const Icon = service.icon;
 
-const item = {
-  hidden: { opacity: 0, y: 30 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
-};
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay: index * 0.07 }}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      className="group relative bg-white rounded-2xl overflow-hidden border border-slate-100 cursor-pointer"
+      style={{ boxShadow: hovered ? "0 20px 60px -10px rgba(0,0,0,0.12)" : "0 1px 4px rgba(0,0,0,0.05)" }}
+    >
+      {/* Animated gradient top bar */}
+      <motion.div
+        className={`h-1 w-full bg-gradient-to-r ${service.color}`}
+        initial={{ scaleX: 0, originX: 0 }}
+        whileInView={{ scaleX: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, delay: index * 0.07 + 0.3 }}
+      />
+
+      <div className="p-7 relative">
+        {/* Large faded number in background */}
+        <div className="absolute top-4 right-5 text-[72px] font-black text-slate-100 leading-none select-none transition-colors duration-300 group-hover:text-slate-50">
+          {service.num}
+        </div>
+
+        {/* Icon */}
+        <motion.div
+          className={`relative z-10 inline-flex p-3.5 rounded-xl bg-gradient-to-br ${service.color} text-white mb-5 shadow-lg`}
+          animate={{ scale: hovered ? 1.1 : 1 }}
+          transition={{ type: "spring", stiffness: 400, damping: 20 }}
+        >
+          <Icon className="w-5 h-5" />
+        </motion.div>
+
+        <h3 className="relative z-10 text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
+          {service.title}
+        </h3>
+        <p className="relative z-10 text-slate-500 text-sm leading-relaxed mb-5">
+          {service.desc}
+        </p>
+
+        {/* Reveal arrow */}
+        <motion.div
+          className="relative z-10 flex items-center gap-1.5 text-xs font-semibold text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          animate={{ x: hovered ? 0 : -8 }}
+          transition={{ duration: 0.2 }}
+        >
+          Learn more <ArrowRight size={13} />
+        </motion.div>
+      </div>
+
+      {/* Bottom gradient wash on hover */}
+      <motion.div
+        className={`absolute inset-0 bg-gradient-to-br ${service.color} pointer-events-none`}
+        animate={{ opacity: hovered ? 0.03 : 0 }}
+        transition={{ duration: 0.3 }}
+      />
+    </motion.div>
+  );
+}
 
 export function Services() {
   return (
-    <section id="services" className="py-32 bg-gradient-to-b from-[#EFF6FF] to-[#F8FAFC] relative">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(var(--primary),0.03)_0%,transparent_50%)] pointer-events-none" />
-      
-      <div className="container mx-auto px-4 md:px-6 relative z-10">
-        <div className="max-w-3xl mb-20">
+    <section id="services" className="py-32 bg-gradient-to-b from-[#F0F4FF] to-[#F8FAFC] relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-blue-100/40 blur-[120px] pointer-events-none" />
+
+      <div className="container mx-auto px-6 relative z-10">
+        {/* Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-20">
           <motion.div
+            className="max-w-2xl"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground mb-6">
-              Integrated Security Ecosystems
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground mb-4">
+              Integrated Security
+              <br />
+              <span className="text-primary">Ecosystems</span>
             </h2>
-            <p className="text-xl text-slate-600 leading-relaxed">
-              We don't just install cameras; we architect complete physical security networks. Our solutions are designed to scale, integrate, and provide uncompromising reliability for critical environments.
+            <p className="text-xl text-slate-500 leading-relaxed">
+              We don't install components — we architect complete security infrastructure tailored to your environment.
             </p>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <Link href="/services">
+              <div className="group flex items-center gap-2 text-sm font-semibold text-primary border-b-2 border-primary/30 hover:border-primary pb-0.5 transition-colors cursor-pointer whitespace-nowrap">
+                View all services <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
+              </div>
+            </Link>
           </motion.div>
         </div>
 
-        <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
-          variants={container}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-100px" }}
-        >
-          {services.map((service, index) => (
-            <motion.div key={index} variants={item} className="h-full">
-              <Card className="h-full overflow-hidden group relative bg-white/60 backdrop-blur-xl border border-white/50 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2">
-                <div className="h-48 w-full overflow-hidden relative">
-                  <div className="absolute inset-0 bg-slate-900/30 z-10 group-hover:bg-slate-900/10 transition-colors duration-500"></div>
-                  <img 
-                    src={service.image} 
-                    alt={service.title} 
-                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
-                  />
-                </div>
-                
-                <CardContent className="p-8 relative">
-                  <div className="absolute -top-6 right-6 p-3 rounded-xl bg-white shadow-lg text-primary transform group-hover:scale-110 transition-transform duration-300">
-                    {service.icon}
-                  </div>
-                  <h3 className="text-2xl font-semibold text-foreground mb-3 mt-2 group-hover:text-primary transition-colors">
-                    {service.title}
-                  </h3>
-                  <p className="text-slate-600 leading-relaxed">
-                    {service.description}
-                  </p>
-                </CardContent>
-              </Card>
-            </motion.div>
+        {/* Cards grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {services.map((service, i) => (
+            <ServiceCard key={service.title} service={service} index={i} />
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
