@@ -54,3 +54,63 @@ id = "TdUIzqOSDI8lnfqCv47tJ"
 uri = "file://artifacts/vsr-technologies/src/assets/images/about-us.png"
 type = "image"
 title = "Security control room operator view"
+
+[[generated]]
+id = "UzycBHlToaZSb4UN8uA_m"
+uri = "file://src/assets/images/hero-bg.png"
+type = "image"
+title = "Hero background"
+
+[[generated]]
+id = "VCNUVSW-C5qkX3KgmBs-9"
+uri = "file://src/assets/images/service-cctv-2.png"
+type = "image"
+title = "CCTV camera close-up"
+
+[[generated]]
+id = "9z-_BMM7UPWIUrUKAPOcz"
+uri = "file://src/assets/images/service-fiber.png"
+type = "image"
+title = "fiber optic cables"
+
+[[generated]]
+id = "fSPzYiebeyYkwOsKGkrRZ"
+uri = "file://src/assets/images/service-parking.png"
+type = "image"
+title = "parking garage"
+
+[[generated]]
+id = "0A1Mfh4lNSmzEgoJTajni"
+uri = "file://src/assets/images/service-smartcity-2.png"
+type = "image"
+title = "smart city aerial view"
+
+[[generated]]
+id = "KbalERptRqjEkbvJLQKza"
+uri = "file://src/assets/images/service-fire-2.png"
+type = "image"
+title = "fire panel"
+
+[[generated]]
+id = "bye1QNaCcJqwGUtfc2sae"
+uri = "file://src/assets/images/service-turnstiles.png"
+type = "image"
+title = "entrance turnstiles"
+
+[[generated]]
+id = "YFwfOhUfkvDlqPUKG8kvv"
+uri = "file://src/assets/images/service-building.png"
+type = "image"
+title = "building automation"
+
+[[generated]]
+id = "Tjhttef2h-SBb0FUhsl8j"
+uri = "file://src/assets/images/service-network.png"
+type = "image"
+title = "network room"
+
+[[generated]]
+id = "WG3qvuzYlv_Ik84wqwJN7"
+uri = "file://src/assets/images/infra-bg.png"
+type = "image"
+title = "Infrastructure background"
