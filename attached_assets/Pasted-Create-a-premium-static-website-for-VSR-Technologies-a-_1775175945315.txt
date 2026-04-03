@@ -1,0 +1,122 @@
+Create a premium static website for VSR Technologies, a company providing practical security systems, surveillance, networking, and basic AI-powered threat detection solutions.
+
+The website should be mostly light-mode, clean, modern, and high-end. It must feel trustworthy and polished, with subtle futuristic touches, but it should not look overly dark, cyberpunk, or like a software dashboard company.
+
+BRAND POSITIONING:
+VSR Technologies delivers advanced security systems and networking solutions, including CCTV surveillance, structured cabling, installation, commissioning, maintenance, and supply of security equipment. The company serves airports, commercial establishments, and industrial sectors with tailored, reliable, end-to-end infrastructure solutions.
+
+VISUAL STYLE:
+
+* Mostly light theme
+* Use white, soft grey, cool silver, light blue, and muted teal backgrounds
+* Add subtle gradient transitions between sections
+* Premium corporate technology aesthetic
+* Clean typography with strong hierarchy
+* Spacious layout with large visuals
+* Rounded cards and elegant shadows
+* Minimal glass effects only where appropriate
+* Subtle motion and parallax
+* Modern and refined, not flashy
+* Real-world security technology feel
+
+IMPORTANT CREATIVE DIRECTION:
+
+* Do not use fake complex dashboards or futuristic control room interfaces
+* Do not make it look like a SaaS analytics platform
+* Focus on physical security technology, CCTV, networking, and infrastructure
+* AI threat detection should be shown in a simple, believable way through camera overlays, smart detection visuals, perimeter alerts, and motion tracking
+* The site should feel grounded in real enterprise security work
+
+HERO SECTION:
+
+* Large immersive hero with a 3D animated CCTV camera as the centerpiece
+* The camera should slowly rotate or track slightly, giving a premium interactive feel
+* Background should be light, elegant, and layered with subtle gradients or soft architectural shapes
+* Headline idea: “Advanced Security, Built for Critical Infrastructure”
+* Supporting text should mention CCTV, networking, installation, maintenance, and intelligent threat surveillance
+* CTA buttons: “Explore Solutions” and “Contact Us”
+* Include subtle visual indicators of AI detection, such as soft scanning lines or minimal tracking markers around the camera field of view
+
+ABOUT SECTION:
+
+* Introduce VSR Technologies as a provider of advanced security systems and networking solutions
+* Mention end-to-end services: CCTV surveillance, structured cabling, installation, commissioning, maintenance, and equipment supply
+* Highlight tailored solutions for airports, commercial environments, and industrial sectors
+* Keep this section elegant, clean, and trust-focused
+
+SERVICES SECTION:
+Create premium service cards for:
+
+* CCTV Surveillance
+* Video Analytics
+* Networking Solutions
+* Building Management
+* Smart City Solutions
+* Entrance Control
+* Fire Alarm System
+* Parking Management
+
+Each card should:
+
+* Use real-world background imagery or subtle textured visuals
+* Have soft overlays for readability
+* Feel modern and premium
+* Use gentle hover movement and shadow depth
+* Avoid looking like generic template cards
+
+AI THREAT DETECTION SECTION:
+
+* Present this as a simple and credible feature, not as a huge AI software platform
+* Focus on basic AI surveillance capabilities:
+
+  * motion detection
+  * intrusion alerts
+  * perimeter monitoring
+  * suspicious activity recognition
+  * smart video analysis
+* Use a visual concept where security footage or a camera view has clean detection overlays
+* Keep it believable and minimal
+* Headline idea: “Smarter Surveillance with Real-Time Threat Awareness”
+
+INDUSTRIES SECTION:
+Show sectors served:
+
+* Airports
+* Commercial Buildings
+* Industrial Facilities
+* Critical Infrastructure
+
+Use a refined layout with strong photography, clean captions, and subtle motion.
+This section should communicate reliability, scale, and professionalism.
+
+WHY CHOOSE US SECTION:
+Highlight:
+
+* End-to-end security solutions
+* Tailored system design
+* Reliable installation and commissioning
+* Ongoing maintenance and support
+* Trusted for critical environments
+
+Use a clean light background with premium typography and iconography.
+
+CONTACT SECTION:
+
+* Minimal elegant contact form
+* Light premium styling
+* Soft blue or silver-toned background
+* Include company confidence statement and call to action
+
+TECH REQUIREMENTS:
+
+* Static website only
+* Use React + Tailwind CSS
+* Use Framer Motion for subtle animations
+* Use React Three Fiber or Three.js for the 3D CCTV camera hero animation
+* Fully responsive
+* Clean component structure
+* Modern production-quality code
+* No backend
+
+FINAL GOAL:
+The website should feel like a premium real-world security and infrastructure company website with a modern light aesthetic, subtle futuristic polish, a standout 3D CCTV hero, and believable AI threat detection visuals without using dashboard-style UI.

@@ -1,0 +1,56 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "8fM_MajkvwrcgKIZdUxxk"
+uri = "file://artifacts/vsr-technologies/src/assets/images/service-cctv.png"
+type = "image"
+title = "Surveillance camera on building"
+
+[[generated]]
+id = "_EKYhH_oC3rFlCN1JfHgU"
+uri = "file://artifacts/vsr-technologies/src/assets/images/service-networking.png"
+type = "image"
+title = "Server room with glowing cables"
+
+[[generated]]
+id = "-PUWSZx_u6Xvaq88J_a2u"
+uri = "file://artifacts/vsr-technologies/src/assets/images/service-smartcity.png"
+type = "image"
+title = "Smart city aerial view"
+
+[[generated]]
+id = "DwgEyI9dV8GJxTVYmgrjb"
+uri = "file://artifacts/vsr-technologies/src/assets/images/service-fire.png"
+type = "image"
+title = "Fire alarm control panel"
+
+[[generated]]
+id = "1U5Cd-M1-Dfk4oRYZaFhW"
+uri = "file://artifacts/vsr-technologies/src/assets/images/industry-airport.png"
+type = "image"
+title = "Airport terminal interior"
+
+[[generated]]
+id = "dstaziLTRqQRZnStmAmWD"
+uri = "file://artifacts/vsr-technologies/src/assets/images/industry-commercial.png"
+type = "image"
+title = "Modern commercial office building"
+
+[[generated]]
+id = "nNDeT9fWFrTjrxJ1t5sVk"
+uri = "file://artifacts/vsr-technologies/src/assets/images/industry-industrial.png"
+type = "image"
+title = "Large industrial manufacturing facility"
+
+[[generated]]
+id = "aaF-SF_FPV3qgSkup7meE"
+uri = "file://artifacts/vsr-technologies/src/assets/images/industry-infrastructure.png"
+type = "image"
+title = "Critical infrastructure power plant"
+
+[[generated]]
+id = "TdUIzqOSDI8lnfqCv47tJ"
+uri = "file://artifacts/vsr-technologies/src/assets/images/about-us.png"
+type = "image"
+title = "Security control room operator view"

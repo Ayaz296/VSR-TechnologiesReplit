@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "VSR Technologies"
+version = "1.0.0"
+id = "artifacts/vsr-technologies"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 23627
+
+[services.development]
+run = "pnpm --filter @workspace/vsr-technologies run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/vsr-technologies", "run", "build" ]
+publicDir = "artifacts/vsr-technologies/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "23627"
+BASE_PATH = "/"

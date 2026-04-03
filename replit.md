@@ -16,6 +16,16 @@ pnpm workspace monorepo using TypeScript. Each package manages its own dependenc
 - **API codegen**: Orval (from OpenAPI spec)
 - **Build**: esbuild (CJS bundle)
 
+## Artifacts
+
+### VSR Technologies Website (`artifacts/vsr-technologies`)
+- **Type**: react-vite, static frontend only, preview at `/`
+- **Purpose**: Premium marketing website for VSR Technologies, a physical security infrastructure company
+- **Stack**: React + Vite + Tailwind CSS + Framer Motion + React Three Fiber (with CSS fallback)
+- **Sections**: Hero (3D animated CCTV camera), Services (8 cards), AI Threat Detection, Industries, Why Choose Us, About, Contact
+- **3D**: WebGL-first with a CSS/SVG animated fallback for environments without WebGL support
+- **Theme**: Light mode, deep navy primary (#215 70% 25%), muted teal accent (#195 55% 45%)
+
 ## Key Commands
 
 - `pnpm run typecheck` — full typecheck across all packages
