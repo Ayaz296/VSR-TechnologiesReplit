@@ -1,66 +1,61 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import {
-  Video,
-  Eye,
-  Network,
-  Building2,
-  Map,
-  DoorClosed,
-  Flame,
-  Car,
-  ArrowRight,
-  CheckCircle2,
+  Video, Eye, Network, Building2, Map, DoorClosed, Flame, Car,
+  ArrowRight, CheckCircle2, Search, ClipboardList, Wrench, Gauge, Radio,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
+/* ─── service data ─── */
 const services = [
   {
     id: "cctv",
-    icon: <Video className="w-8 h-8" />,
+    icon: Video,
     title: "CCTV Surveillance",
-    tagline: "Advanced video monitoring systems for comprehensive security coverage",
+    tagline: "Advanced video monitoring for total site visibility",
+    gradient: "from-blue-500 to-blue-700",
+    glow: "rgba(59,130,246,0.15)",
     description:
       "Our CCTV systems deliver enterprise-grade, high-definition video coverage for every corner of your facility. From perimeter surveillance to internal zone monitoring, we design multi-camera networks tailored to your site's specific threat profile and operational requirements.",
     features: [
       "4K and HD IP camera deployment",
       "Night vision and thermal imaging options",
-      "Centralized NVR/DVR management",
+      "Centralised NVR/DVR management",
       "Redundant recording infrastructure",
       "Pan-Tilt-Zoom remote control",
       "Long-range perimeter coverage",
     ],
-    accent: "from-blue-600 to-blue-800",
-    light: "bg-blue-50",
-    border: "border-blue-100",
   },
   {
     id: "analytics",
-    icon: <Eye className="w-8 h-8" />,
+    icon: Eye,
     title: "Video Analytics",
-    tagline: "Intelligent video analysis for enhanced security decision-making",
+    tagline: "AI-driven insights for proactive threat response",
+    gradient: "from-violet-500 to-purple-700",
+    glow: "rgba(139,92,246,0.15)",
     description:
-      "Move beyond passive monitoring with AI-powered video analytics. Our systems automatically detect anomalies, track objects, identify patterns, and issue real-time alerts — dramatically reducing response times and the burden on human security operators.",
+      "Move beyond passive recording with AI-powered video analytics. Our systems automatically detect anomalies, track objects, identify patterns, and issue real-time alerts — dramatically reducing response times and operator burden.",
     features: [
       "AI-driven threat detection",
       "Facial and object recognition",
       "Crowd density & flow analysis",
-      "Behavioral anomaly detection",
+      "Behavioural anomaly detection",
       "License plate recognition (LPR)",
       "Automated alert management",
     ],
-    accent: "from-violet-600 to-purple-800",
-    light: "bg-violet-50",
-    border: "border-violet-100",
   },
   {
     id: "networking",
-    icon: <Network className="w-8 h-8" />,
+    icon: Network,
     title: "Networking Solutions",
-    tagline: "Robust network infrastructure for seamless connectivity",
+    tagline: "Robust cabling infrastructure for seamless connectivity",
+    gradient: "from-teal-500 to-cyan-700",
+    glow: "rgba(20,184,166,0.15)",
     description:
-      "A security system is only as strong as its network. We architect and deploy structured cabling, fiber optic backbones, and secure VLANs that provide zero-latency video transmission, isolated security data pathways, and the bandwidth headroom to scale as your needs grow.",
+      "A security system is only as strong as its network. We architect and deploy structured cabling, fiber optic backbones, and secure VLANs that provide zero-latency video transmission and isolated security data pathways.",
     features: [
       "Cat6A & fiber optic structured cabling",
       "Network switch & PoE deployment",
@@ -69,55 +64,52 @@ const services = [
       "TIA-568 certified installations",
       "End-to-end cable documentation",
     ],
-    accent: "from-teal-600 to-cyan-800",
-    light: "bg-teal-50",
-    border: "border-teal-100",
   },
   {
     id: "bms",
-    icon: <Building2 className="w-8 h-8" />,
+    icon: Building2,
     title: "Building Management",
-    tagline: "Comprehensive control systems for optimal building operations",
+    tagline: "Unified control for optimal building operations",
+    gradient: "from-amber-500 to-orange-600",
+    glow: "rgba(245,158,11,0.15)",
     description:
-      "We integrate HVAC, lighting, access control, and security into a unified Building Management System (BMS), giving facility managers a single pane of glass to oversee, control, and automate all critical building functions — improving safety, efficiency, and occupant comfort.",
+      "We integrate HVAC, lighting, access control, and security into a unified Building Management System — giving facility managers a single pane of glass to oversee, control, and automate all critical building functions.",
     features: [
       "Unified BMS dashboard",
       "HVAC and lighting integration",
-      "Energy optimization controls",
+      "Energy optimisation controls",
       "Elevator and door automation",
       "Remote management access",
       "Audit trails and reporting",
     ],
-    accent: "from-amber-600 to-orange-700",
-    light: "bg-amber-50",
-    border: "border-amber-100",
   },
   {
     id: "smartcity",
-    icon: <Map className="w-8 h-8" />,
+    icon: Map,
     title: "Smart City Solutions",
-    tagline: "Comprehensive urban technology for better quality of life",
+    tagline: "Municipal-scale technology for safer urban environments",
+    gradient: "from-sky-500 to-blue-600",
+    glow: "rgba(14,165,233,0.15)",
     description:
-      "VSR Technologies extends its infrastructure expertise to macro-scale urban deployments. We connect municipal assets — traffic monitoring, public safety cameras, emergency communication networks, and smart lighting — into cohesive city-wide platforms.",
+      "VSR Technologies extends its expertise to macro-scale urban deployments — connecting traffic monitoring, public safety cameras, emergency communication networks, and smart lighting into cohesive city-wide platforms.",
     features: [
       "Wide-area surveillance networks",
       "Traffic flow and incident detection",
-      "Public safety command centers",
+      "Public safety command centres",
       "Emergency communication systems",
       "Smart street lighting controls",
       "IoT sensor network integration",
     ],
-    accent: "from-sky-600 to-blue-700",
-    light: "bg-sky-50",
-    border: "border-sky-100",
   },
   {
     id: "entrance",
-    icon: <DoorClosed className="w-8 h-8" />,
+    icon: DoorClosed,
     title: "Entrance Control",
-    tagline: "Secure access management for regulated entry to facilities",
+    tagline: "Secure access management for regulated entry",
+    gradient: "from-green-500 to-emerald-700",
+    glow: "rgba(34,197,94,0.15)",
     description:
-      "Control who enters your facility, when, and where. Our entrance control systems combine biometric readers, smart card access, turnstiles, and intercom solutions into a seamless workflow that enforces security policy without creating friction for authorized personnel.",
+      "Control who enters your facility, when, and where. Our entrance control systems combine biometric readers, smart card access, turnstiles, and intercom solutions into a seamless workflow enforcing security policy without friction.",
     features: [
       "Biometric fingerprint and facial readers",
       "Smart card / RFID access systems",
@@ -126,17 +118,16 @@ const services = [
       "Anti-tailgate sensor technology",
       "Multi-door controller networks",
     ],
-    accent: "from-green-600 to-emerald-800",
-    light: "bg-green-50",
-    border: "border-green-100",
   },
   {
     id: "fire",
-    icon: <Flame className="w-8 h-8" />,
+    icon: Flame,
     title: "Fire Alarm System",
-    tagline: "Reliable fire detection and alert systems for life safety",
+    tagline: "Reliable detection and alert systems for life safety",
+    gradient: "from-red-500 to-rose-700",
+    glow: "rgba(239,68,68,0.15)",
     description:
-      "Protecting lives is the highest security imperative. Our fire alarm installations use addressable detector networks, voice evacuation systems, and suppression integration to detect, locate, and respond to fire incidents with the speed and precision your facility demands.",
+      "Our fire alarm installations use addressable detector networks, voice evacuation systems, and suppression integration to detect, locate, and respond to fire incidents with precision your facility demands.",
     features: [
       "Addressable smoke and heat detectors",
       "Voice evacuation and PA integration",
@@ -145,17 +136,16 @@ const services = [
       "NFPA 72 compliant installations",
       "Regular testing and maintenance",
     ],
-    accent: "from-red-600 to-rose-700",
-    light: "bg-red-50",
-    border: "border-red-100",
   },
   {
     id: "parking",
-    icon: <Car className="w-8 h-8" />,
+    icon: Car,
     title: "Parking Management",
-    tagline: "Intelligent parking solutions for optimized space utilization",
+    tagline: "Intelligent solutions for optimised vehicle flow",
+    gradient: "from-slate-500 to-slate-700",
+    glow: "rgba(100,116,139,0.15)",
     description:
-      "From ALPR-controlled barriers to real-time occupancy dashboards, our parking management systems bring order and accountability to vehicle flow in and out of your facility — reducing unauthorized access, improving throughput, and providing actionable analytics.",
+      "From ALPR-controlled barriers to real-time occupancy dashboards, our parking management systems bring order and accountability to vehicle flow — reducing unauthorised access and providing actionable analytics.",
     features: [
       "ALPR (license plate recognition) barriers",
       "Real-time occupancy sensors",
@@ -164,39 +154,131 @@ const services = [
       "CCTV-integrated ticketing",
       "Revenue control systems",
     ],
-    accent: "from-slate-600 to-slate-800",
-    light: "bg-slate-50",
-    border: "border-slate-100",
   },
 ];
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  show: { opacity: 1, transition: { staggerChildren: 0.08 } },
-};
+/* ─── process steps ─── */
+const steps = [
+  {
+    num: "01",
+    icon: Search,
+    title: "Site Inspection",
+    desc: "Our engineers conduct a full on-site survey — mapping facility zones, identifying blind spots, evaluating existing infrastructure, and assessing threat vectors specific to your environment.",
+    color: "text-sky-400",
+    ring: "ring-sky-400/20",
+    bg: "bg-sky-400/10",
+  },
+  {
+    num: "02",
+    icon: ClipboardList,
+    title: "Custom Solution Design",
+    desc: "Using site data, we architect a bespoke system: camera placement diagrams, cabling schematics, equipment schedules, and a phased deployment plan — all reviewed with you before work begins.",
+    color: "text-violet-400",
+    ring: "ring-violet-400/20",
+    bg: "bg-violet-400/10",
+  },
+  {
+    num: "03",
+    icon: Wrench,
+    title: "Installation",
+    desc: "Certified field engineers deploy every component precisely to the approved design — cabling, mounting, networking, and software configuration — with zero disruption to your ongoing operations.",
+    color: "text-amber-400",
+    ring: "ring-amber-400/20",
+    bg: "bg-amber-400/10",
+  },
+  {
+    num: "04",
+    icon: Gauge,
+    title: "Testing & Optimisation",
+    desc: "Full commissioning follows: every camera angle validated, every alert threshold stress-tested, every integration verified end-to-end. We don't hand over until every system passes.",
+    color: "text-green-400",
+    ring: "ring-green-400/20",
+    bg: "bg-green-400/10",
+  },
+  {
+    num: "05",
+    icon: Radio,
+    title: "Ongoing Monitoring",
+    desc: "Post-deployment, we provide 24/7 remote monitoring, proactive maintenance schedules, firmware update management, and rapid on-site response — keeping your system performing at peak.",
+    color: "text-orange-400",
+    ring: "ring-orange-400/20",
+    bg: "bg-orange-400/10",
+  },
+];
 
-const cardVariants = {
-  hidden: { opacity: 0, y: 40 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
-};
+/* ─── Service Tab Panel ─── */
+function ServicePanel({ service }: { service: typeof services[0] }) {
+  const Icon = service.icon;
+  return (
+    <AnimatePresence mode="wait">
+      <motion.div
+        key={service.id}
+        initial={{ opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -10 }}
+        transition={{ duration: 0.35, ease: "easeOut" }}
+        className="h-full"
+      >
+        {/* Header */}
+        <div className="flex items-start gap-5 mb-8">
+          <div className={`p-4 rounded-2xl bg-gradient-to-br ${service.gradient} text-white shadow-lg shrink-0`}>
+            <Icon className="w-7 h-7" />
+          </div>
+          <div>
+            <h2 className="text-2xl font-bold text-foreground mb-1">{service.title}</h2>
+            <p className="text-slate-500 text-sm leading-relaxed">{service.tagline}</p>
+          </div>
+        </div>
+
+        {/* Divider */}
+        <div className={`h-px bg-gradient-to-r ${service.gradient} opacity-30 mb-8`} />
+
+        {/* Description */}
+        <p className="text-slate-600 leading-relaxed text-base mb-10">{service.description}</p>
+
+        {/* Features */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-10">
+          {service.features.map((f) => (
+            <motion.div
+              key={f}
+              initial={{ opacity: 0, x: -10 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.3 }}
+              className="flex items-center gap-2.5 bg-slate-50 rounded-xl px-4 py-3 text-sm text-slate-700 border border-slate-100"
+            >
+              <CheckCircle2 size={14} className="text-primary shrink-0" />
+              {f}
+            </motion.div>
+          ))}
+        </div>
+
+        <a href="/#contact">
+          <Button className={`bg-gradient-to-r ${service.gradient} text-white border-0 shadow-lg hover:opacity-90 hover:scale-[1.02] transition-all duration-300`}>
+            Request a Quote
+            <ArrowRight size={15} className="ml-2" />
+          </Button>
+        </a>
+      </motion.div>
+    </AnimatePresence>
+  );
+}
 
 export default function ServicesPage() {
+  const [activeId, setActiveId] = useState("cctv");
+  const active = services.find((s) => s.id === activeId)!;
+
   return (
     <div className="flex flex-col min-h-screen bg-background text-foreground">
       <Navbar />
 
-      {/* Page header */}
+      {/* ── Page header ── */}
       <div className="relative pt-36 pb-24 bg-[#0A1628] overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(56,189,248,0.12)_0%,transparent_60%)] pointer-events-none" />
         <div className="absolute inset-0 opacity-[0.04] pointer-events-none"
-          style={{ backgroundImage: "linear-gradient(to right, #fff 1px, transparent 1px), linear-gradient(to bottom, #fff 1px, transparent 1px)", backgroundSize: "80px 80px" }}
+          style={{ backgroundImage: "linear-gradient(to right,#fff 1px,transparent 1px),linear-gradient(to bottom,#fff 1px,transparent 1px)", backgroundSize: "80px 80px" }}
         />
         <div className="container mx-auto px-6 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-          >
+          <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-sky-400/30 bg-sky-400/10 text-sky-300 text-sm font-medium mb-8 backdrop-blur-sm">
               <CheckCircle2 size={14} />
               Full-Spectrum Security Services
@@ -212,73 +294,139 @@ export default function ServicesPage() {
         </div>
       </div>
 
-      {/* Services list */}
-      <main className="flex-1 py-24 bg-[#F8FAFC]">
-        <div className="container mx-auto px-6">
-          <motion.div
-            className="space-y-10"
-            variants={containerVariants}
-            initial="hidden"
-            animate="show"
-          >
-            {services.map((service, i) => (
-              <motion.div
-                key={service.id}
-                variants={cardVariants}
-                className={`group flex flex-col lg:flex-row gap-0 rounded-3xl overflow-hidden border ${service.border} bg-white shadow-sm hover:shadow-xl transition-all duration-500`}
+      <main className="flex-1">
+
+        {/* ── Tabbed Services Explorer ── */}
+        <section className="py-24 bg-[#F8FAFC]">
+          <div className="container mx-auto px-6">
+            <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="mb-14">
+              <h2 className="text-3xl font-bold text-foreground mb-3">Our Services</h2>
+              <p className="text-slate-500 text-lg">Select a service to explore its scope, capabilities, and deliverables.</p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-6">
+              {/* Left nav */}
+              <div className="flex lg:flex-col gap-2 overflow-x-auto lg:overflow-visible pb-2 lg:pb-0">
+                {services.map((s) => {
+                  const SIcon = s.icon;
+                  const isActive = s.id === activeId;
+                  return (
+                    <button
+                      key={s.id}
+                      onClick={() => setActiveId(s.id)}
+                      className={cn(
+                        "group flex items-center gap-3 px-4 py-3.5 rounded-xl text-left transition-all duration-200 shrink-0 lg:shrink border",
+                        isActive
+                          ? "bg-white shadow-md border-slate-200 text-foreground"
+                          : "border-transparent text-slate-500 hover:bg-white/70 hover:text-foreground hover:border-slate-100"
+                      )}
+                    >
+                      <div className={cn(
+                        "p-2 rounded-lg transition-all duration-200 shrink-0",
+                        isActive ? `bg-gradient-to-br ${s.gradient} text-white shadow-sm` : "bg-slate-100 text-slate-500 group-hover:bg-slate-200"
+                      )}>
+                        <SIcon className="w-4 h-4" />
+                      </div>
+                      <span className="font-medium text-sm whitespace-nowrap lg:whitespace-normal">{s.title}</span>
+                      {isActive && (
+                        <motion.div layoutId="activeIndicator" className="ml-auto w-1.5 h-1.5 rounded-full bg-primary hidden lg:block" />
+                      )}
+                    </button>
+                  );
+                })}
+              </div>
+
+              {/* Right panel */}
+              <div
+                className="bg-white rounded-3xl border border-slate-100 shadow-sm p-8 md:p-12 min-h-[520px]"
+                style={{ boxShadow: `0 4px 40px ${active.glow}, 0 1px 3px rgba(0,0,0,0.04)` }}
               >
-                {/* Colored accent bar */}
-                <div className={`lg:w-2 w-full h-2 lg:h-auto bg-gradient-to-b ${service.accent} shrink-0`} />
+                <ServicePanel service={active} />
+              </div>
+            </div>
+          </div>
+        </section>
 
-                <div className="flex flex-col md:flex-row flex-1 gap-0">
-                  {/* Icon + title block */}
-                  <div className={`${service.light} p-8 md:p-10 flex flex-col justify-between md:w-72 lg:w-80 shrink-0`}>
-                    <div>
-                      <div className={`inline-flex p-4 rounded-2xl bg-gradient-to-br ${service.accent} text-white mb-6 shadow-lg`}>
-                        {service.icon}
-                      </div>
-                      <h2 className="text-2xl font-bold text-foreground mb-3">{service.title}</h2>
-                      <p className="text-sm text-slate-500 font-medium leading-relaxed">{service.tagline}</p>
-                    </div>
-                    <div className="mt-8 hidden md:block">
-                      <a href="#contact">
-                        <Button variant="outline" size="sm" className="group/btn text-xs border-slate-200 hover:border-primary hover:text-primary transition-all">
-                          Request a Quote
-                          <ArrowRight size={12} className="ml-1 group-hover/btn:translate-x-0.5 transition-transform" />
-                        </Button>
-                      </a>
-                    </div>
-                  </div>
+        {/* ── Process Timeline ── */}
+        <section className="py-24 bg-[#0A1628] relative overflow-hidden">
+          <div className="absolute inset-0 opacity-[0.04] pointer-events-none"
+            style={{ backgroundImage: "linear-gradient(to right,#fff 1px,transparent 1px),linear-gradient(to bottom,#fff 1px,transparent 1px)", backgroundSize: "80px 80px" }}
+          />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[300px] bg-primary/6 rounded-full blur-[120px] pointer-events-none" />
 
-                  {/* Description + features */}
-                  <div className="flex-1 p-8 md:p-10 flex flex-col justify-between">
-                    <div>
-                      <p className="text-base text-slate-600 leading-relaxed mb-8 max-w-2xl">
-                        {service.description}
-                      </p>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        {service.features.map((feature) => (
-                          <div key={feature} className="flex items-center gap-2.5 text-sm text-slate-700">
-                            <CheckCircle2 size={15} className="text-primary shrink-0" />
-                            {feature}
-                          </div>
-                        ))}
+          <div className="container mx-auto px-6 relative z-10">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="max-w-2xl mb-20"
+            >
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-sky-400/30 bg-sky-400/10 text-sky-300 text-sm font-medium mb-8">
+                Our Process
+              </div>
+              <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight mb-5 leading-[1.1]">
+                From first inspection
+                <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-primary">to lifelong protection.</span>
+              </h2>
+              <p className="text-xl text-slate-400 leading-relaxed">
+                Every VSR engagement follows a disciplined five-stage methodology designed to eliminate risk and deliver a system that performs from day one.
+              </p>
+            </motion.div>
+
+            {/* Steps */}
+            <div className="relative">
+              {/* Connecting line (desktop) */}
+              <div className="hidden lg:block absolute top-[52px] left-[52px] right-[52px] h-[2px] bg-white/5" />
+              <motion.div
+                className="hidden lg:block absolute top-[52px] left-[52px] h-[2px] bg-gradient-to-r from-sky-400/60 to-primary/40"
+                initial={{ width: 0 }}
+                whileInView={{ width: "calc(100% - 104px)" }}
+                viewport={{ once: true }}
+                transition={{ duration: 1.5, delay: 0.3, ease: "easeInOut" }}
+              />
+
+              <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-6">
+                {steps.map((step, i) => {
+                  const StepIcon = step.icon;
+                  return (
+                    <motion.div
+                      key={step.num}
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: i * 0.12 }}
+                      className="flex lg:flex-col items-start gap-5 lg:gap-0 group"
+                    >
+                      {/* Step circle */}
+                      <div className="relative shrink-0">
+                        <div className={cn(
+                          "w-[52px] h-[52px] rounded-full flex items-center justify-center border-2 ring-4 transition-all duration-300 relative z-10",
+                          step.color, step.ring, step.bg,
+                          "border-current group-hover:scale-110"
+                        )}>
+                          <StepIcon className="w-5 h-5" />
+                        </div>
+                        {/* Mobile connecting line */}
+                        {i < steps.length - 1 && (
+                          <div className="lg:hidden absolute left-6 top-[52px] w-[2px] h-8 bg-white/10" />
+                        )}
                       </div>
-                    </div>
-                    <div className="mt-8 md:hidden">
-                      <a href="#contact">
-                        <Button variant="outline" size="sm" className="text-xs border-slate-200 hover:border-primary hover:text-primary transition-all">
-                          Request a Quote
-                          <ArrowRight size={12} className="ml-1" />
-                        </Button>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
+
+                      <div className="lg:mt-8 pb-8 lg:pb-0">
+                        <div className={cn("text-[11px] font-bold tracking-widest mb-2", step.color)}>{step.num}</div>
+                        <h3 className="text-base font-bold text-white mb-2">{step.title}</h3>
+                        <p className="text-slate-400 text-sm leading-relaxed">{step.desc}</p>
+                      </div>
+                    </motion.div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </section>
+
       </main>
 
       {/* CTA band */}
