@@ -21,7 +21,7 @@ function Bridge({ from, to }: { from: string; to: string }) {
   );
 }
 
-/* Scroll-triggered fade-in + rise animation wrapper */
+/* Scroll-triggered colour/opacity fade-in — no movement, section background fades into view */
 function FadeIn({
   children,
   delay = 0,
@@ -33,10 +33,10 @@ function FadeIn({
 }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 32 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.75, delay, ease: [0.22, 1, 0.36, 1] }}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.9, delay, ease: "easeOut" }}
       className={className}
     >
       {children}

@@ -1,23 +1,25 @@
 import { motion } from "framer-motion";
-import { AlertTriangle, ScanLine, BrainCircuit, Crosshair, Radio } from "lucide-react";
+import {
+  AlertTriangle, ScanLine, BrainCircuit, Crosshair, Radio,
+  Eye, Users, Car, Flame, Clock, Lock, Zap,
+} from "lucide-react";
 
 function ThreatCamera() {
   return (
-    <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-orange-900/40"
+    <div
+      className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-orange-900/40"
       style={{ background: "linear-gradient(135deg, #0f0500 0%, #1a0800 50%, #150400 100%)" }}
     >
-      {/* Grid overlay */}
-      <div className="absolute inset-0 opacity-10"
-        style={{ backgroundImage: "linear-gradient(to right, #f97316 1px, transparent 1px), linear-gradient(to bottom, #f97316 1px, transparent 1px)", backgroundSize: "3rem 3rem" }}
+      <div
+        className="absolute inset-0 opacity-10"
+        style={{
+          backgroundImage: "linear-gradient(to right, #f97316 1px, transparent 1px), linear-gradient(to bottom, #f97316 1px, transparent 1px)",
+          backgroundSize: "3rem 3rem",
+        }}
       />
-
-      {/* Outer vignette */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,rgba(0,0,0,0.6)_100%)]" />
-
-      {/* Orange glow orb */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 rounded-full bg-orange-600/10 blur-[60px]" />
 
-      {/* Corner frames */}
       {[
         "top-4 left-4 border-t-2 border-l-2",
         "top-4 right-4 border-t-2 border-r-2",
@@ -34,7 +36,6 @@ function ThreatCamera() {
         />
       ))}
 
-      {/* HUD Top bar */}
       <div className="absolute top-5 left-5 right-5 flex items-center justify-between">
         <div className="text-[10px] font-mono text-orange-400/70 tracking-widest">
           CAM_04 // PERIMETER_NORTH<br />REC · 4K · 60FPS
@@ -49,7 +50,6 @@ function ThreatCamera() {
         </motion.div>
       </div>
 
-      {/* Detection box — Person */}
       <motion.div
         className="absolute border-2 border-red-500 bg-red-500/8 shadow-[inset_0_0_20px_rgba(239,68,68,0.2),0_0_20px_rgba(239,68,68,0.25)]"
         initial={{ width: 0, height: 0, opacity: 0 }}
@@ -66,11 +66,9 @@ function ThreatCamera() {
           <div className="absolute w-10 h-px bg-red-400" />
           <div className="absolute h-10 w-px bg-red-400" />
         </div>
-        {/* Confidence */}
         <div className="absolute bottom-2 left-2 text-[9px] font-mono text-red-300">CONF: 97.3%</div>
       </motion.div>
 
-      {/* Detection box — Vehicle */}
       <motion.div
         className="absolute border-2 border-orange-500 bg-orange-500/8 shadow-[0_0_15px_rgba(249,115,22,0.3)]"
         initial={{ width: 0, height: 0, opacity: 0 }}
@@ -86,14 +84,12 @@ function ThreatCamera() {
         <div className="absolute bottom-2 right-2 text-[9px] font-mono text-orange-300">TRACKING</div>
       </motion.div>
 
-      {/* Scanning line — orange */}
       <motion.div
         className="absolute left-0 right-0 h-px bg-orange-400/60 shadow-[0_0_18px_4px_rgba(251,146,60,0.5)]"
         animate={{ top: ["-5%", "105%"] }}
         transition={{ repeat: Infinity, duration: 3.5, ease: "linear" }}
       />
 
-      {/* Bottom status bar */}
       <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between">
         <div className="text-[9px] font-mono text-orange-400/50">AI ENGINE: ACTIVE · LATENCY 12ms</div>
         <motion.div
@@ -109,43 +105,73 @@ function ThreatCamera() {
   );
 }
 
-const capabilities = [
-  {
-    icon: <ScanLine className="w-5 h-5" />,
-    title: "Perimeter Intrusion Detection",
-    desc: "Virtual tripwires and AI-defined zones trigger instant alerts upon unauthorized breach — before a human operator sees it.",
-  },
-  {
-    icon: <AlertTriangle className="w-5 h-5" />,
-    title: "Suspicious Activity Recognition",
-    desc: "Detects loitering, abandoned objects, and crowd anomalies through real-time behavioral pattern analysis.",
-  },
-  {
-    icon: <Crosshair className="w-5 h-5" />,
-    title: "Automated Incident Verification",
-    desc: "Reduces false alarms by cross-referencing multiple sensors and verifying threats through AI pattern matching.",
-  },
+/* ── Infinite-scroll capability cards ── */
+const cards = [
+  { icon: ScanLine,      title: "Perimeter Intrusion",        desc: "Virtual tripwires trigger alerts the instant a boundary is crossed — before a human operator reacts.",  color: "text-red-400",    bg: "bg-red-500/10",    border: "border-red-500/20" },
+  { icon: Users,         title: "Crowd Anomaly Detection",    desc: "Real-time density mapping flags dangerous crowd surges, dispersals, and unusual assembly patterns.",     color: "text-orange-400", bg: "bg-orange-500/10", border: "border-orange-500/20" },
+  { icon: Car,           title: "Vehicle Tracking & LPR",    desc: "ALPR integration identifies and tracks unauthorised or flagged vehicles across the entire site.",         color: "text-amber-400",  bg: "bg-amber-500/10",  border: "border-amber-500/20" },
+  { icon: Eye,           title: "Loitering & Dwell Detection",desc: "Identifies individuals spending abnormal time in sensitive zones and escalates before incidents occur.",   color: "text-yellow-400", bg: "bg-yellow-500/10", border: "border-yellow-500/20" },
+  { icon: Crosshair,     title: "Incident Verification",      desc: "Cross-references multiple feeds and sensor inputs to eliminate false alarms with 97%+ accuracy.",        color: "text-red-400",    bg: "bg-red-500/10",    border: "border-red-500/20" },
+  { icon: Flame,         title: "Smoke & Fire Detection",    desc: "AI optical detection identifies fire and smoke signatures seconds faster than conventional sensors.",     color: "text-orange-400", bg: "bg-orange-500/10", border: "border-orange-500/20" },
+  { icon: Clock,         title: "After-Hours Monitoring",    desc: "Scheduled behaviour profiling flags activity that falls outside approved access hours automatically.",    color: "text-amber-400",  bg: "bg-amber-500/10",  border: "border-amber-500/20" },
+  { icon: Lock,          title: "Tailgate Prevention",       desc: "Detects unauthorised piggy-back entry at controlled access points and triggers immediate lockdown.",      color: "text-yellow-400", bg: "bg-yellow-500/10", border: "border-yellow-500/20" },
+  { icon: Zap,           title: "Real-Time Alert Dispatch",  desc: "Verified incidents are routed to your SOC, mobile device, or third-party monitoring centre in <12ms.",   color: "text-red-400",    bg: "bg-red-500/10",    border: "border-red-500/20" },
 ];
+
+const scrollItems = [...cards, ...cards];
+
+function CapabilityTicker() {
+  return (
+    <div className="relative overflow-hidden mt-16">
+      {/* Edge fade */}
+      <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-[#1a0800] to-transparent z-10 pointer-events-none" />
+      <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-[#1a0800] to-transparent z-10 pointer-events-none" />
+
+      <motion.div
+        className="flex gap-4 w-max"
+        animate={{ x: ["0%", "-50%"] }}
+        transition={{ repeat: Infinity, repeatType: "loop", duration: 40, ease: "linear" }}
+      >
+        {scrollItems.map((card, i) => {
+          const Icon = card.icon;
+          return (
+            <div
+              key={i}
+              className={`flex-shrink-0 w-[260px] p-5 rounded-2xl border ${card.border} bg-white/[0.03] hover:bg-white/[0.06] transition-all duration-300 backdrop-blur-sm cursor-default`}
+            >
+              <div className={`inline-flex p-2.5 rounded-xl ${card.bg} ${card.color} mb-4`}>
+                <Icon size={16} />
+              </div>
+              <h4 className={`text-sm font-bold mb-2 ${card.color}`}>{card.title}</h4>
+              <p className="text-xs text-slate-500 leading-relaxed">{card.desc}</p>
+            </div>
+          );
+        })}
+      </motion.div>
+    </div>
+  );
+}
 
 export function AiThreatDetection() {
   return (
     <section
       className="relative py-32 overflow-hidden"
-      style={{
-        background: "linear-gradient(135deg, #120800 0%, #1f0d00 30%, #2a0f00 60%, #160500 100%)",
-      }}
+      style={{ background: "linear-gradient(135deg, #120800 0%, #1f0d00 30%, #2a0f00 60%, #160500 100%)" }}
     >
-      {/* Background glows */}
       <div className="absolute top-0 left-1/4 w-[500px] h-[500px] rounded-full bg-orange-600/8 blur-[120px] pointer-events-none" />
       <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] rounded-full bg-red-800/10 blur-[100px] pointer-events-none" />
-      <div className="absolute inset-0 opacity-[0.03] pointer-events-none"
-        style={{ backgroundImage: "linear-gradient(to right, #f97316 1px, transparent 1px), linear-gradient(to bottom, #f97316 1px, transparent 1px)", backgroundSize: "80px 80px" }}
+      <div
+        className="absolute inset-0 opacity-[0.03] pointer-events-none"
+        style={{
+          backgroundImage: "linear-gradient(to right, #f97316 1px, transparent 1px), linear-gradient(to bottom, #f97316 1px, transparent 1px)",
+          backgroundSize: "80px 80px",
+        }}
       />
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
 
-          {/* Camera Mock */}
+          {/* Camera visual */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -154,11 +180,10 @@ export function AiThreatDetection() {
             className="relative"
           >
             <ThreatCamera />
-            {/* Ambient glow behind */}
             <div className="absolute inset-0 -z-10 bg-orange-500/10 blur-[80px] scale-110 rounded-full" />
           </motion.div>
 
-          {/* Text Side */}
+          {/* Text */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -178,38 +203,17 @@ export function AiThreatDetection() {
               </span>
             </h2>
 
-            <p className="text-lg text-slate-400 mb-12 leading-relaxed max-w-xl">
-              Move from passive recording to proactive defense. Our intelligent video analytics transform standard camera feeds into active sensors that identify and escalate anomalies in real time — before they become incidents.
+            <p className="text-lg text-slate-400 mb-8 leading-relaxed">
+              Move from passive recording to proactive defense. Our intelligent video analytics transform standard camera feeds into active sensors that identify and escalate anomalies in real time.
             </p>
-
-            <div className="space-y-6">
-              {capabilities.map((item, i) => (
-                <motion.div
-                  key={i}
-                  className="group flex gap-5 p-5 rounded-2xl border border-white/5 bg-white/[0.03] hover:bg-white/[0.06] hover:border-orange-500/20 transition-all duration-300"
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.4 + i * 0.12, duration: 0.5 }}
-                >
-                  <div className="shrink-0 p-2.5 rounded-xl bg-orange-500/10 border border-orange-500/20 text-orange-400 h-fit group-hover:bg-orange-500/20 transition-colors duration-300">
-                    {item.icon}
-                  </div>
-                  <div>
-                    <h4 className="text-base font-semibold text-white mb-1.5">{item.title}</h4>
-                    <p className="text-slate-400 text-sm leading-relaxed">{item.desc}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
 
             {/* Stats row */}
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.8 }}
-              className="mt-12 pt-8 border-t border-white/10 grid grid-cols-3 gap-6"
+              transition={{ delay: 0.5 }}
+              className="grid grid-cols-3 gap-6 pt-6 border-t border-white/10"
             >
               {[
                 { v: "<12ms", l: "Alert Latency" },
@@ -223,8 +227,22 @@ export function AiThreatDetection() {
               ))}
             </motion.div>
           </motion.div>
-
         </div>
+
+        {/* Capability cards ticker — full width below the grid */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+        >
+          <div className="mt-20 mb-4 flex items-center gap-3">
+            <div className="h-px flex-1 bg-white/8" />
+            <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-slate-600">Detection Capabilities</span>
+            <div className="h-px flex-1 bg-white/8" />
+          </div>
+          <CapabilityTicker />
+        </motion.div>
       </div>
     </section>
   );
