@@ -111,7 +111,7 @@ function ScrollLockedCards() {
 
   return (
     /* Outer — tall to create scroll space */
-    <div ref={outerRef} className="fluid-grid-section fluid-to-light relative" style={{ height: `calc(100vh + ${SECTION_EXTRA_VH}vh)` }}>
+    <div ref={outerRef} className="relative overflow-hidden bg-[#160500]" style={{ height: `calc(100vh + ${SECTION_EXTRA_VH}vh)` }}>
       {/* Sticky inner — locks to viewport while outer scrolls */}
       <div
         className="sticky top-0 h-screen overflow-hidden flex flex-col"
@@ -123,7 +123,6 @@ function ScrollLockedCards() {
         />
         {/* Glow */}
         <div className="absolute top-0 left-1/3 w-[500px] h-[300px] bg-orange-600/8 blur-[120px] pointer-events-none" />
-        <div className="ai-to-integrated-transition absolute inset-x-0 bottom-0 h-[34vh] pointer-events-none" />
 
         {/* Header row */}
         <div className="relative z-10 pt-10 pb-6 px-8 flex items-center justify-between flex-shrink-0">
@@ -160,7 +159,7 @@ function ScrollLockedCards() {
         </div>
 
         {/* Cards strip — full bleed, overflow hidden */}
-        <div className="relative z-10 flex-1 overflow-hidden px-8">
+        <div className="relative z-10 flex-1 overflow-hidden px-4 sm:px-8">
           <motion.div
             className="flex h-full"
             style={{ x: cardsX }}
@@ -170,8 +169,8 @@ function ScrollLockedCards() {
               return (
                 <div
                   key={card.num}
-                  className="flex-shrink-0 h-full pr-6"
-                  style={{ width: "85vw" }}
+                  className="flex-shrink-0 h-full pr-4 sm:pr-6"
+                  style={{ width: "min(85vw, calc(100vw - 2rem))" }}
                 >
                   <div
                     className={`h-full rounded-3xl border ${card.border} bg-white/[0.03] backdrop-blur-sm p-10 flex flex-col`}
