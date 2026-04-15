@@ -19,6 +19,8 @@ export function About() {
                 <img 
                   src={aboutUsImg} 
                   alt="Security Engineering Team" 
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover"
                 />
               </div>

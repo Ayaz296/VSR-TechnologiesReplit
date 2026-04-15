@@ -74,7 +74,7 @@ export function InfrastructureShowcase() {
     <section id="infrastructure" className="relative py-32 bg-[#0A1628] text-white overflow-hidden">
       {/* Background Image with dark overlay */}
       <div className="absolute inset-0 z-0">
-        <img src={infraBg} alt="Network Infrastructure" className="w-full h-full object-cover opacity-30 mix-blend-luminosity" />
+        <img src={infraBg} alt="Network Infrastructure" loading="lazy" decoding="async" className="w-full h-full object-cover opacity-30 mix-blend-luminosity" />
         <div className="absolute inset-0 bg-[#0A1628]/80 backdrop-blur-[2px]" />
       </div>
 

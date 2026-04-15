@@ -9,6 +9,10 @@ import { WhyChooseUs } from "@/components/sections/WhyChooseUs";
 import { About } from "@/components/sections/About";
 import { Contact } from "@/components/sections/Contact";
 import { CertificationsTicker } from "@/components/sections/CertificationsTicker";
+import { ParallaxStory } from "@/components/sections/ParallaxStory";
+import { Slider3D } from "@/components/sections/Slider3D";
+import { ExplodingStats } from "@/components/sections/ExplodingStats";
+import { FAQ } from "@/components/sections/FAQ";
 
 export default function Home() {
   return (
@@ -16,13 +20,17 @@ export default function Home() {
       <Navbar />
       <main className="flex-1">
         <Hero />
+        <ParallaxStory />
         <CertificationsTicker />
         <Services />
+        <Slider3D />
         <InfrastructureShowcase />
         <AiThreatDetection />
+        <ExplodingStats />
         <Industries />
         <WhyChooseUs />
         <About />
+        <FAQ />
         <Contact />
       </main>
       <Footer />

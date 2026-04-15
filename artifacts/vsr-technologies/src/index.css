@@ -204,4 +204,20 @@
   body {
     @apply font-sans antialiased bg-background text-foreground;
   }
+  img {
+    image-rendering: auto;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .perspective-1200 {
+    perspective: 1200px;
+  }
 }

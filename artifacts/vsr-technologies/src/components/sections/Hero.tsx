@@ -69,6 +69,8 @@ export function Hero() {
         <img
           src={heroBg}
           alt="Security infrastructure"
+          fetchPriority="high"
+          decoding="sync"
           className="w-full h-full object-cover object-center scale-110"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[#0A1628]/97 via-[#0A1628]/80 to-[#0A1628]/30" />
