@@ -213,7 +213,7 @@ function ParallaxChapter({
     <motion.div
       ref={ref}
       style={{ opacity }}
-      className={`flex flex-col ${isEven ? "lg:flex-row" : "lg:flex-row-reverse"} items-center gap-8 sm:gap-10 lg:gap-16 py-10 sm:py-14 lg:py-20`}
+      className={`relative flex flex-col ${isEven ? "lg:flex-row" : "lg:flex-row-reverse"} items-center gap-8 sm:gap-10 lg:gap-16 py-10 sm:py-14 lg:py-20`}
     >
       {/* Text side */}
       <motion.div style={{ y }} className="flex-1 max-w-xl w-full">
@@ -254,7 +254,7 @@ function ParallaxChapter({
 
 export function ParallaxStory() {
   return (
-    <section className="relative bg-[#060E1E] overflow-hidden">
+    <section className="fluid-grid-section fluid-to-cases relative bg-[#060E1E] overflow-hidden">
       <div
         className="absolute inset-0 opacity-[0.03] pointer-events-none"
         style={{

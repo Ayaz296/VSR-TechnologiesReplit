@@ -171,7 +171,7 @@ export function ExplodingStats() {
   const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
 
   return (
-    <section ref={ref} className="py-28 bg-[#0A1628] relative overflow-hidden">
+    <section ref={ref} className="fluid-grid-section fluid-to-network py-28 bg-[#0A1628] relative overflow-hidden">
       {/* Parallax bg grid */}
       <motion.div
         style={{ y: bgY }}

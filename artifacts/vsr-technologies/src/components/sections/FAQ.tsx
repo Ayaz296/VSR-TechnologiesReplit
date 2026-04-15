@@ -140,7 +140,7 @@ export function FAQ() {
               Still have questions? Our team is happy to help.
             </p>
             <a
-              href="#contact"
+              href="mailto:procurement@vsrtech.com"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-sky-400/30 bg-sky-400/10 text-sky-300 text-sm font-semibold hover:bg-sky-400/20 hover:border-sky-400/50 transition-all duration-200"
             >
               Contact our team →

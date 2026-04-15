@@ -336,7 +336,7 @@ export default function AboutPage() {
             <h3 className="text-3xl font-bold text-white mb-2">Ready to work with us?</h3>
             <p className="text-primary-foreground/80 text-lg">Get in touch with our team to discuss your next security project.</p>
           </div>
-          <a href="/#contact">
+          <a href="mailto:procurement@vsrtech.com">
             <Button size="lg" variant="secondary" className="text-primary font-semibold h-14 px-10 shadow-xl hover:scale-[1.03] transition-all duration-300 shrink-0">
               Contact Our Team
               <ArrowRight size={18} className="ml-2" />

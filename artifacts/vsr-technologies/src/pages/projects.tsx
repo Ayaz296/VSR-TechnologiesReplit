@@ -266,7 +266,7 @@ function ProjectModal({ project, onClose }: { project: typeof projects[0]; onClo
 
           <div className="pt-5 border-t border-slate-100 flex items-center justify-between">
             <span className="text-xs text-slate-400 font-medium uppercase tracking-wider">Client: {project.client}</span>
-            <a href="/#contact">
+            <a href="mailto:procurement@vsrtech.com">
               <Button size="sm" className={`bg-gradient-to-r ${project.accent} text-white border-0 hover:opacity-90`}>
                 Similar Project? <ArrowRight size={13} className="ml-1" />
               </Button>
@@ -432,7 +432,7 @@ export default function ProjectsPage() {
             <h3 className="text-3xl font-bold text-white mb-2">Have a project in mind?</h3>
             <p className="text-primary-foreground/80 text-lg">Let's discuss the scope and build a tailored security solution for your facility.</p>
           </div>
-          <a href="/#contact">
+          <a href="mailto:procurement@vsrtech.com">
             <Button size="lg" variant="secondary" className="text-primary font-semibold h-14 px-10 shadow-xl hover:scale-[1.03] transition-all duration-300 shrink-0">
               Start the Conversation
               <ArrowRight size={18} className="ml-2" />

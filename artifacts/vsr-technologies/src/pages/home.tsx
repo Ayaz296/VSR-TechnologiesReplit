@@ -7,8 +7,6 @@ import { AiThreatDetection } from "@/components/sections/AiThreatDetection";
 import { Industries } from "@/components/sections/Industries";
 import { WhyChooseUs } from "@/components/sections/WhyChooseUs";
 import { About } from "@/components/sections/About";
-import { Contact } from "@/components/sections/Contact";
-import { CertificationsTicker } from "@/components/sections/CertificationsTicker";
 import { ParallaxStory } from "@/components/sections/ParallaxStory";
 import { Slider3D } from "@/components/sections/Slider3D";
 import { ExplodingStats } from "@/components/sections/ExplodingStats";
@@ -20,18 +18,16 @@ export default function Home() {
       <Navbar />
       <main className="flex-1">
         <Hero />
-        <InfrastructureShowcase />
-        <Services />
-        <ExplodingStats />
-        <Slider3D />
-        <AiThreatDetection />
-        <Industries />
-        <WhyChooseUs />
-        <About />
-        <CertificationsTicker />
         <ParallaxStory />
+        <Slider3D />
+        <ExplodingStats />
+        <InfrastructureShowcase />
+        <AiThreatDetection />
+        <Services />
+        <WhyChooseUs />
+        <Industries />
+        <About />
         <FAQ />
-        <Contact />
       </main>
       <Footer />
     </div>

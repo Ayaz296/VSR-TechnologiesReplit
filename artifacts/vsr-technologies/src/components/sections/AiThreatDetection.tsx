@@ -111,7 +111,7 @@ function ScrollLockedCards() {
 
   return (
     /* Outer — tall to create scroll space */
-    <div ref={outerRef} style={{ height: `calc(100vh + ${SECTION_EXTRA_VH}vh)` }}>
+    <div ref={outerRef} className="fluid-grid-section fluid-to-light relative" style={{ height: `calc(100vh + ${SECTION_EXTRA_VH}vh)` }}>
       {/* Sticky inner — locks to viewport while outer scrolls */}
       <div
         className="sticky top-0 h-screen overflow-hidden flex flex-col"

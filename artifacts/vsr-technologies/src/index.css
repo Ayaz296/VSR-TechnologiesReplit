@@ -220,4 +220,46 @@
   .perspective-1200 {
     perspective: 1200px;
   }
+  .fluid-grid-section {
+    background: var(--fluid-bg);
+  }
+  .fluid-grid-section::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    height: clamp(5rem, 10vw, 10rem);
+    pointer-events: none;
+    z-index: 1;
+    background: linear-gradient(to bottom, transparent, var(--fluid-next-bg));
+  }
+  .fluid-to-story {
+    --fluid-bg: #0a1628;
+    --fluid-next-bg: #060e1e;
+  }
+  .fluid-to-cases {
+    --fluid-bg: #060e1e;
+    --fluid-next-bg: #080f1e;
+  }
+  .fluid-to-stats {
+    --fluid-bg: #080f1e;
+    --fluid-next-bg: #0a1628;
+  }
+  .fluid-to-network {
+    --fluid-bg: #0a1628;
+    --fluid-next-bg: #0a1628;
+  }
+  .fluid-to-ai {
+    --fluid-bg: #0a1628;
+    --fluid-next-bg: #120800;
+  }
+  .fluid-to-light {
+    --fluid-bg: #160500;
+    --fluid-next-bg: #f0f4ff;
+  }
+  .fluid-to-faq {
+    --fluid-bg: #ffffff;
+    --fluid-next-bg: #060e1e;
+  }
 }

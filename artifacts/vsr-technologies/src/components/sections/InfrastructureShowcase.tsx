@@ -100,7 +100,7 @@ const features = [
 
 export function InfrastructureShowcase() {
   return (
-    <section id="infrastructure" className="relative py-24 sm:py-32 lg:py-44 bg-[#0A1628] text-white overflow-hidden">
+    <section id="infrastructure" className="fluid-grid-section fluid-to-ai relative py-24 sm:py-32 lg:py-44 bg-[#0A1628] text-white overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img

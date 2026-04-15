@@ -72,7 +72,7 @@ export function Slider3D() {
   const slide = slides[current];
 
   return (
-    <section className="py-28 bg-[#080F1E] relative overflow-hidden">
+    <section className="fluid-grid-section fluid-to-stats py-28 bg-[#080F1E] relative overflow-hidden">
       {/* Background grid */}
       <div
         className="absolute inset-0 opacity-[0.03] pointer-events-none"
@@ -159,7 +159,7 @@ export function Slider3D() {
                     </p>
                   </div>
 
-                  <a href="#contact" className={`inline-flex items-center gap-2 text-sm font-semibold text-transparent bg-clip-text bg-gradient-to-r ${slide.accent} group`}>
+                  <a href="mailto:procurement@vsrtech.com" className={`inline-flex items-center gap-2 text-sm font-semibold text-transparent bg-clip-text bg-gradient-to-r ${slide.accent} group`}>
                     Request case study details
                     <ArrowRight size={14} className={`text-sky-400 group-hover:translate-x-1 transition-transform`} />
                   </a>
