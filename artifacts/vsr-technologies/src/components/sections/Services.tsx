@@ -40,7 +40,7 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
         transition={{ duration: 0.6, delay: index * 0.07 + 0.3 }}
       />
 
-      <div className="p-7 relative">
+      <div className="p-5 sm:p-7 relative">
         {/* Large faded number in background */}
         <div className="absolute top-4 right-5 text-[72px] font-black text-slate-100 leading-none select-none transition-colors duration-300 group-hover:text-slate-50">
           {service.num}
@@ -55,10 +55,10 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
           <Icon className="w-5 h-5" />
         </motion.div>
 
-        <h3 className="relative z-10 text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
+        <h3 className="relative z-10 text-base sm:text-lg font-bold text-foreground mb-1.5 sm:mb-2 group-hover:text-primary transition-colors duration-300">
           {service.title}
         </h3>
-        <p className="relative z-10 text-slate-500 text-sm leading-relaxed mb-5">
+        <p className="relative z-10 text-slate-500 text-xs sm:text-sm leading-relaxed mb-4 sm:mb-5">
           {service.desc}
         </p>
 

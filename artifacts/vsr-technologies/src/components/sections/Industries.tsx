@@ -56,7 +56,7 @@ export function Industries() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: i * 0.15 }}
-              className="group relative h-[450px] lg:h-[550px] rounded-3xl overflow-hidden cursor-pointer shadow-lg"
+              className="group relative h-[320px] sm:h-[400px] lg:h-[500px] rounded-2xl sm:rounded-3xl overflow-hidden cursor-pointer shadow-lg"
             >
               <img 
                 src={ind.image} 
@@ -67,10 +67,10 @@ export function Industries() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500"></div>
               
-              <div className="absolute bottom-0 left-0 p-8 md:p-10 w-full transform translate-y-6 group-hover:translate-y-0 transition-transform duration-500">
-                <div className="w-12 h-1.5 bg-primary mb-6 transform origin-left transition-all duration-500 group-hover:w-24"></div>
-                <h3 className="text-3xl font-bold mb-4 text-white">{ind.name}</h3>
-                <p className="text-lg text-slate-300 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 leading-relaxed max-w-lg">
+              <div className="absolute bottom-0 left-0 p-5 sm:p-8 md:p-10 w-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                <div className="w-10 sm:w-12 h-1 sm:h-1.5 bg-primary mb-3 sm:mb-5 transform origin-left transition-all duration-500 group-hover:w-20 sm:group-hover:w-24"></div>
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 sm:mb-3 text-white">{ind.name}</h3>
+                <p className="text-sm sm:text-base text-slate-300 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 leading-relaxed max-w-lg">
                   {ind.desc}
                 </p>
               </div>
