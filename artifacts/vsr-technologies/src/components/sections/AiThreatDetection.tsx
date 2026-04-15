@@ -123,6 +123,7 @@ function ScrollLockedCards() {
         />
         {/* Glow */}
         <div className="absolute top-0 left-1/3 w-[500px] h-[300px] bg-orange-600/8 blur-[120px] pointer-events-none" />
+        <div className="ai-to-integrated-transition absolute inset-x-0 bottom-0 h-[34vh] pointer-events-none" />
 
         {/* Header row */}
         <div className="relative z-10 pt-10 pb-6 px-8 flex items-center justify-between flex-shrink-0">

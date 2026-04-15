@@ -229,7 +229,7 @@
     left: 0;
     right: 0;
     bottom: -1px;
-    height: clamp(5rem, 10vw, 10rem);
+    height: clamp(8rem, 16vw, 16rem);
     pointer-events: none;
     z-index: 1;
     background: linear-gradient(to bottom, transparent, var(--fluid-next-bg));
@@ -256,10 +256,20 @@
   }
   .fluid-to-light {
     --fluid-bg: #160500;
-    --fluid-next-bg: #f0f4ff;
+    --fluid-next-bg: #f8fafc;
   }
   .fluid-to-faq {
-    --fluid-bg: #ffffff;
+    --fluid-bg: #f8fafc;
     --fluid-next-bg: #060e1e;
+  }
+  .ai-to-integrated-transition {
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(22, 5, 0, 0.72) 22%,
+      rgba(64, 32, 19, 0.58) 46%,
+      rgba(178, 185, 207, 0.42) 72%,
+      #f8fafc 100%
+    );
   }
 }

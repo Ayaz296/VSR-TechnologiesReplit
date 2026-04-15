@@ -29,7 +29,7 @@ const industries = [
 
 export function Industries() {
   return (
-    <section id="industries" className="py-32 bg-white overflow-hidden">
+    <section id="industries" className="py-32 bg-gradient-to-b from-[#F0F4FF] to-[#F8FAFC] overflow-hidden">
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-20">
           <motion.div 
