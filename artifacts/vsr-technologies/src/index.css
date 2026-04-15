@@ -201,12 +201,6 @@
   * {
     @apply border-border;
   }
-  html,
-  body,
-  #root {
-    max-width: 100%;
-    overflow-x: hidden;
-  }
   body {
     @apply font-sans antialiased bg-background text-foreground;
   }
@@ -235,7 +229,7 @@
     left: 0;
     right: 0;
     bottom: -1px;
-    height: clamp(8rem, 16vw, 16rem);
+    height: clamp(5rem, 10vw, 10rem);
     pointer-events: none;
     z-index: 1;
     background: linear-gradient(to bottom, transparent, var(--fluid-next-bg));
@@ -262,10 +256,10 @@
   }
   .fluid-to-light {
     --fluid-bg: #160500;
-    --fluid-next-bg: #f8fafc;
+    --fluid-next-bg: #f0f4ff;
   }
   .fluid-to-faq {
-    --fluid-bg: #f8fafc;
+    --fluid-bg: #ffffff;
     --fluid-next-bg: #060e1e;
   }
 }

@@ -66,7 +66,7 @@ const features = [
 
 export function WhyChooseUs() {
   return (
-    <section className="py-20 sm:py-28 bg-gradient-to-b from-[#F8FAFC] to-[#F0F4FF] relative overflow-hidden">
+    <section className="py-20 sm:py-28 bg-white relative overflow-hidden">
       {/* Subtle dot grid */}
       <div
         className="absolute inset-0 opacity-[0.035] pointer-events-none"
