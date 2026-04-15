@@ -69,7 +69,8 @@ const chapters = [
   },
 ];
 
-const RADIUS = 100;
+/* Orbit radius — large enough to be clearly visible on desktop */
+const RADIUS = 148;
 
 /* Each fragment chip as its own component so hooks are called at top level */
 function FragmentChip({
@@ -87,28 +88,24 @@ function FragmentChip({
   const tx = Math.sin(rad) * RADIUS;
   const ty = -Math.cos(rad) * RADIUS;
 
-  const delay = 0.2 + index * 0.08;
+  /* Stagger each chip slightly; keep all animation in the 0.1–0.8 band
+     so chips only appear after the section center enters the viewport */
+  const start = 0.1 + index * 0.1;
+  const peak  = start + 0.22;
+  const land  = peak  + 0.12;
 
   const x = useTransform(
     scrollYProgress,
-    [0, delay, delay + 0.25, 1],
-    [0, tx * 0.3, tx * 1.1, tx]
+    [0, start, peak, land, 1],
+    [0, tx * 0.15, tx * 1.18, tx * 0.97, tx]
   );
   const y = useTransform(
     scrollYProgress,
-    [0, delay, delay + 0.25, 1],
-    [0, ty * 0.3, ty * 1.1, ty]
+    [0, start, peak, land, 1],
+    [0, ty * 0.15, ty * 1.18, ty * 0.97, ty]
   );
-  const opacity = useTransform(
-    scrollYProgress,
-    [0, delay, delay + 0.15],
-    [0, 0, 1]
-  );
-  const scale = useTransform(
-    scrollYProgress,
-    [delay, delay + 0.2, delay + 0.35],
-    [0, 1.12, 1]
-  );
+  const opacity = useTransform(scrollYProgress, [0, start, start + 0.1], [0, 0, 1]);
+  const scale   = useTransform(scrollYProgress, [start, peak, land], [0, 1.15, 1]);
 
   return (
     <motion.div
@@ -116,7 +113,7 @@ function FragmentChip({
     >
       <div
         style={{ transform: "translate(-50%, -50%)" }}
-        className="px-2 py-1 rounded-full text-[9px] sm:text-[10px] font-bold whitespace-nowrap border border-white/20 bg-white/10 text-white/85 backdrop-blur-sm shadow"
+        className="px-2.5 py-1 rounded-full text-[10px] sm:text-xs font-bold whitespace-nowrap border border-white/25 bg-white/12 text-white/90 backdrop-blur-sm shadow-md"
       >
         {label}
       </div>
@@ -141,8 +138,7 @@ function ExplodingVisual({
 
   return (
     <div
-      className="relative flex items-center justify-center"
-      style={{ width: 240, height: 240 }}
+      className="relative flex items-center justify-center w-[280px] h-[280px] sm:w-[340px] sm:h-[340px]"
     >
       {/* Ambient glow */}
       <div
@@ -179,9 +175,9 @@ function ExplodingVisual({
       {/* Center icon bursts in */}
       <motion.div
         style={{ scale: iconScale, opacity: iconOpacity, position: "relative", zIndex: 10 }}
-        className={`p-5 rounded-2xl bg-gradient-to-br ${chapter.accent} shadow-2xl`}
+        className={`p-5 sm:p-6 rounded-2xl bg-gradient-to-br ${chapter.accent} shadow-2xl`}
       >
-        <Icon className="w-8 h-8 sm:w-9 sm:h-9 text-white" />
+        <Icon className="w-10 h-10 sm:w-12 sm:h-12 text-white" />
       </motion.div>
     </div>
   );
@@ -201,10 +197,11 @@ function ParallaxChapter({
     offset: ["start end", "end start"],
   });
 
-  /* Separate tracker for explosion — fires as section enters viewport */
+  /* Explosion tracker — tied to the CENTER of the chapter block so it
+     fires only when the visual is actually scrolled into view on mobile */
   const { scrollYProgress: explodeProgress } = useScroll({
     target: ref,
-    offset: ["start 0.9", "start 0.1"],
+    offset: ["center 1.0", "center 0.0"],
   });
 
   const y = useTransform(sectionProgress, [0, 1], [40, -40]);
