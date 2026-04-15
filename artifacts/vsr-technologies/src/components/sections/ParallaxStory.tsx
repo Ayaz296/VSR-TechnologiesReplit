@@ -69,8 +69,8 @@ const chapters = [
   },
 ];
 
-/* Orbit radius — large enough to be clearly visible on desktop */
-const RADIUS = 148;
+/* Orbit radius — wide spread so chips are clearly visible on desktop */
+const RADIUS = 185;
 
 /* Each fragment chip as its own component so hooks are called at top level */
 function FragmentChip({

@@ -20,16 +20,16 @@ export default function Home() {
       <Navbar />
       <main className="flex-1">
         <Hero />
-        <ParallaxStory />
-        <CertificationsTicker />
-        <Services />
-        <Slider3D />
         <InfrastructureShowcase />
-        <AiThreatDetection />
+        <Services />
         <ExplodingStats />
+        <Slider3D />
+        <AiThreatDetection />
         <Industries />
         <WhyChooseUs />
         <About />
+        <CertificationsTicker />
+        <ParallaxStory />
         <FAQ />
         <Contact />
       </main>
