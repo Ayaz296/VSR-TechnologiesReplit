@@ -1,7 +1,8 @@
 import { Shield, Mail, Phone, MapPin } from "lucide-react";
 import { Link } from "wouter";
+import { defaultSiteContent, type SiteContent } from "@/content/siteContent";
 
-export function Footer() {
+export function Footer({ content = defaultSiteContent.footer, contact = defaultSiteContent.contact }: { content?: SiteContent["footer"]; contact?: SiteContent["contact"] }) {
   return (
     <footer className="bg-[#0A1628] text-slate-300 py-20 border-t border-slate-800">
       <div className="container mx-auto px-6">
@@ -16,18 +17,16 @@ export function Footer() {
               </span>
             </Link>
             <p className="text-sm text-slate-400 mb-6 leading-relaxed">
-              Premium physical security infrastructure, structured cabling, and smart building solutions for enterprise and critical environments.
+              {content.description}
             </p>
           </div>
 
           <div>
             <h4 className="text-white font-semibold mb-6 tracking-wide text-sm uppercase">Solutions</h4>
             <ul className="space-y-4 text-sm text-slate-400">
-              <li><Link href="/services" className="hover:text-primary transition-colors">CCTV Surveillance</Link></li>
-              <li><Link href="/services" className="hover:text-primary transition-colors">Video Analytics</Link></li>
-              <li><Link href="/services" className="hover:text-primary transition-colors">Entrance Control</Link></li>
-              <li><Link href="/services" className="hover:text-primary transition-colors">Fire Alarm Systems</Link></li>
-              <li><Link href="/services" className="hover:text-primary transition-colors">Building Management</Link></li>
+              {content.solutions.map((item) => (
+                <li key={item}><Link href="/services" className="hover:text-primary transition-colors">{item}</Link></li>
+              ))}
             </ul>
           </div>
 
@@ -47,15 +46,15 @@ export function Footer() {
             <ul className="space-y-5 text-sm text-slate-400">
               <li className="flex items-start gap-3">
                 <MapPin size={17} className="text-primary shrink-0 mt-0.5" />
-                <span>1200 Infrastructure Way<br />Suite 400<br />Dallas, TX 75201</span>
+                <span>{contact.address.map((line) => <span key={line}>{line}<br /></span>)}</span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone size={17} className="text-primary shrink-0" />
-                <span>+1 (800) 555-0199</span>
+                <span>{contact.phone}</span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={17} className="text-primary shrink-0" />
-                <span>procurement@vsrtech.com</span>
+                <span>{contact.email}</span>
               </li>
             </ul>
           </div>
@@ -64,9 +63,9 @@ export function Footer() {
         <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <p>&copy; {new Date().getFullYear()} VSR Technologies. All rights reserved.</p>
           <div className="flex items-center gap-6">
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
-            <a href="#" className="hover:text-white transition-colors">Compliance</a>
+            {content.legal.map((item) => (
+              <a key={item} href="#" className="hover:text-white transition-colors">{item}</a>
+            ))}
           </div>
         </div>
       </div>

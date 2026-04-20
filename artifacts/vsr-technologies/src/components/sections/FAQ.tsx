@@ -1,43 +1,12 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus, Minus } from "lucide-react";
+import { defaultSiteContent, type SiteContent } from "@/content/siteContent";
 
-const faqs = [
-  {
-    q: "What types of facilities does VSR Technologies typically serve?",
-    a: "We serve enterprise and institutional facilities that demand the highest security standards — including international airports, government complexes, data centres, industrial plants, hospital campuses, high-rise commercial towers, and smart city infrastructure. If reliability and zero-failure are non-negotiable, VSR belongs there.",
-  },
-  {
-    q: "Do you handle the full project lifecycle or just installation?",
-    a: "We manage the complete lifecycle: site inspection and threat assessment, bespoke system design (with full CAD documentation), equipment supply, certified installation, commissioning, operator training, and ongoing 24/7 monitoring and maintenance. There are no third-party handoffs — every stage is handled by our own certified engineers.",
-  },
-  {
-    q: "What certifications do your engineers hold?",
-    a: "Our technical team holds industry-leading credentials including NICET Level III (Fire Alarm Systems), BICSI RCDD (Registered Communications Distribution Designer), and vendor certifications from Axis Communications, Bosch Security Systems, Genetec, Lenel S2, Honeywell, and Milestone. We are also NFPA 72 and TIA-568 compliant installers.",
-  },
-  {
-    q: "Can VSR integrate multiple systems into a unified platform?",
-    a: "Absolutely. Integration is at the core of our approach. We connect CCTV, video analytics, access control, fire alarm, HVAC, and building management systems into a single unified dashboard — giving your operators one pane of glass for total situational awareness and control.",
-  },
-  {
-    q: "How do you approach projects in sensitive or secure environments?",
-    a: "All VSR personnel undergo background verification before any site access. We carry full professional liability and general liability insurance. Our installations are designed to minimise operational disruption, and we coordinate closely with your security and facilities teams throughout every phase.",
-  },
-  {
-    q: "What kind of ongoing support do you provide after installation?",
-    a: "We offer 24/7 remote monitoring, proactive maintenance schedules, firmware and software update management, and guaranteed rapid on-site response time agreements. Our support contracts are structured to keep your system performing at peak — not just functional.",
-  },
-  {
-    q: "Do you provide systems for smaller commercial buildings?",
-    a: "Yes. While our heritage is in large-scale enterprise deployments, we design scalable systems for commercial properties of any size. Every client receives the same engineering rigour and bespoke approach — scaled appropriately to their environment and budget.",
-  },
-  {
-    q: "How do I get a quote or schedule a site assessment?",
-    a: "Use our Contact form on this page or call our team directly. We offer a complimentary initial site assessment and consultation for all qualified enquiries. Our engineers will survey your facility, identify requirements, and deliver a detailed proposal — at no cost and with no obligation.",
-  },
-];
+type FAQContent = SiteContent["faq"];
+type FAQEntry = FAQContent["items"][number];
 
-function FAQItem({ item, index }: { item: typeof faqs[0]; index: number }) {
+function FAQItem({ item, index }: { item: FAQEntry; index: number }) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -83,7 +52,7 @@ function FAQItem({ item, index }: { item: typeof faqs[0]; index: number }) {
   );
 }
 
-export function FAQ() {
+export function FAQ({ content = defaultSiteContent.faq, email = defaultSiteContent.contact.email }: { content?: FAQContent; email?: string }) {
   return (
     <section className="py-28 bg-[#060E1E] relative overflow-hidden">
       {/* Grid */}
@@ -108,22 +77,22 @@ export function FAQ() {
             className="text-center mb-16"
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-sky-400/30 bg-sky-400/10 text-sky-300 text-sm font-medium mb-8">
-              FAQ
+              {content.eyebrow}
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight mb-5 leading-[1.1]">
-              Frequently Asked{" "}
+              {content.title}{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-primary">
-                Questions
+                {content.titleAccent}
               </span>
             </h2>
             <p className="text-xl text-slate-400 leading-relaxed max-w-2xl mx-auto">
-              Everything you need to know about working with VSR Technologies — from project scope to ongoing support.
+              {content.description}
             </p>
           </motion.div>
 
           {/* FAQ list */}
           <div className="rounded-3xl border border-white/8 bg-white/[0.02] backdrop-blur-sm px-6 md:px-10">
-            {faqs.map((item, i) => (
+            {content.items.map((item, i) => (
               <FAQItem key={i} item={item} index={i} />
             ))}
           </div>
@@ -137,13 +106,13 @@ export function FAQ() {
             className="text-center mt-12"
           >
             <p className="text-slate-500 text-base mb-4">
-              Still have questions? Our team is happy to help.
+              {content.contactPrompt}
             </p>
             <a
-              href="mailto:procurement@vsrtech.com"
+              href={`mailto:${email}`}
               className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-sky-400/30 bg-sky-400/10 text-sky-300 text-sm font-semibold hover:bg-sky-400/20 hover:border-sky-400/50 transition-all duration-200"
             >
-              Contact our team →
+              {content.contactCta}
             </a>
           </motion.div>
         </div>

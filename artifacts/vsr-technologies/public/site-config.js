@@ -1,0 +1,1 @@
+window.VSR_WORDPRESS_URL = "";

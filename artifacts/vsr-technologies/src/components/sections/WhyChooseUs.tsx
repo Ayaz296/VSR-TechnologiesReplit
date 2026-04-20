@@ -1,12 +1,13 @@
 import { motion } from "framer-motion";
 import { ShieldCheck, HardHat, Server, UserCog, Network, Clock } from "lucide-react";
+import { defaultSiteContent, type SiteContent } from "@/content/siteContent";
 
-const features = [
+type WhyChooseUsContent = SiteContent["whyChooseUs"];
+
+const featureStyles = [
   {
     num: "01",
     icon: Network,
-    title: "End-to-End Delivery",
-    desc: "From initial CAD design to final commissioning and ongoing maintenance — we handle the entire lifecycle without third-party handoffs.",
     color: "text-blue-500",
     bg: "bg-blue-50",
     border: "border-blue-100",
@@ -15,8 +16,6 @@ const features = [
   {
     num: "02",
     icon: Server,
-    title: "Tailored Architecture",
-    desc: "No off-the-shelf packages. Every system is bespoke — engineered for your specific threat model, facility layout, and compliance requirements.",
     color: "text-violet-500",
     bg: "bg-violet-50",
     border: "border-violet-100",
@@ -25,8 +24,6 @@ const features = [
   {
     num: "03",
     icon: ShieldCheck,
-    title: "Enterprise Reliability",
-    desc: "Commercial-grade hardware, redundant network designs, and failover configurations guarantee 99.9% uptime for mission-critical systems.",
     color: "text-teal-600",
     bg: "bg-teal-50",
     border: "border-teal-100",
@@ -35,8 +32,6 @@ const features = [
   {
     num: "04",
     icon: UserCog,
-    title: "Certified Expertise",
-    desc: "Our engineers hold NICET, BICSI, Axis, and Bosch certifications. You get specialists — not generalists — for every system we deploy.",
     color: "text-amber-600",
     bg: "bg-amber-50",
     border: "border-amber-100",
@@ -45,8 +40,6 @@ const features = [
   {
     num: "05",
     icon: HardHat,
-    title: "Critical Experience",
-    desc: "Proven track record securing airports, power plants, data centres, and industrial cores — environments where failure has real consequences.",
     color: "text-red-500",
     bg: "bg-red-50",
     border: "border-red-100",
@@ -55,8 +48,6 @@ const features = [
   {
     num: "06",
     icon: Clock,
-    title: "24 / 7 Support",
-    desc: "Round-the-clock monitoring, remote diagnostics, and on-site response — because threats don't respect business hours.",
     color: "text-sky-500",
     bg: "bg-sky-50",
     border: "border-sky-100",
@@ -64,7 +55,12 @@ const features = [
   },
 ];
 
-export function WhyChooseUs() {
+export function WhyChooseUs({ content = defaultSiteContent.whyChooseUs }: { content?: WhyChooseUsContent }) {
+  const features = featureStyles.map((style, index) => ({
+    ...style,
+    ...content.features[index],
+  }));
+
   return (
     <section className="py-20 sm:py-28 bg-white relative overflow-hidden">
       {/* Subtle dot grid */}
@@ -88,17 +84,17 @@ export function WhyChooseUs() {
           className="max-w-2xl mb-12 sm:mb-16"
         >
           <div className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs sm:text-sm font-medium mb-5 sm:mb-6">
-            Why VSR
+            {content.eyebrow}
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-foreground mb-4 sm:mb-5 leading-[1.1]">
-            Why Critical Facilities
+            {content.title}
             <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-sky-500">
-              Choose VSR
+              {content.titleAccent}
             </span>
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-slate-500 leading-relaxed">
-            When security failure is not an option, organizations rely on our engineering standards and proven methodology.
+            {content.description}
           </p>
         </motion.div>
 

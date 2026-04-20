@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Shield, Menu, X, Home } from "lucide-react";
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
+import { defaultSiteContent } from "@/content/siteContent";
 
 const navLinks = [
   { label: "Home", href: "/", icon: Home },
@@ -11,7 +12,7 @@ const navLinks = [
   { label: "About Us", href: "/about", icon: null },
 ];
 
-export function Navbar() {
+export function Navbar({ contactEmail = defaultSiteContent.contact.email }: { contactEmail?: string }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [location] = useLocation();
@@ -94,7 +95,7 @@ export function Navbar() {
 
         {/* CTA + mobile toggle */}
         <div className="flex items-center gap-3">
-          <a href="mailto:procurement@vsrtech.com" className="hidden sm:block">
+          <a href={`mailto:${contactEmail}`} className="hidden sm:block">
             <Button
               className={cn(
                 "transition-all duration-300 text-sm",
@@ -143,7 +144,7 @@ export function Navbar() {
                 </Link>
               );
             })}
-            <a href="mailto:procurement@vsrtech.com" className="mt-2">
+            <a href={`mailto:${contactEmail}`} className="mt-2">
               <Button className="w-full">Contact Sales</Button>
             </a>
           </nav>

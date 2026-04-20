@@ -25,6 +25,7 @@ pnpm workspace monorepo using TypeScript. Each package manages its own dependenc
 - **Sections**: Hero (3D animated CCTV camera), Services (8 cards), AI Threat Detection, Industries, Why Choose Us, About, Contact
 - **3D**: WebGL-first with a CSS/SVG animated fallback for environments without WebGL support
 - **Theme**: Light mode, deep navy primary (#215 70% 25%), muted teal accent (#195 55% 45%)
+- **Headless WordPress**: Homepage content can be sourced from a WordPress REST endpoint at `VITE_WORDPRESS_URL/wp-json/vsr/v1/site-content`. The Hostinger-compatible plugin lives at `wordpress/vsr-headless-content/` and provides an editable JSON admin page plus REST endpoint.
 
 ## Key Commands
 

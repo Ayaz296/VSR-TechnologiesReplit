@@ -4,27 +4,19 @@ import { ArrowRight, ChevronDown } from "lucide-react";
 import heroBg from "@/assets/images/hero-bg.png";
 import { useRef, useState, useEffect } from "react";
 import { Link } from "wouter";
+import { defaultSiteContent, type SiteContent } from "@/content/siteContent";
 
-const rotatingServices = [
-  "CCTV Surveillance",
-  "Video Analytics",
-  "Networking Solutions",
-  "Building Management",
-  "Fire Alarm Systems",
-  "Entrance Control",
-  "Parking Management",
-  "Smart City Solutions",
-];
+type HeroContent = SiteContent["hero"];
 
-function RotatingText() {
+function RotatingText({ services }: { services: string[] }) {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setIndex((i) => (i + 1) % rotatingServices.length);
+      setIndex((i) => (i + 1) % services.length);
     }, 2200);
     return () => clearInterval(timer);
-  }, []);
+  }, [services.length]);
 
   return (
     <span className="relative inline-block overflow-hidden" style={{ minWidth: "340px", verticalAlign: "bottom" }}>
@@ -37,23 +29,14 @@ function RotatingText() {
           transition={{ duration: 0.45, ease: "easeInOut" }}
           className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-primary"
         >
-          {rotatingServices[index]}
+          {services[index]}
         </motion.span>
       </AnimatePresence>
     </span>
   );
 }
 
-const capabilities = [
-  "CCTV & Video Analytics",
-  "Structured Cabling",
-  "Building Management",
-  "Fire Alarm Systems",
-  "Entrance Control",
-  "Parking Management",
-];
-
-export function Hero() {
+export function Hero({ content = defaultSiteContent.hero }: { content?: HeroContent }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -109,7 +92,7 @@ export function Hero() {
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-sky-400/25 bg-sky-400/8 text-sky-300 text-sm font-medium mb-10 backdrop-blur-sm"
             >
               <span className="w-2 h-2 rounded-full bg-sky-400 animate-pulse" />
-              Full-Spectrum Physical Security Infrastructure
+              {content.badge}
             </motion.div>
 
             {/* Headline with rotating text */}
@@ -119,12 +102,12 @@ export function Hero() {
               transition={{ duration: 0.9, delay: 0.1 }}
               className="text-5xl md:text-7xl lg:text-[5.5rem] font-bold tracking-tight text-white leading-[1.08] mb-4"
             >
-              Enterprise-Grade
+              {content.headlinePrefix}
               <br />
-              <RotatingText />
+              <RotatingText services={content.rotatingServices} />
               <br />
               <span className="text-white/90 font-light text-4xl md:text-5xl lg:text-6xl">
-                for Critical Infrastructure.
+                {content.headlineSuffix}
               </span>
             </motion.h1>
 
@@ -135,7 +118,7 @@ export function Hero() {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="text-lg text-slate-300 mb-10 leading-relaxed max-w-2xl"
             >
-              From CCTV and fire alarm systems to structured cabling, building management, entrance control, and parking solutions — we design, install, and maintain the complete security stack for airports, commercial towers, and industrial facilities.
+              {content.description}
             </motion.p>
 
             {/* Capability chips */}
@@ -145,7 +128,7 @@ export function Hero() {
               transition={{ duration: 0.8, delay: 0.45 }}
               className="flex flex-wrap gap-2 mb-12"
             >
-              {capabilities.map((c) => (
+              {content.capabilities.map((c) => (
                 <span
                   key={c}
                   className="px-3 py-1 rounded-full text-xs font-medium border border-white/12 bg-white/6 text-slate-300 backdrop-blur-sm"
@@ -167,7 +150,7 @@ export function Hero() {
                   size="lg"
                   className="text-base h-14 px-8 bg-primary hover:bg-primary/90 shadow-xl shadow-primary/30 hover:scale-[1.03] transition-all duration-300"
                 >
-                  Explore Services
+                  {content.primaryCta}
                   <ArrowRight size={18} className="ml-2" />
                 </Button>
               </Link>
@@ -177,7 +160,7 @@ export function Hero() {
                   variant="outline"
                   className="text-base h-14 px-8 border-white/20 text-white bg-white/6 hover:bg-white/12 backdrop-blur-sm hover:scale-[1.03] transition-all duration-300"
                 >
-                  View Projects
+                  {content.secondaryCta}
                 </Button>
               </Link>
             </motion.div>
@@ -189,11 +172,7 @@ export function Hero() {
               transition={{ duration: 1, delay: 0.7 }}
               className="grid grid-cols-3 gap-8 pt-8 border-t border-white/10 max-w-xl"
             >
-              {[
-                { value: "500+", label: "Enterprise Sites" },
-                { value: "99.9%", label: "Uptime SLA" },
-                { value: "24/7", label: "Active Monitoring" },
-              ].map((stat) => (
+              {content.stats.map((stat) => (
                 <div key={stat.label}>
                   <div className="text-3xl font-bold text-white">{stat.value}</div>
                   <div className="text-sm text-slate-400 font-medium mt-1">{stat.label}</div>

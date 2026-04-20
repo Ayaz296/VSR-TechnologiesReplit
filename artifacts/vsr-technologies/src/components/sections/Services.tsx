@@ -2,19 +2,24 @@ import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { Video, Eye, Network, Building2, Map, DoorClosed, Flame, Car, ArrowRight } from "lucide-react";
 import { Link } from "wouter";
 import { useRef, useState } from "react";
+import { defaultSiteContent, type SiteContent } from "@/content/siteContent";
 
-const services = [
-  { icon: Video, title: "CCTV Surveillance", desc: "HD networked camera systems for total site visibility.", color: "from-blue-500 to-blue-700", num: "01" },
-  { icon: Eye, title: "Video Analytics", desc: "AI-driven threat detection and behavioral analysis.", color: "from-violet-500 to-purple-700", num: "02" },
-  { icon: Network, title: "Networking Solutions", desc: "Structured cabling and fiber backbone infrastructure.", color: "from-teal-500 to-cyan-700", num: "03" },
-  { icon: Building2, title: "Building Management", desc: "Unified control of HVAC, access, and security systems.", color: "from-amber-500 to-orange-700", num: "04" },
-  { icon: Map, title: "Smart City Solutions", desc: "Municipal-scale surveillance and public safety networks.", color: "from-sky-500 to-blue-600", num: "05" },
-  { icon: DoorClosed, title: "Entrance Control", desc: "Biometric and credential access for restricted zones.", color: "from-green-500 to-emerald-700", num: "06" },
-  { icon: Flame, title: "Fire Alarm Systems", desc: "NFPA-compliant fire detection and suppression control.", color: "from-red-500 to-rose-700", num: "07" },
-  { icon: Car, title: "Parking Management", desc: "ALPR-controlled vehicle flow and occupancy tracking.", color: "from-slate-500 to-slate-700", num: "08" },
+type ServicesContent = SiteContent["services"];
+
+const serviceStyles = [
+  { icon: Video, color: "from-blue-500 to-blue-700", num: "01" },
+  { icon: Eye, color: "from-violet-500 to-purple-700", num: "02" },
+  { icon: Network, color: "from-teal-500 to-cyan-700", num: "03" },
+  { icon: Building2, color: "from-amber-500 to-orange-700", num: "04" },
+  { icon: Map, color: "from-sky-500 to-blue-600", num: "05" },
+  { icon: DoorClosed, color: "from-green-500 to-emerald-700", num: "06" },
+  { icon: Flame, color: "from-red-500 to-rose-700", num: "07" },
+  { icon: Car, color: "from-slate-500 to-slate-700", num: "08" },
 ];
 
-function ServiceCard({ service, index }: { service: typeof services[0]; index: number }) {
+type ServiceItem = (typeof serviceStyles)[number] & ServicesContent["items"][number];
+
+function ServiceCard({ service, index }: { service: ServiceItem; index: number }) {
   const ref = useRef<HTMLDivElement>(null);
   const [hovered, setHovered] = useState(false);
   const Icon = service.icon;
@@ -82,7 +87,12 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
   );
 }
 
-export function Services() {
+export function Services({ content = defaultSiteContent.services }: { content?: ServicesContent }) {
+  const services = serviceStyles.map((style, index) => ({
+    ...style,
+    ...content.items[index],
+  }));
+
   return (
     <section id="services" className="py-32 bg-gradient-to-b from-[#F0F4FF] to-[#F8FAFC] relative overflow-hidden">
       <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-blue-100/40 blur-[120px] pointer-events-none" />
@@ -98,12 +108,12 @@ export function Services() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground mb-4">
-              Integrated Security
+              {content.title}
               <br />
-              <span className="text-primary">Ecosystems</span>
+              <span className="text-primary">{content.titleAccent}</span>
             </h2>
             <p className="text-xl text-slate-500 leading-relaxed">
-              We don't install components — we architect complete security infrastructure tailored to your environment.
+              {content.description}
             </p>
           </motion.div>
           <motion.div
@@ -114,7 +124,7 @@ export function Services() {
           >
             <Link href="/services">
               <div className="group flex items-center gap-2 text-sm font-semibold text-primary border-b-2 border-primary/30 hover:border-primary pb-0.5 transition-colors cursor-pointer whitespace-nowrap">
-                View all services <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
+                {content.cta} <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
               </div>
             </Link>
           </motion.div>
