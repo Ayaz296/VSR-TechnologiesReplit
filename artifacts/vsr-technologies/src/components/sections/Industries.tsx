@@ -3,23 +3,31 @@ import industryAirport from "@/assets/images/ind-airport.png";
 import industryCommercial from "@/assets/images/ind-commercial.png";
 import industryIndustrial from "@/assets/images/ind-industrial.png";
 import industryInfrastructure from "@/assets/images/ind-critical.png";
-import { defaultSiteContent, type SiteContent } from "@/content/siteContent";
 
-type IndustriesContent = SiteContent["industries"];
-
-const industryImages = [
-  industryAirport,
-  industryCommercial,
-  industryIndustrial,
-  industryInfrastructure,
+const industries = [
+  {
+    name: "Airports & Aviation",
+    image: industryAirport,
+    desc: "Strict compliance systems managing passenger flow and restricted zones. Biometric boarding and high-throughput security."
+  },
+  {
+    name: "Commercial Real Estate",
+    image: industryCommercial,
+    desc: "Seamless integration of access control, visitor management, and building automation for premium corporate tenants."
+  },
+  {
+    name: "Industrial Facilities",
+    image: industryIndustrial,
+    desc: "Robust perimeter defense, safety monitoring, and asset protection in harsh manufacturing environments."
+  },
+  {
+    name: "Critical Infrastructure",
+    image: industryInfrastructure,
+    desc: "High-security networked solutions for power plants, utilities, and municipal systems requiring NERC CIP compliance."
+  }
 ];
 
-export function Industries({ content = defaultSiteContent.industries }: { content?: IndustriesContent }) {
-  const industries = content.items.map((item, index) => ({
-    ...item,
-    image: item.image || industryImages[index] || industryImages[0],
-  }));
-
+export function Industries() {
   return (
     <section id="industries" className="py-32 bg-white overflow-hidden">
       <div className="container mx-auto px-4 md:px-6">
@@ -32,10 +40,10 @@ export function Industries({ content = defaultSiteContent.industries }: { conten
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6 text-foreground">
-              {content.title}
+              Securing Vital Sectors
             </h2>
             <p className="text-slate-600 text-xl leading-relaxed">
-              {content.description}
+              Different environments require distinct security paradigms. We engineer tailored infrastructure optimized for the unique regulatory and physical demands of specific industries.
             </p>
           </motion.div>
         </div>
