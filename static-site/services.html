@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services — VSR Technologies</title>
+  <meta name="description" content="Full-spectrum security and building infrastructure services: CCTV, video analytics, networking, fire alarm, BMS, and smart city solutions." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div id="navbar-slot"></div>
+
+  <header class="page-header">
+    <div class="page-header-glow"></div>
+    <div class="grid-overlay"></div>
+    <div class="container">
+      <div class="section-eyebrow"><i data-icon="checkCircle"></i><span>Full-Spectrum Security Services</span></div>
+      <h1>Every System.<br/><span class="grad">One Partner.</span></h1>
+      <p>We design, install, and maintain the complete stack of physical security and building infrastructure — from a single access point to a campus-wide smart city deployment.</p>
+    </div>
+  </header>
+
+  <main>
+    <!-- Tabbed Services Explorer -->
+    <section class="svc-tabs-section">
+      <div class="container">
+        <div style="margin-bottom: 3rem;">
+          <h2 style="font-size: 1.875rem; font-weight: 700; margin-bottom: .75rem;">Our Services</h2>
+          <p style="color: #64748b; font-size: 1.125rem;">Select a service to explore its scope, capabilities, and deliverables.</p>
+        </div>
+        <div class="svc-tabs-grid">
+          <div class="svc-tabs" id="svc-tabs" data-services='[
+            {"id":"cctv","title":"CCTV Surveillance","tagline":"Advanced video monitoring for total site visibility","icon":"video","gradFrom":"#3b82f6","gradTo":"#1d4ed8","glow":"rgba(59,130,246,0.15)","description":"Our CCTV systems deliver enterprise-grade, high-definition video coverage for every corner of your facility. From perimeter surveillance to internal zone monitoring, we design multi-camera networks tailored to your site’s specific threat profile and operational requirements.","features":["4K and HD IP camera deployment","Night vision and thermal imaging options","Centralised NVR/DVR management","Redundant recording infrastructure","Pan-Tilt-Zoom remote control","Long-range perimeter coverage"]},
+            {"id":"analytics","title":"Video Analytics","tagline":"AI-driven insights for proactive threat response","icon":"eye","gradFrom":"#a855f7","gradTo":"#6d28d9","glow":"rgba(139,92,246,0.15)","description":"Move beyond passive recording with AI-powered video analytics. Our systems automatically detect anomalies, track objects, identify patterns, and issue real-time alerts — dramatically reducing response times and operator burden.","features":["AI-driven threat detection","Facial and object recognition","Crowd density &amp; flow analysis","Behavioural anomaly detection","License plate recognition (LPR)","Automated alert management"]},
+            {"id":"networking","title":"Networking Solutions","tagline":"Robust cabling infrastructure for seamless connectivity","icon":"network","gradFrom":"#14b8a6","gradTo":"#0e7490","glow":"rgba(20,184,166,0.15)","description":"A security system is only as strong as its network. We architect and deploy structured cabling, fiber optic backbones, and secure VLANs that provide zero-latency video transmission and isolated security data pathways.","features":["Cat6A &amp; fiber optic structured cabling","Network switch &amp; PoE deployment","Isolated security VLANs","Redundant uplink configuration","TIA-568 certified installations","End-to-end cable documentation"]},
+            {"id":"bms","title":"Building Management","tagline":"Unified control for optimal building operations","icon":"building2","gradFrom":"#f59e0b","gradTo":"#c2410c","glow":"rgba(245,158,11,0.15)","description":"We integrate HVAC, lighting, access control, and security into a unified Building Management System — giving facility managers a single pane of glass to oversee, control, and automate all critical building functions.","features":["Unified BMS dashboard","HVAC and lighting integration","Energy optimisation controls","Elevator and door automation","Remote management access","Audit trails and reporting"]},
+            {"id":"smartcity","title":"Smart City Solutions","tagline":"Municipal-scale technology for safer urban environments","icon":"map","gradFrom":"#38bdf8","gradTo":"#2563eb","glow":"rgba(14,165,233,0.15)","description":"VSR Technologies extends its expertise to macro-scale urban deployments — connecting traffic monitoring, public safety cameras, emergency communication networks, and smart lighting into cohesive city-wide platforms.","features":["Wide-area surveillance networks","Traffic flow and incident detection","Public safety command centres","Emergency communication systems","Smart street lighting controls","IoT sensor network integration"]},
+            {"id":"entrance","title":"Entrance Control","tagline":"Secure access management for regulated entry","icon":"doorClosed","gradFrom":"#22c55e","gradTo":"#047857","glow":"rgba(34,197,94,0.15)","description":"Control who enters your facility, when, and where. Our entrance control systems combine biometric readers, smart card access, turnstiles, and intercom solutions into a seamless workflow enforcing security policy without friction.","features":["Biometric fingerprint and facial readers","Smart card / RFID access systems","Turnstile and speed lane integration","Visitor management software","Anti-tailgate sensor technology","Multi-door controller networks"]},
+            {"id":"fire","title":"Fire Alarm System","tagline":"Reliable detection and alert systems for life safety","icon":"flame","gradFrom":"#ef4444","gradTo":"#be123c","glow":"rgba(239,68,68,0.15)","description":"Our fire alarm installations use addressable detector networks, voice evacuation systems, and suppression integration to detect, locate, and respond to fire incidents with precision your facility demands.","features":["Addressable smoke and heat detectors","Voice evacuation and PA integration","Sprinkler and suppression tie-in","Panel monitoring and remote alerts","NFPA 72 compliant installations","Regular testing and maintenance"]},
+            {"id":"parking","title":"Parking Management","tagline":"Intelligent solutions for optimised vehicle flow","icon":"car","gradFrom":"#64748b","gradTo":"#334155","glow":"rgba(100,116,139,0.15)","description":"From ALPR-controlled barriers to real-time occupancy dashboards, our parking management systems bring order and accountability to vehicle flow — reducing unauthorised access and providing actionable analytics.","features":["ALPR (license plate recognition) barriers","Real-time occupancy sensors","Parking guidance display systems","Permit and validation management","CCTV-integrated ticketing","Revenue control systems"]}
+          ]'></div>
+          <div class="svc-panel" id="svc-panel"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Capabilities -->
+    <section class="svc-cap-section">
+      <div class="container">
+        <div class="section-header-center reveal" style="margin-bottom: 4rem;">
+          <div class="section-eyebrow" style="border-color:rgba(37,99,235,0.2); background:rgba(37,99,235,0.05); color:var(--primary);"><span class="dot" style="background:var(--primary);"></span>Built-In Capabilities</div>
+          <h2 class="section-title-dark">Every service includes these <span class="accent">standards.</span></h2>
+          <p class="section-sub-dark">These aren't add-ons — they're built into how we engineer every system we deploy.</p>
+        </div>
+        <div class="svc-cap-grid">
+          <div class="svc-cap-card"><div class="svc-cap-icon"><i data-icon="shieldCheckSm"></i></div><h3>Compliance-Ready</h3><p>Every installation is designed to meet NFPA, TIA-568, IEC, and local regulatory requirements from the outset.</p></div>
+          <div class="svc-cap-card"><div class="svc-cap-icon"><i data-icon="cpuSm"></i></div><h3>AI-Powered Analytics</h3><p>On-edge and cloud-connected AI processing for real-time threat detection without latency.</p></div>
+          <div class="svc-cap-card"><div class="svc-cap-icon"><i data-icon="globe2"></i></div><h3>Remote Management</h3><p>Full system visibility and control from anywhere via secure web and mobile management platforms.</p></div>
+          <div class="svc-cap-card"><div class="svc-cap-icon"><i data-icon="usersSm"></i></div><h3>Operator Training</h3><p>Comprehensive handover training ensures your team gets the most from every system from day one.</p></div>
+          <div class="svc-cap-card"><div class="svc-cap-icon"><i data-icon="barChart"></i></div><h3>Analytics &amp; Reporting</h3><p>Detailed incident reports, system health dashboards, and compliance documentation on demand.</p></div>
+          <div class="svc-cap-card"><div class="svc-cap-icon"><i data-icon="lock"></i></div><h3>Cyber-Hardened</h3><p>Security-by-design network architecture with VLANs, encrypted streams, and regular firmware audits.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process Timeline -->
+    <section class="svc-process-section">
+      <div class="grid-overlay"></div>
+      <div class="svc-process-glow"></div>
+      <div class="container">
+        <div style="max-width: 36rem; margin-bottom: 4rem;">
+          <div class="section-eyebrow"><span class="dot"></span><span>Our Process</span></div>
+          <h2 class="section-title-light">From first inspection<br/><span class="grad">to lifelong protection.</span></h2>
+          <p class="section-sub-light">Every VSR engagement follows a disciplined five-stage methodology designed to eliminate risk and deliver a system that performs from day one.</p>
+        </div>
+        <div class="svc-timeline">
+          <div class="svc-step">
+            <div class="svc-step-circle" style="color:#38bdf8; outline-color: rgba(56,189,248,0.2); background: rgba(56,189,248,0.1); border-color: rgba(56,189,248,0.3);"><i data-icon="search"></i></div>
+            <div class="svc-step-content">
+              <div class="svc-step-num" style="color:#38bdf8;">STEP 01</div>
+              <h3 class="svc-step-title">Site Inspection</h3>
+              <p class="svc-step-desc">Our engineers conduct a full on-site survey — mapping facility zones, identifying blind spots, evaluating existing infrastructure, and assessing threat vectors specific to your environment.</p>
+            </div>
+          </div>
+          <div class="svc-step">
+            <div class="svc-step-circle" style="color:#a78bfa; outline-color: rgba(167,139,250,0.2); background: rgba(167,139,250,0.1); border-color: rgba(167,139,250,0.3);"><i data-icon="clipboardList"></i></div>
+            <div class="svc-step-content">
+              <div class="svc-step-num" style="color:#a78bfa;">STEP 02</div>
+              <h3 class="svc-step-title">Custom Solution Design</h3>
+              <p class="svc-step-desc">Using site data, we architect a bespoke system: camera placement diagrams, cabling schematics, equipment schedules, and a phased deployment plan — all reviewed with you before work begins.</p>
+            </div>
+          </div>
+          <div class="svc-step">
+            <div class="svc-step-circle" style="color:#fbbf24; outline-color: rgba(251,191,36,0.2); background: rgba(251,191,36,0.1); border-color: rgba(251,191,36,0.3);"><i data-icon="wrench"></i></div>
+            <div class="svc-step-content">
+              <div class="svc-step-num" style="color:#fbbf24;">STEP 03</div>
+              <h3 class="svc-step-title">Installation</h3>
+              <p class="svc-step-desc">Certified field engineers deploy every component precisely to the approved design — cabling, mounting, networking, and software configuration — with zero disruption to your ongoing operations.</p>
+            </div>
+          </div>
+          <div class="svc-step">
+            <div class="svc-step-circle" style="color:#4ade80; outline-color: rgba(74,222,128,0.2); background: rgba(74,222,128,0.1); border-color: rgba(74,222,128,0.3);"><i data-icon="gauge"></i></div>
+            <div class="svc-step-content">
+              <div class="svc-step-num" style="color:#4ade80;">STEP 04</div>
+              <h3 class="svc-step-title">Testing &amp; Optimisation</h3>
+              <p class="svc-step-desc">Full commissioning follows: every camera angle validated, every alert threshold stress-tested, every integration verified end-to-end. We don’t hand over until every system passes.</p>
+            </div>
+          </div>
+          <div class="svc-step">
+            <div class="svc-step-circle" style="color:#fb923c; outline-color: rgba(251,146,60,0.2); background: rgba(251,146,60,0.1); border-color: rgba(251,146,60,0.3);"><i data-icon="radio"></i></div>
+            <div class="svc-step-content">
+              <div class="svc-step-num" style="color:#fb923c;">STEP 05</div>
+              <h3 class="svc-step-title">Ongoing Monitoring</h3>
+              <p class="svc-step-desc">Post-deployment, we provide 24/7 remote monitoring, proactive maintenance schedules, firmware update management, and rapid on-site response — keeping your system performing at peak.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="cta-bar">
+    <div class="container cta-bar-inner">
+      <div>
+        <h3>Ready to engineer your security stack?</h3>
+        <p>Let’s discuss the scope and design a tailored solution for your facility.</p>
+      </div>
+      <a href="mailto:procurement@vsrtech.com" class="btn-secondary">Start the Conversation <i data-icon="arrowRight"></i></a>
+    </div>
+  </div>
+
+  <div id="footer-slot"></div>
+  <script src="js/main.js"></script>
+</body>
+</html>
