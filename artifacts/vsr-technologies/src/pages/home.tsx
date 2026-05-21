@@ -4,9 +4,7 @@ import { Hero } from "@/components/sections/Hero";
 import { Services } from "@/components/sections/Services";
 import { InfrastructureShowcase } from "@/components/sections/InfrastructureShowcase";
 import { AiThreatDetection } from "@/components/sections/AiThreatDetection";
-import { Industries } from "@/components/sections/Industries";
 import { WhyChooseUs } from "@/components/sections/WhyChooseUs";
-import { About } from "@/components/sections/About";
 import { ParallaxStory } from "@/components/sections/ParallaxStory";
 import { Slider3D } from "@/components/sections/Slider3D";
 import { ExplodingStats } from "@/components/sections/ExplodingStats";
@@ -25,8 +23,6 @@ export default function Home() {
         <AiThreatDetection />
         <Services />
         <WhyChooseUs />
-        <Industries />
-        <About />
         <FAQ />
       </main>
       <Footer />
