@@ -1,5 +1,4 @@
 uploads = []
-outputs = []
 
 [[generated]]
 id = "8fM_MajkvwrcgKIZdUxxk"
@@ -114,3 +113,9 @@ id = "WG3qvuzYlv_Ik84wqwJN7"
 uri = "file://src/assets/images/infra-bg.png"
 type = "image"
 title = "Infrastructure background"
+
+[[outputs]]
+id = "pF6zp1SJ74g_pPeZZMRe0"
+uri = "file://vsr-technologies-hostinger.tar.gz"
+type = "unspecified"
+title = "VSR Technologies — Hostinger Upload Package"

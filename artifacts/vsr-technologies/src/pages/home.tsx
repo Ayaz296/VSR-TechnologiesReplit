@@ -9,6 +9,7 @@ import { ParallaxStory } from "@/components/sections/ParallaxStory";
 import { Slider3D } from "@/components/sections/Slider3D";
 import { ExplodingStats } from "@/components/sections/ExplodingStats";
 import { FAQ } from "@/components/sections/FAQ";
+import { ProjectHighlights } from "@/components/sections/ProjectHighlights";
 
 export default function Home() {
   return (
@@ -23,6 +24,7 @@ export default function Home() {
         <AiThreatDetection />
         <Services />
         <WhyChooseUs />
+        <ProjectHighlights />
         <FAQ />
       </main>
       <Footer />
