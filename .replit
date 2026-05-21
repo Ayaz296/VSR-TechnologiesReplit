@@ -35,7 +35,7 @@ outputType = "webview"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "PORT=23627 BASE_PATH=/ node static-site/server.js"
+args = "PORT=23627 BASE_PATH=/ pnpm --filter @workspace/vsr-technologies run dev"
 waitForPort = 23627
 
 [agent]
