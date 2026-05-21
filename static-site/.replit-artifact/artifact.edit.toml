@@ -1,0 +1,22 @@
+kind = "web"
+previewPath = "/vsr-static/"
+title = "VSR Static Site"
+version = "1.0.0"
+id = "static-site"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/vsr-static/" ]
+localPort = 23628
+
+[services.development]
+run = "pnpm --filter @workspace/vsr-static-site run dev"
+
+[services.production]
+publicDir = "static-site"
+serve = "static"
+
+[services.env]
+PORT = "23628"
+BASE_PATH = "/vsr-static/"
