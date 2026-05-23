@@ -1,6 +1,6 @@
-# force redeploy
-name = "vsrtechnologies"
+name = "vsr-technologies"
 compatibility_date = "2024-09-23"
+main = "./worker.js"
 
 [assets]
 directory = "./artifacts/vsr-technologies/dist/public"
