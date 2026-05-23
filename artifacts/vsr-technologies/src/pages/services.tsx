@@ -576,13 +576,6 @@ export default function ServicesPage() {
                           ))}
                         </ul>
 
-                        {/* Connector chip */}
-                        {i < steps.length - 1 && (
-                          <div className={cn("inline-flex items-center gap-2 text-xs font-semibold px-3 py-1.5 rounded-full", step.bg, step.color)}>
-                            <div className={cn("w-1.5 h-1.5 rounded-full", step.lineBg)} />
-                            Next: {steps[i + 1].title}
-                          </div>
-                        )}
                       </div>
                     </motion.div>
                   );
