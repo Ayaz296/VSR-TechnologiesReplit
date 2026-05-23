@@ -74,18 +74,17 @@ const projects = [
 
 export function ProjectHighlights() {
   return (
-    <section className="py-20 sm:py-28 bg-[#060e1e] relative overflow-hidden">
-      {/* Background texture */}
+    <section className="py-20 sm:py-28 bg-gradient-to-b from-[#F0F4FF] to-[#F8FAFC] relative overflow-hidden">
+      {/* Subtle dot grid */}
       <div
-        className="absolute inset-0 opacity-[0.04] pointer-events-none"
+        className="absolute inset-0 opacity-[0.035] pointer-events-none"
         style={{
-          backgroundImage:
-            "radial-gradient(circle, #94a3b8 1px, transparent 1px)",
-          backgroundSize: "28px 28px",
+          backgroundImage: "radial-gradient(circle, #94a3b8 1px, transparent 1px)",
+          backgroundSize: "32px 32px",
         }}
       />
-      <div className="absolute top-0 left-0 w-[500px] h-[400px] bg-blue-900/20 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-0 right-0 w-[400px] h-[300px] bg-violet-900/20 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-0 right-0 w-[600px] h-[400px] bg-blue-100/60 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[300px] bg-violet-100/50 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         {/* Header */}
@@ -94,19 +93,19 @@ export function ProjectHighlights() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="max-w-2xl mb-14 sm:mb-18"
+          className="max-w-2xl mb-14 sm:mb-16"
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full border border-white/10 bg-white/5 text-slate-300 text-xs sm:text-sm font-medium mb-5 sm:mb-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs sm:text-sm font-medium mb-5 sm:mb-6">
             Project Highlights
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white mb-4 sm:mb-5 leading-[1.1]">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-foreground mb-4 sm:mb-5 leading-[1.1]">
             Deployed Across
             <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-blue-300">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-sky-500">
               Critical Environments
             </span>
           </h2>
-          <p className="text-base sm:text-lg text-slate-400 leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl text-slate-500 leading-relaxed">
             From international aviation hubs to unmanned infrastructure sites —
             these are the environments where our systems operate daily.
           </p>
@@ -121,7 +120,8 @@ export function ProjectHighlights() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.55, delay: i * 0.1 }}
-              className="group relative rounded-2xl bg-white/[0.04] border border-white/8 overflow-hidden hover:border-white/15 hover:bg-white/[0.06] transition-all duration-300"
+              className="group relative rounded-2xl bg-white border border-slate-100 overflow-hidden hover:border-slate-200 hover:shadow-xl transition-all duration-300"
+              style={{ boxShadow: "0 1px 4px rgba(0,0,0,0.04)" }}
             >
               {/* Image */}
               <div className="relative h-48 sm:h-52 overflow-hidden">
@@ -130,7 +130,7 @@ export function ProjectHighlights() {
                   alt={p.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#060e1e] via-[#060e1e]/40 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-white via-white/20 to-transparent" />
 
                 {/* Accent bar */}
                 <div className={`absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r ${p.accent}`} />
@@ -146,24 +146,24 @@ export function ProjectHighlights() {
               {/* Content */}
               <div className="p-5 sm:p-7">
                 <div className="flex items-start justify-between gap-3 mb-3">
-                  <h3 className="text-base sm:text-lg font-bold text-white leading-snug">
+                  <h3 className="text-base sm:text-lg font-bold text-foreground leading-snug">
                     {p.title}
                   </h3>
-                  <div className="flex items-center gap-1 text-slate-500 text-xs whitespace-nowrap mt-0.5 flex-shrink-0">
+                  <div className="flex items-center gap-1 text-slate-400 text-xs whitespace-nowrap mt-0.5 flex-shrink-0">
                     <MapPin className="w-3 h-3" />
                     {p.location}
                   </div>
                 </div>
 
-                <p className="text-slate-400 text-sm leading-relaxed mb-5">
+                <p className="text-slate-500 text-sm leading-relaxed mb-5">
                   {p.summary}
                 </p>
 
                 {/* Outcome bullets */}
                 <ul className="space-y-1.5">
                   {p.outcomes.map((outcome) => (
-                    <li key={outcome} className="flex items-start gap-2 text-xs sm:text-sm text-slate-300">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 flex-shrink-0 mt-0.5" />
+                    <li key={outcome} className="flex items-start gap-2 text-xs sm:text-sm text-slate-600">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 flex-shrink-0 mt-0.5" />
                       {outcome}
                     </li>
                   ))}
@@ -183,7 +183,7 @@ export function ProjectHighlights() {
         >
           <a
             href="mailto:procurement@vsrtech.com"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-white/15 bg-white/5 text-slate-200 text-sm font-medium hover:bg-white/10 hover:border-white/25 transition-all duration-200"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-primary/20 bg-primary/5 text-primary text-sm font-medium hover:bg-primary/10 hover:border-primary/30 transition-all duration-200"
           >
             Discuss your project with our team
             <ArrowRight className="w-4 h-4" />
