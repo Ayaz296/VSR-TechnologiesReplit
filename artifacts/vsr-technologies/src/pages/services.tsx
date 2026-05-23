@@ -6,11 +6,10 @@ import {
   Video, Eye, Network, Building2, Map, DoorClosed, Flame, Car,
   ArrowRight, CheckCircle2, Search, ClipboardList, Wrench, Gauge, Radio,
   ShieldCheck, Cpu, Globe2, Users, BarChart3, Lock,
+  FileText, GraduationCap, RefreshCw,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { FAQ } from "@/components/sections/FAQ";
-
 /* ─── service data ─── */
 const services = [
   {
@@ -164,8 +163,15 @@ const steps = [
   {
     num: "01",
     icon: Search,
-    title: "Site Inspection",
-    desc: "Our engineers conduct a full on-site survey — mapping facility zones, identifying blind spots, evaluating existing infrastructure, and assessing threat vectors specific to your environment.",
+    title: "Site Inspection & Threat Assessment",
+    desc: "Every engagement begins with a comprehensive physical survey. Our engineers walk every metre of your facility — mapping all zones, identifying structural blind spots, cataloguing existing infrastructure, and building a detailed threat model specific to your environment and operational profile.",
+    detail: [
+      "Full-perimeter and interior zone mapping",
+      "Existing cabling and network infrastructure audit",
+      "Threat vector identification by zone and access point",
+      "Environmental assessment for camera and detector placement",
+      "Regulatory compliance gap analysis",
+    ],
     color: "text-sky-400",
     ring: "ring-sky-400/20",
     bg: "bg-sky-400/10",
@@ -175,8 +181,15 @@ const steps = [
   {
     num: "02",
     icon: ClipboardList,
-    title: "Custom Solution Design",
-    desc: "Using site data, we architect a bespoke system: camera placement diagrams, cabling schematics, equipment schedules, and a phased deployment plan — all reviewed with you before work begins.",
+    title: "Bespoke System Design",
+    desc: "Site data feeds directly into a full engineering design package. We produce camera placement CAD drawings, structured cabling schematics, equipment schedules with full specifications, network topology diagrams, and a phased deployment plan — presented to you for review and sign-off before a single cable is run.",
+    detail: [
+      "CAD camera placement and coverage diagrams",
+      "Structured cabling and fiber route schematics",
+      "Full equipment schedule with model specifications",
+      "Network topology and VLAN segmentation plan",
+      "Phased deployment timeline and milestone schedule",
+    ],
     color: "text-violet-400",
     ring: "ring-violet-400/20",
     bg: "bg-violet-400/10",
@@ -185,9 +198,34 @@ const steps = [
   },
   {
     num: "03",
+    icon: FileText,
+    title: "Procurement & Material Staging",
+    desc: "We manage the full procurement cycle — sourcing certified equipment from approved vendors, verifying specifications against the design, staging and pre-configuring hardware off-site, and coordinating delivery windows to align with your facility's operational schedule.",
+    detail: [
+      "Certified vendor sourcing and supply chain management",
+      "Equipment specification verification against design",
+      "Off-site hardware staging and firmware pre-loading",
+      "Delivery and on-site logistics coordination",
+      "Full material traceability documentation",
+    ],
+    color: "text-rose-400",
+    ring: "ring-rose-400/20",
+    bg: "bg-rose-400/10",
+    border: "border-rose-400/30",
+    lineBg: "bg-rose-400",
+  },
+  {
+    num: "04",
     icon: Wrench,
-    title: "Installation",
-    desc: "Certified field engineers deploy every component precisely to the approved design — cabling, mounting, networking, and software configuration — with zero disruption to your ongoing operations.",
+    title: "Certified Installation",
+    desc: "Our field teams execute the installation precisely to the approved design — structured cabling runs, camera and detector mounting, server rack build-out, network switch configuration, and software platform setup — all completed without disrupting your ongoing facility operations.",
+    detail: [
+      "TIA-568 and manufacturer-certified cabling installation",
+      "Camera, detector, and access reader mounting and alignment",
+      "Server rack, NVR, and network switch build-out",
+      "Software platform and VMS configuration",
+      "Zero-disruption scheduling around operational hours",
+    ],
     color: "text-amber-400",
     ring: "ring-amber-400/20",
     bg: "bg-amber-400/10",
@@ -195,10 +233,17 @@ const steps = [
     lineBg: "bg-amber-400",
   },
   {
-    num: "04",
+    num: "05",
     icon: Gauge,
-    title: "Testing & Optimisation",
-    desc: "Full commissioning follows: every camera angle validated, every alert threshold stress-tested, every integration verified end-to-end. We don't hand over until every system passes.",
+    title: "Commissioning & Quality Assurance",
+    desc: "Every installed system undergoes a rigorous commissioning protocol before handover. Camera coverage and focus are verified against the design drawings, alert thresholds are stress-tested under simulated conditions, all integrations are validated end-to-end, and a full sign-off certificate is issued.",
+    detail: [
+      "Camera angle and coverage verification against CAD plan",
+      "Alert threshold and notification path stress-testing",
+      "End-to-end integration testing across all sub-systems",
+      "Failover and redundancy scenario validation",
+      "Formal commissioning certificate issued on completion",
+    ],
     color: "text-green-400",
     ring: "ring-green-400/20",
     bg: "bg-green-400/10",
@@ -206,15 +251,58 @@ const steps = [
     lineBg: "bg-green-400",
   },
   {
-    num: "05",
+    num: "06",
+    icon: GraduationCap,
+    title: "Operator Training & Handover",
+    desc: "A system is only as effective as the team operating it. We deliver structured training sessions for your security operations staff — covering system navigation, alert response workflows, reporting tools, and escalation procedures. Full as-built documentation and user manuals are provided at handover.",
+    detail: [
+      "Hands-on VMS and BMS operator training sessions",
+      "Alert response and escalation workflow walkthroughs",
+      "As-built CAD drawings and cable documentation package",
+      "User manuals and quick-reference guides",
+      "Designated VSR technical contact for post-handover queries",
+    ],
+    color: "text-teal-400",
+    ring: "ring-teal-400/20",
+    bg: "bg-teal-400/10",
+    border: "border-teal-400/30",
+    lineBg: "bg-teal-400",
+  },
+  {
+    num: "07",
     icon: Radio,
-    title: "Ongoing Monitoring",
-    desc: "Post-deployment, we provide 24/7 remote monitoring, proactive maintenance schedules, firmware update management, and rapid on-site response — keeping your system performing at peak.",
+    title: "24/7 Remote Monitoring & Response",
+    desc: "Post-commissioning, our Network Operations Centre provides around-the-clock remote monitoring of your system's health and security event stream. Anomalies trigger immediate alert routing, and our on-site response teams are dispatched under SLA-governed response time agreements.",
+    detail: [
+      "Continuous system health and connectivity monitoring",
+      "Real-time security event alerting and escalation",
+      "SLA-guaranteed on-site response time commitments",
+      "Incident logging and post-event reporting",
+      "Regular security review calls with your team",
+    ],
     color: "text-orange-400",
     ring: "ring-orange-400/20",
     bg: "bg-orange-400/10",
     border: "border-orange-400/30",
     lineBg: "bg-orange-400",
+  },
+  {
+    num: "08",
+    icon: RefreshCw,
+    title: "Lifecycle Management & Annual Review",
+    desc: "Security threats and technology evolve — your infrastructure should too. We conduct annual system reviews, manage firmware and software update cycles, replace end-of-life hardware before it becomes a risk, and provide strategic roadmap recommendations to keep your security posture ahead of emerging threats.",
+    detail: [
+      "Annual on-site system performance review",
+      "Firmware and software update lifecycle management",
+      "Proactive end-of-life hardware replacement planning",
+      "Emerging threat and technology briefings",
+      "Strategic infrastructure upgrade roadmapping",
+    ],
+    color: "text-indigo-400",
+    ring: "ring-indigo-400/20",
+    bg: "bg-indigo-400/10",
+    border: "border-indigo-400/30",
+    lineBg: "bg-indigo-400",
   },
 ];
 
@@ -471,16 +559,26 @@ export default function ServicesPage() {
                       </div>
 
                       {/* Content */}
-                      <div className="pt-2 flex-1">
+                      <div className="pt-2 flex-1 pb-2">
                         <div className={cn("text-[10px] sm:text-xs font-bold tracking-widest mb-2", step.color)}>
                           STEP {step.num}
                         </div>
                         <h3 className="text-lg sm:text-xl font-bold text-white mb-3">{step.title}</h3>
-                        <p className="text-slate-400 text-sm sm:text-base leading-relaxed max-w-xl">{step.desc}</p>
+                        <p className="text-slate-400 text-sm sm:text-base leading-relaxed max-w-xl mb-5">{step.desc}</p>
 
-                        {/* Connector card */}
+                        {/* Detail bullets */}
+                        <ul className="space-y-2 mb-5">
+                          {step.detail.map((point) => (
+                            <li key={point} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-300">
+                              <CheckCircle2 className={cn("w-3.5 h-3.5 shrink-0 mt-0.5", step.color)} />
+                              {point}
+                            </li>
+                          ))}
+                        </ul>
+
+                        {/* Connector chip */}
                         {i < steps.length - 1 && (
-                          <div className={cn("mt-4 inline-flex items-center gap-2 text-xs font-semibold px-3 py-1.5 rounded-full", step.bg, step.color)}>
+                          <div className={cn("inline-flex items-center gap-2 text-xs font-semibold px-3 py-1.5 rounded-full", step.bg, step.color)}>
                             <div className={cn("w-1.5 h-1.5 rounded-full", step.lineBg)} />
                             Next: {steps[i + 1].title}
                           </div>
@@ -493,9 +591,6 @@ export default function ServicesPage() {
             </div>
           </div>
         </section>
-
-        {/* ── FAQ ── */}
-        <FAQ />
 
       </main>
 
