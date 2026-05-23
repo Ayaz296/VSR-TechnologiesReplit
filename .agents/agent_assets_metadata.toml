@@ -1,8 +1,121 @@
 uploads = []
-generated = []
+
+[[generated]]
+id = "8fM_MajkvwrcgKIZdUxxk"
+uri = "file://artifacts/vsr-technologies/src/assets/images/service-cctv.png"
+type = "image"
+title = "Surveillance camera on building"
+
+[[generated]]
+id = "_EKYhH_oC3rFlCN1JfHgU"
+uri = "file://artifacts/vsr-technologies/src/assets/images/service-networking.png"
+type = "image"
+title = "Server room with glowing cables"
+
+[[generated]]
+id = "-PUWSZx_u6Xvaq88J_a2u"
+uri = "file://artifacts/vsr-technologies/src/assets/images/service-smartcity.png"
+type = "image"
+title = "Smart city aerial view"
+
+[[generated]]
+id = "DwgEyI9dV8GJxTVYmgrjb"
+uri = "file://artifacts/vsr-technologies/src/assets/images/service-fire.png"
+type = "image"
+title = "Fire alarm control panel"
+
+[[generated]]
+id = "1U5Cd-M1-Dfk4oRYZaFhW"
+uri = "file://artifacts/vsr-technologies/src/assets/images/industry-airport.png"
+type = "image"
+title = "Airport terminal interior"
+
+[[generated]]
+id = "dstaziLTRqQRZnStmAmWD"
+uri = "file://artifacts/vsr-technologies/src/assets/images/industry-commercial.png"
+type = "image"
+title = "Modern commercial office building"
+
+[[generated]]
+id = "nNDeT9fWFrTjrxJ1t5sVk"
+uri = "file://artifacts/vsr-technologies/src/assets/images/industry-industrial.png"
+type = "image"
+title = "Large industrial manufacturing facility"
+
+[[generated]]
+id = "aaF-SF_FPV3qgSkup7meE"
+uri = "file://artifacts/vsr-technologies/src/assets/images/industry-infrastructure.png"
+type = "image"
+title = "Critical infrastructure power plant"
+
+[[generated]]
+id = "TdUIzqOSDI8lnfqCv47tJ"
+uri = "file://artifacts/vsr-technologies/src/assets/images/about-us.png"
+type = "image"
+title = "Security control room operator view"
+
+[[generated]]
+id = "UzycBHlToaZSb4UN8uA_m"
+uri = "file://src/assets/images/hero-bg.png"
+type = "image"
+title = "Hero background"
+
+[[generated]]
+id = "VCNUVSW-C5qkX3KgmBs-9"
+uri = "file://src/assets/images/service-cctv-2.png"
+type = "image"
+title = "CCTV camera close-up"
+
+[[generated]]
+id = "9z-_BMM7UPWIUrUKAPOcz"
+uri = "file://src/assets/images/service-fiber.png"
+type = "image"
+title = "fiber optic cables"
+
+[[generated]]
+id = "fSPzYiebeyYkwOsKGkrRZ"
+uri = "file://src/assets/images/service-parking.png"
+type = "image"
+title = "parking garage"
+
+[[generated]]
+id = "0A1Mfh4lNSmzEgoJTajni"
+uri = "file://src/assets/images/service-smartcity-2.png"
+type = "image"
+title = "smart city aerial view"
+
+[[generated]]
+id = "KbalERptRqjEkbvJLQKza"
+uri = "file://src/assets/images/service-fire-2.png"
+type = "image"
+title = "fire panel"
+
+[[generated]]
+id = "bye1QNaCcJqwGUtfc2sae"
+uri = "file://src/assets/images/service-turnstiles.png"
+type = "image"
+title = "entrance turnstiles"
+
+[[generated]]
+id = "YFwfOhUfkvDlqPUKG8kvv"
+uri = "file://src/assets/images/service-building.png"
+type = "image"
+title = "building automation"
+
+[[generated]]
+id = "Tjhttef2h-SBb0FUhsl8j"
+uri = "file://src/assets/images/service-network.png"
+type = "image"
+title = "network room"
+
+[[generated]]
+id = "WG3qvuzYlv_Ik84wqwJN7"
+uri = "file://src/assets/images/infra-bg.png"
+type = "image"
+title = "Infrastructure background"
 
 [[outputs]]
-id = "beEngrLG9e7AukmU0lX7q"
+id = "pF6zp1SJ74g_pPeZZMRe0"
 uri = "file://vsr-technologies-hostinger.tar.gz"
 type = "unspecified"
-title = "VSR Technologies — Final Static Site (Hostinger Ready)"
+title = "VSR Technologies — Hostinger Upload Package (latest build)"
