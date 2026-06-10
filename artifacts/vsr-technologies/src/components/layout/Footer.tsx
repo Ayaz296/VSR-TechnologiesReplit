@@ -47,7 +47,7 @@ export function Footer() {
             <ul className="space-y-5 text-sm text-slate-400">
               <li className="flex items-start gap-3">
                 <MapPin size={17} className="text-primary shrink-0 mt-0.5" />
-                <span>1200 Infrastructure Way<br />Suite 400<br />Dallas, TX 75201</span>
+                <span>6th Floor Regus, <br />GMR Aero Tower 2 ,  <br />GMR Business Park Aerocity, <br />Rajiv Gandhi International Airport,<br />Shamshabad, Hyderabad, Telangana, 500108</span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone size={17} className="text-primary shrink-0" />
