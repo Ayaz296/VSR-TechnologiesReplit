@@ -159,7 +159,7 @@ export function Slider3D() {
                     </p>
                   </div>
 
-                  <a href="mailto:procurement@vsrtech.com" className={`inline-flex items-center gap-2 text-sm font-semibold text-transparent bg-clip-text bg-gradient-to-r ${slide.accent} group`}>
+                  <a href="mailto:info@vsrt.in" className={`inline-flex items-center gap-2 text-sm font-semibold text-transparent bg-clip-text bg-gradient-to-r ${slide.accent} group`}>
                     Request case study details
                     <ArrowRight size={14} className={`text-sky-400 group-hover:translate-x-1 transition-transform`} />
                   </a>
