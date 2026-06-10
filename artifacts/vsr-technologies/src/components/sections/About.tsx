@@ -51,7 +51,7 @@ export function About() {
               VSR Technologies is a premier physical security infrastructure company. We specialize in designing, installing, and maintaining complex security ecosystems for organizations where safety is not optional.
             </p>
             <p className="text-xl text-slate-600 mb-12 leading-relaxed">
-              We bridge the gap between physical hardware and intelligent software, providing our clients with robust, scalable systems that protect assets, ensure compliance, and streamline facility management.
+              We bridge the gap between physical hardware and intelligent software, providing our clients with robust, scalable systems that protect assets, ensure compliance, and streamline facility management..
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
