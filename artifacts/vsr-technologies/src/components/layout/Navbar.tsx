@@ -143,7 +143,7 @@ export function Navbar() {
                 </Link>
               );
             })}
-            <a href="mailto:procurement@vsrtech.com" className="mt-2">
+            <a href="mailto:info@vsrt.in" className="mt-2">
               <Button className="w-full">Contact Sales</Button>
             </a>
           </nav>
