@@ -51,11 +51,11 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-3">
                 <Phone size={17} className="text-primary shrink-0" />
-                <span>+1 (800) 555-0199</span>
+                <span>+91 91211 91397</span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={17} className="text-primary shrink-0" />
-                <span>procurement@vsrtech.com</span>
+                <span>info@vsrt.in</span>
               </li>
             </ul>
           </div>
