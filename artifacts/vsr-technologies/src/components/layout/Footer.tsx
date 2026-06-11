@@ -38,7 +38,7 @@ export function Footer() {
               <li><Link href="/projects" className="hover:text-primary transition-colors">Our Projects</Link></li>
               <li><Link href="/services" className="hover:text-primary transition-colors">All Services</Link></li>
               <li><a href="/#industries" className="hover:text-primary transition-colors">Industries</a></li>
-              <li><a href="mailto:procurement@vsrtech.com" className="hover:text-primary transition-colors">Contact Sales</a></li>
+              <li><a href="mailto:info@vsrt.in" className="hover:text-primary transition-colors">Contact Sales</a></li>
             </ul>
           </div>
 
