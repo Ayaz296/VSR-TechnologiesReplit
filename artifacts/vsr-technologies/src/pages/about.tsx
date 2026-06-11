@@ -61,10 +61,9 @@ const certifications = [
 ];
 
 const leadership = [
-  { name: "Vikram S. Rajan", title: "Chief Executive Officer & Founder", bg: "from-blue-600 to-blue-800" },
-  { name: "Sarah Al-Mansouri", title: "Director of Engineering", bg: "from-teal-600 to-teal-800" },
-  { name: "James Okafor", title: "VP — Enterprise Projects", bg: "from-violet-600 to-purple-800" },
-  { name: "Priya Nambiar", title: "Head of Smart City Solutions", bg: "from-sky-600 to-blue-700" },
+  { name: "V. Srinivas Rao", title: "Chief Executive Officer & Founder", bg: "from-blue-600 to-blue-800" },
+  { name: "S. MD. Junaid", title: "Director", bg: "from-teal-600 to-teal-800" },
+
 ];
 
 export default function AboutPage() {
