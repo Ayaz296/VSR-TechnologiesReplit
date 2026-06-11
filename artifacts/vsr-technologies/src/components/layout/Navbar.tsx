@@ -1,8 +1,11 @@
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
-import { Shield, Menu, X, Home } from "lucide-react";
+import { Menu, X, Home } from "lucide-react";
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
+import faviconImg from "@/assets/images/favicon.png";
+
+
 
 const navLinks = [
   { label: "Home", href: "/", icon: Home },
@@ -51,7 +54,7 @@ export function Navbar() {
               ? "bg-white/15 border border-white/25 shadow-inner"
               : "bg-primary shadow-md shadow-primary/20"
           )}>
-            <Shield size={20} strokeWidth={2} className="text-white" />
+            <img src={faviconImg} alt="VSR" className="w-6 h-6 object-contain" />
           </div>
           <span className={cn(
             "font-bold text-xl tracking-tight transition-colors duration-300",
