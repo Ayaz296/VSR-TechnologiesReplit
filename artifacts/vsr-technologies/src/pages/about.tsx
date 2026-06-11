@@ -92,7 +92,7 @@ export default function AboutPage() {
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-primary">Through Technology.</span>
             </h1>
             <p className="text-xl text-slate-300 leading-relaxed max-w-2xl">
-              Since 2010, VSR Technologies has been the trusted physical security infrastructure partner for airports, commercial developments, and industrial facilities across the United States.
+              Since 2017, VSR Technologies has been the trusted physical security infrastructure partner for airports, commercial developments, and industrial facilities across India.
             </p>
           </motion.div>
         </div>
