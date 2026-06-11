@@ -51,15 +51,15 @@ export function Contact() {
                 <div className="space-y-5 sm:space-y-6 text-sm text-slate-300">
                   <div>
                     <div className="font-semibold text-sky-400 mb-1 text-xs uppercase tracking-wider">Corporate HQ</div>
-                    <div className="leading-snug">1200 Infrastructure Way<br />Dallas, TX 75201</div>
+                    <div className="leading-snug">6th Floor Regus, <br />GMR Aero Tower 2 ,  <br />GMR Business Park Aerocity, <br />Rajiv Gandhi International Airport,<br />Shamshabad, Hyderabad, Telangana, 500108</div>
                   </div>
                   <div>
                     <div className="font-semibold text-sky-400 mb-1 text-xs uppercase tracking-wider">Direct Line</div>
-                    <div>+1 (800) 555-0199</div>
+                    <div>+91 91211 91397</div>
                   </div>
                   <div>
                     <div className="font-semibold text-sky-400 mb-1 text-xs uppercase tracking-wider">Email</div>
-                    <div>procurement@vsrtech.com</div>
+                    <div>info@vsrt.in</div>
                   </div>
                 </div>
               </div>
