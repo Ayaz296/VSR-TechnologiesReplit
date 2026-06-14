@@ -182,7 +182,7 @@ export function ProjectHighlights() {
           className="mt-10 sm:mt-14 text-center"
         >
           <a
-            href="mailto:procurement@vsrtech.com"
+            href="mailto:info@vsrt.in"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-primary/20 bg-primary/5 text-primary text-sm font-medium hover:bg-primary/10 hover:border-primary/30 transition-all duration-200"
           >
             Discuss your project with our team
