@@ -49,14 +49,9 @@ const milestones = [
 ];
 
 const certifications = [
-  "NICET Level III Fire Alarm Systems",
-  "BICSI RCDD — Registered Communications Distribution Designer",
-  "Axis Communications Certified Partner",
-  "Bosch Security Systems Certified Integrator",
-  "Lenel S2 Authorized Dealer",
-  "NFPA 72 Compliant Installations",
-  "TIA-568 Certified Cabling Contractor",
-  "Texas DPS Alarm Systems Contractor License",
+  "ISO 9001:2015",
+  "ISO 14001:2015",
+  "ISO 45001:2018",
 ];
 
 const leadership = [
