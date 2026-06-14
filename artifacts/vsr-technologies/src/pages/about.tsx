@@ -206,7 +206,7 @@ export default function AboutPage() {
               className="max-w-2xl mb-16"
             >
               <h2 className="text-4xl font-bold text-white tracking-tight mb-4">Our Journey</h2>
-              <p className="text-xl text-slate-400 leading-relaxed">Fourteen years of steady growth, earned one project at a time.</p>
+              <p className="text-xl text-slate-400 leading-relaxed">Ten years of steady growth, earned one project at a time.</p>
             </motion.div>
 
             <div className="relative">
