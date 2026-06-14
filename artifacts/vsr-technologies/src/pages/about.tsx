@@ -40,13 +40,12 @@ const values = [
 ];
 
 const milestones = [
-  { year: "2010", event: "VSR Technologies founded in Dallas, TX — initial focus on commercial CCTV." },
-  { year: "2013", event: "Expanded into structured cabling and networking solutions for enterprise clients." },
-  { year: "2016", event: "First aviation contract — 800-camera deployment at a regional airport in Texas." },
-  { year: "2018", event: "Launched Building Management Systems division; first Fortune 500 BMS client." },
-  { year: "2020", event: "Smart City pilot program awarded by City of San Antonio." },
-  { year: "2022", event: "Video Analytics AI platform integrated across active project portfolio." },
-  { year: "2024", event: "500+ active enterprise sites under management across 5 US states." },
+  { year: "2017", event: "VSR Technologies founded in Hyderabad with a focus on CCTV surveillance and security solutions." },
+  { year: "2019", event: "Expanded into structured cabling, networking, and integrated infrastructure services for commercial clients." },
+  { year: "2021", event: "Successfully delivered large-scale security and networking projects across multiple industries." },
+  { year: "2023", event: "Strengthened expertise in access control systems, video management, and enterprise security solutions." },
+  { year: "2024", event: "Executed critical infrastructure projects, including airport and industrial sector deployments." },
+  { year: "2026", event: "Recognized as a trusted partner for security, networking, and technology infrastructure solutions across India." },
 ];
 
 const certifications = [
