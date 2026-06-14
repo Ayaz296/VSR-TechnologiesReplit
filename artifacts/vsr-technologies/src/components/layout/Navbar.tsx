@@ -97,7 +97,7 @@ export function Navbar() {
 
         {/* CTA + mobile toggle */}
         <div className="flex items-center gap-3">
-          <a href="mailto:procurement@vsrtech.com" className="hidden sm:block">
+          <a href="mailto:info@vsrt.in" className="hidden sm:block">
             <Button
               className={cn(
                 "transition-all duration-300 text-sm",
