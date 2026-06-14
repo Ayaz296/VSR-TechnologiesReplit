@@ -268,10 +268,7 @@ export default function AboutPage() {
                   <div className="bg-primary/10 p-3 rounded-xl">
                     <Award className="w-7 h-7 text-primary" />
                   </div>
-                  <div>
-                    <div className="text-base font-bold text-foreground">Certified Partner Network</div>
-                    <div className="text-xs text-slate-500 mt-0.5">Axis · Bosch · Lenel S2 · Honeywell</div>
-                  </div>
+                 
                 </div>
               </motion.div>
             </div>
