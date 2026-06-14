@@ -117,7 +117,7 @@ export default function AboutPage() {
                   </div>
                 </div>
                 <div className="absolute -bottom-6 -right-6 bg-primary text-white px-8 py-5 rounded-2xl shadow-xl">
-                  <div className="text-4xl font-bold">14+</div>
+                  <div className="text-4xl font-bold">10+</div>
                   <div className="text-sm text-primary-foreground/80 font-medium">Years of expertise</div>
                 </div>
               </motion.div>
@@ -139,9 +139,9 @@ export default function AboutPage() {
                 </p>
                 <div className="grid grid-cols-3 gap-8 pt-8 border-t border-slate-100">
                   {[
-                    { v: "500+", l: "Active Sites" },
-                    { v: "40+", l: "Enterprise Clients" },
-                    { v: "98%", l: "Retention Rate" },
+                    { v: "100+", l: "Active Sites" },
+                    { v: "30+", l: "Enterprise Clients" },
+                    { v: "95%", l: "Retention Rate" },
                   ].map((s) => (
                     <div key={s.l}>
                       <div className="text-3xl font-bold text-primary">{s.v}</div>
