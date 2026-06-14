@@ -432,7 +432,7 @@ export default function ProjectsPage() {
             <h3 className="text-3xl font-bold text-white mb-2">Have a project in mind?</h3>
             <p className="text-primary-foreground/80 text-lg">Let's discuss the scope and build a tailored security solution for your facility.</p>
           </div>
-          <a href="mailto:procurement@vsrtech.com">
+          <a href="mailto:info@vsrt.in">
             <Button size="lg" variant="secondary" className="text-primary font-semibold h-14 px-10 shadow-xl hover:scale-[1.03] transition-all duration-300 shrink-0">
               Start the Conversation
               <ArrowRight size={18} className="ml-2" />
