@@ -355,7 +355,7 @@ function ServicePanel({ service }: { service: typeof services[0] }) {
             </motion.div>
           ))}
         </div>
-        <a href="mailto:procurement@vsrtech.com">
+        <a href="mailto:info@vsrt.in">
           <Button className={`bg-gradient-to-r ${service.gradient} text-white border-0 shadow-lg hover:opacity-90 hover:scale-[1.02] transition-all duration-300`}>
             Request a Quote
             <ArrowRight size={15} className="ml-2" />
@@ -595,7 +595,7 @@ export default function ServicesPage() {
             <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2">Ready to secure your facility?</h3>
             <p className="text-primary-foreground/80 text-base sm:text-lg">Our engineers are available for a free consultation and site assessment.</p>
           </div>
-          <a href="mailto:procurement@vsrtech.com">
+          <a href="mailto:info@vsrt.in">
             <Button size="lg" variant="secondary" className="text-primary font-semibold h-12 sm:h-14 px-8 sm:px-10 shadow-xl hover:scale-[1.03] transition-all duration-300 shrink-0">
               Contact Our Team
               <ArrowRight size={18} className="ml-2" />
