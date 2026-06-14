@@ -12,6 +12,25 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 /* ─── service data ─── */
 const services = [
+
+  {
+    id: "networking",
+    icon: Network,
+    title: "Networking Solutions",
+    tagline: "Robust cabling infrastructure for seamless connectivity",
+    gradient: "from-teal-500 to-cyan-700",
+    glow: "rgba(20,184,166,0.15)",
+    description:
+      "A security system is only as strong as its network. We architect and deploy structured cabling, fiber optic backbones, and secure VLANs that provide zero-latency video transmission and isolated security data pathways.",
+    features: [
+      "Cat6A & fiber optic structured cabling",
+      "Network switch & PoE deployment",
+      "Isolated security VLANs",
+      "Redundant uplink configuration",
+      "TIA-568 certified installations",
+      "End-to-end cable documentation",
+    ],
+  },
   {
     id: "cctv",
     icon: Video,
@@ -48,22 +67,58 @@ const services = [
       "Automated alert management",
     ],
   },
-  {
-    id: "networking",
-    icon: Network,
-    title: "Networking Solutions",
-    tagline: "Robust cabling infrastructure for seamless connectivity",
-    gradient: "from-teal-500 to-cyan-700",
-    glow: "rgba(20,184,166,0.15)",
+{
+    id: "parking",
+    icon: Car,
+    title: "Parking Management",
+    tagline: "Intelligent solutions for optimised vehicle flow",
+    gradient: "from-slate-500 to-slate-700",
+    glow: "rgba(100,116,139,0.15)",
     description:
-      "A security system is only as strong as its network. We architect and deploy structured cabling, fiber optic backbones, and secure VLANs that provide zero-latency video transmission and isolated security data pathways.",
+      "From ALPR-controlled barriers to real-time occupancy dashboards, our parking management systems bring order and accountability to vehicle flow — reducing unauthorised access and providing actionable analytics.",
     features: [
-      "Cat6A & fiber optic structured cabling",
-      "Network switch & PoE deployment",
-      "Isolated security VLANs",
-      "Redundant uplink configuration",
-      "TIA-568 certified installations",
-      "End-to-end cable documentation",
+      "ALPR (license plate recognition) barriers",
+      "Real-time occupancy sensors",
+      "Parking guidance display systems",
+      "Permit and validation management",
+      "CCTV-integrated ticketing",
+      "Revenue control systems",
+    ],
+  },
+   {
+    id: "fire",
+    icon: Flame,
+    title: "Fire Alarm System",
+    tagline: "Reliable detection and alert systems for life safety",
+    gradient: "from-red-500 to-rose-700",
+    glow: "rgba(239,68,68,0.15)",
+    description:
+      "Our fire alarm installations use addressable detector networks, voice evacuation systems, and suppression integration to detect, locate, and respond to fire incidents with precision your facility demands.",
+    features: [
+      "Addressable smoke and heat detectors",
+      "Voice evacuation and PA integration",
+      "Sprinkler and suppression tie-in",
+      "Panel monitoring and remote alerts",
+      "NFPA 72 compliant installations",
+      "Regular testing and maintenance",
+    ],
+  },
+   {
+    id: "entrance",
+    icon: DoorClosed,
+    title: "Entrance Control",
+    tagline: "Secure access management for regulated entry",
+    gradient: "from-green-500 to-emerald-700",
+    glow: "rgba(34,197,94,0.15)",
+    description:
+      "Control who enters your facility, when, and where. Our entrance control systems combine biometric readers, smart card access, turnstiles, and intercom solutions into a seamless workflow enforcing security policy without friction.",
+    features: [
+      "Biometric fingerprint and facial readers",
+      "Smart card / RFID access systems",
+      "Turnstile and speed lane integration",
+      "Visitor management software",
+      "Anti-tailgate sensor technology",
+      "Multi-door controller networks",
     ],
   },
   {
@@ -100,60 +155,6 @@ const services = [
       "Emergency communication systems",
       "Smart street lighting controls",
       "IoT sensor network integration",
-    ],
-  },
-  {
-    id: "entrance",
-    icon: DoorClosed,
-    title: "Entrance Control",
-    tagline: "Secure access management for regulated entry",
-    gradient: "from-green-500 to-emerald-700",
-    glow: "rgba(34,197,94,0.15)",
-    description:
-      "Control who enters your facility, when, and where. Our entrance control systems combine biometric readers, smart card access, turnstiles, and intercom solutions into a seamless workflow enforcing security policy without friction.",
-    features: [
-      "Biometric fingerprint and facial readers",
-      "Smart card / RFID access systems",
-      "Turnstile and speed lane integration",
-      "Visitor management software",
-      "Anti-tailgate sensor technology",
-      "Multi-door controller networks",
-    ],
-  },
-  {
-    id: "fire",
-    icon: Flame,
-    title: "Fire Alarm System",
-    tagline: "Reliable detection and alert systems for life safety",
-    gradient: "from-red-500 to-rose-700",
-    glow: "rgba(239,68,68,0.15)",
-    description:
-      "Our fire alarm installations use addressable detector networks, voice evacuation systems, and suppression integration to detect, locate, and respond to fire incidents with precision your facility demands.",
-    features: [
-      "Addressable smoke and heat detectors",
-      "Voice evacuation and PA integration",
-      "Sprinkler and suppression tie-in",
-      "Panel monitoring and remote alerts",
-      "NFPA 72 compliant installations",
-      "Regular testing and maintenance",
-    ],
-  },
-  {
-    id: "parking",
-    icon: Car,
-    title: "Parking Management",
-    tagline: "Intelligent solutions for optimised vehicle flow",
-    gradient: "from-slate-500 to-slate-700",
-    glow: "rgba(100,116,139,0.15)",
-    description:
-      "From ALPR-controlled barriers to real-time occupancy dashboards, our parking management systems bring order and accountability to vehicle flow — reducing unauthorised access and providing actionable analytics.",
-    features: [
-      "ALPR (license plate recognition) barriers",
-      "Real-time occupancy sensors",
-      "Parking guidance display systems",
-      "Permit and validation management",
-      "CCTV-integrated ticketing",
-      "Revenue control systems",
     ],
   },
 ];
