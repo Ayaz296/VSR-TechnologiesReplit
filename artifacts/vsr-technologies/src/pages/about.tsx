@@ -39,15 +39,7 @@ const values = [
   },
 ];
 
-const milestones = [
-  { year: "2010", event: "VSR Technologies founded in Dallas, TX — initial focus on commercial CCTV." },
-  { year: "2013", event: "Expanded into structured cabling and networking solutions for enterprise clients." },
-  { year: "2016", event: "First aviation contract — 800-camera deployment at a regional airport in Texas." },
-  { year: "2018", event: "Launched Building Management Systems division; first Fortune 500 BMS client." },
-  { year: "2020", event: "Smart City pilot program awarded by City of San Antonio." },
-  { year: "2022", event: "Video Analytics AI platform integrated across active project portfolio." },
-  { year: "2024", event: "500+ active enterprise sites under management across 5 US states." },
-];
+
 
 const certifications = [
   "NICET Level III Fire Alarm Systems",
