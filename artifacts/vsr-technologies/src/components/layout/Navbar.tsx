@@ -48,16 +48,9 @@ export function Navbar() {
       <div className="container mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 group shrink-0">
-          <div className={cn(
-            "p-2 rounded-lg transition-all duration-300 group-hover:scale-105",
-            isAtTop
-              ? "bg-white/15 border border-white/25 shadow-inner"
-              : "bg-primary shadow-md shadow-primary/20"
-          )}>
-            <img src={faviconImg} alt="VSR" className="w-6 h-6 object-contain" />
-          </div>
+          <img src={faviconImg} alt="VSR" className="w-10 h-10 object-contain transition-transform duration-300 group-hover:scale-105" />
           <span className={cn(
-            "font-bold text-xl tracking-tight transition-colors duration-300",
+            "font-bold text-2xl tracking-tight transition-colors duration-300",
             isAtTop ? "text-white" : "text-foreground"
           )}>
             VSR<span className={cn("font-light", isAtTop ? "text-sky-300" : "text-primary")}>Technologies</span>
