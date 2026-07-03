@@ -21,11 +21,11 @@ const clients = [
 
 function ClientCard({ name, icon: Icon }: { name: string; icon: typeof Plane }) {
   return (
-    <div className="flex flex-none items-center gap-3 px-6 py-4 rounded-2xl border border-blue-100/80 bg-white/90 backdrop-blur-sm shadow-sm min-w-[280px]">
-      <div className="p-2.5 rounded-xl bg-blue-600/10 text-blue-600 shrink-0">
+    <div className="flex flex-none items-center gap-3 px-6 py-4 rounded-2xl border border-white/15 bg-white/8 backdrop-blur-sm min-w-[280px]">
+      <div className="p-2.5 rounded-xl bg-sky-400/15 text-sky-300 shrink-0">
         <Icon className="w-5 h-5" />
       </div>
-      <span className="text-sm font-medium text-slate-600 leading-snug">{name}</span>
+      <span className="text-sm font-medium text-slate-300 leading-snug">{name}</span>
     </div>
   );
 }
@@ -34,23 +34,31 @@ export function OurClients() {
   const track = [...clients, ...clients];
 
   return (
-    <section className="py-24 sm:py-28 bg-gradient-to-b from-[#EFF6FF] to-[#EEF4FF] relative overflow-hidden">
+    <section className="py-24 sm:py-28 relative overflow-hidden" style={{ background: "#003978" }}>
+      <div
+        className="absolute inset-0 opacity-[0.06] pointer-events-none"
+        style={{
+          backgroundImage: "radial-gradient(circle, #ffffff 1px, transparent 1px)",
+          backgroundSize: "32px 32px",
+        }}
+      />
       <div className="absolute top-0 right-0 w-[500px] h-[400px] bg-blue-400/15 blur-[120px] pointer-events-none rounded-full" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[300px] bg-cyan-400/10 blur-[100px] pointer-events-none rounded-full" />
       <div className="container mx-auto px-6 relative z-10">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/20 bg-primary/5 text-primary text-sm font-medium mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-sky-400/30 bg-sky-400/10 text-sky-300 text-sm font-medium mb-6">
               Our Clients
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-4">
               Trusted across aviation, defence & government
             </h2>
-            <p className="text-xl text-slate-500 leading-relaxed">
+            <p className="text-xl text-slate-300 leading-relaxed">
               From India's busiest airports to defence PSUs and state government bodies, organisations rely on us for mission-critical infrastructure.
             </p>
           </div>
           <Link href="/projects">
-            <div className="group flex items-center gap-2 text-sm font-semibold text-primary border-b-2 border-primary/30 hover:border-primary pb-0.5 transition-colors cursor-pointer whitespace-nowrap">
+            <div className="group flex items-center gap-2 text-sm font-semibold text-sky-300 border-b-2 border-sky-300/30 hover:border-sky-300 pb-0.5 transition-colors cursor-pointer whitespace-nowrap">
               View all projects
             </div>
           </Link>
