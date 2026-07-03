@@ -370,7 +370,7 @@ export default function ProjectsPage() {
       </div>
 
       {/* ── Clients grid ── */}
-      <main className="flex-1 py-16 bg-[#F8FAFC]">
+      <main className="flex-1 py-16 bg-gradient-to-b from-[#EEF4FF] to-[#EFF6FF]">
         <div className="container mx-auto px-6">
 
           {/* Filter tabs */}

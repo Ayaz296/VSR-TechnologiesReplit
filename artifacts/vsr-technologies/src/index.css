@@ -88,13 +88,13 @@
   /* Text Light: Grey #5F6C7B → hsl(212 13% 43%) */
   /* Border: Light Grey #DCE6F1 → hsl(211 43% 90%) */
 
-  --background: 214 41% 98%;
+  --background: 214 70% 97%;
   --foreground: 214 28% 15%;
   --primary: 214 65% 17%;
   --primary-foreground: 0 0% 100%;
   --secondary: 211 27% 43%;
   --secondary-foreground: 0 0% 100%;
-  --muted: 209 41% 95%;
+  --muted: 214 75% 93%;
   --muted-foreground: 212 13% 43%;
   --accent: 214 84% 56%;
   --accent-foreground: 0 0% 100%;

@@ -11,7 +11,8 @@ const milestones = [
 
 export function Milestones() {
   return (
-    <section className="py-24 sm:py-28 bg-[#EEF3F8] relative overflow-hidden">
+    <section className="py-24 sm:py-28 bg-gradient-to-br from-[#EEF4FF] to-[#E8F0FE] relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-[500px] h-[400px] bg-blue-400/15 blur-[120px] pointer-events-none rounded-full" />
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -28,7 +29,7 @@ export function Milestones() {
         </motion.div>
 
         <div className="relative max-w-3xl">
-          <div className="absolute left-[11px] top-0 bottom-0 w-[2px] bg-slate-200" />
+          <div className="absolute left-[11px] top-0 bottom-0 w-[2px] bg-gradient-to-b from-primary via-blue-400 to-cyan-400" />
           <div className="space-y-10">
             {milestones.map((m, i) => (
               <motion.div

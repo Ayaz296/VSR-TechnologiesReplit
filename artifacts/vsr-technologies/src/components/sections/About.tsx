@@ -4,7 +4,8 @@ import aboutUsImg from "@/assets/images/about-team.png";
 
 export function About() {
   return (
-    <section id="about" className="fluid-grid-section fluid-to-faq relative py-32 bg-white overflow-hidden">
+    <section id="about" className="fluid-grid-section fluid-to-faq relative py-32 bg-gradient-to-b from-[#EFF6FF] to-white overflow-hidden">
+      <div className="absolute top-0 right-0 w-[500px] h-[400px] bg-blue-400/12 blur-[100px] pointer-events-none rounded-full" />
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           

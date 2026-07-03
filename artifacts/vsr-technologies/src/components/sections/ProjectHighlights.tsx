@@ -74,7 +74,8 @@ const projects = [
 
 export function ProjectHighlights() {
   return (
-    <section className="py-20 sm:py-28 bg-gradient-to-b from-white to-[#F8FAFC] relative overflow-hidden">
+    <section className="py-20 sm:py-28 bg-gradient-to-b from-[#EFF6FF] to-[#EEF4FF] relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-[500px] h-[400px] bg-blue-400/15 blur-[120px] pointer-events-none rounded-full" />
       {/* Subtle dot grid */}
       <div
         className="absolute inset-0 opacity-[0.035] pointer-events-none"
@@ -120,7 +121,7 @@ export function ProjectHighlights() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.55, delay: i * 0.1 }}
-              className="group relative rounded-2xl bg-white border border-slate-100 overflow-hidden hover:border-slate-200 hover:shadow-xl transition-all duration-300"
+              className="group relative rounded-2xl bg-white/90 border border-blue-100 overflow-hidden hover:border-blue-200 hover:shadow-xl transition-all duration-300"
               style={{ boxShadow: "0 1px 4px rgba(0,0,0,0.04)" }}
             >
               {/* Image */}

@@ -86,7 +86,7 @@ export default function AboutPage() {
       <main className="flex-1">
 
         {/* Mission split */}
-        <section className="py-24 bg-white">
+        <section className="py-24 bg-gradient-to-b from-[#EFF6FF] to-white">
           <div className="container mx-auto px-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
               <motion.div
@@ -140,7 +140,7 @@ export default function AboutPage() {
         </section>
 
         {/* Values */}
-        <section className="py-24 bg-[#F8FAFC]">
+        <section className="py-24 bg-gradient-to-b from-[#EEF4FF] to-[#EFF6FF]">
           <div className="container mx-auto px-6">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -163,7 +163,7 @@ export default function AboutPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: i * 0.1 }}
-                  className="bg-white rounded-2xl p-8 border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300 flex gap-6"
+                  className="bg-white/90 rounded-2xl p-8 border border-blue-100 shadow-sm hover:shadow-md transition-all duration-300 flex gap-6"
                 >
                   <div className="p-3 rounded-xl bg-primary/10 text-primary h-fit shrink-0">
                     {v.icon}
@@ -179,7 +179,7 @@ export default function AboutPage() {
         </section>
 
         {/* Certifications */}
-        <section className="py-24 bg-white">
+        <section className="py-24 bg-gradient-to-b from-[#EFF6FF] to-white">
           <div className="container mx-auto px-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
               <motion.div
@@ -224,7 +224,7 @@ export default function AboutPage() {
         </section>
 
         {/* Leadership */}
-        <section className="py-24 bg-[#F8FAFC]">
+        <section className="py-24 bg-gradient-to-b from-[#EEF4FF] to-[#EFF6FF]">
           <div className="container mx-auto px-6">
             <motion.div
               initial={{ opacity: 0, y: 20 }}

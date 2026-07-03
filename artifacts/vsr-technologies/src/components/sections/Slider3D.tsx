@@ -72,7 +72,8 @@ export function Slider3D() {
   const slide = slides[current];
 
   return (
-    <section className="py-28 bg-[#F8FAFC] relative overflow-hidden">
+    <section className="py-28 bg-gradient-to-b from-[#EEF4FF] to-[#EFF6FF] relative overflow-hidden">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-blue-400/12 blur-[120px] pointer-events-none rounded-full" />
       {/* Background grid */}
       <div
         className="absolute inset-0 opacity-[0.025] pointer-events-none"
@@ -192,7 +193,7 @@ export function Slider3D() {
         <div className="flex items-center justify-center gap-6 mt-10">
           <button
             onClick={() => go(-1)}
-            className="w-11 h-11 rounded-full border border-slate-200 bg-white flex items-center justify-center text-slate-500 hover:text-primary hover:border-primary/30 hover:bg-primary/5 shadow-sm transition-all duration-200"
+            className="w-11 h-11 rounded-full border border-blue-200 bg-white flex items-center justify-center text-slate-500 hover:text-primary hover:border-primary/30 hover:bg-blue-50 shadow-sm transition-all duration-200"
           >
             <ChevronLeft size={18} />
           </button>
@@ -210,7 +211,7 @@ export function Slider3D() {
 
           <button
             onClick={() => go(1)}
-            className="w-11 h-11 rounded-full border border-slate-200 bg-white flex items-center justify-center text-slate-500 hover:text-primary hover:border-primary/30 hover:bg-primary/5 shadow-sm transition-all duration-200"
+            className="w-11 h-11 rounded-full border border-blue-200 bg-white flex items-center justify-center text-slate-500 hover:text-primary hover:border-primary/30 hover:bg-blue-50 shadow-sm transition-all duration-200"
           >
             <ChevronRight size={18} />
           </button>

@@ -61,8 +61,9 @@ export function Testimonials() {
   const active = testimonials[index];
 
   return (
-    <section className="py-24 sm:py-28 bg-[#EEF3F8] relative overflow-hidden">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] rounded-full bg-primary/10 blur-[140px] pointer-events-none" />
+    <section className="py-24 sm:py-28 bg-gradient-to-br from-[#EEF4FF] to-[#E8F0FE] relative overflow-hidden">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] rounded-full bg-blue-400/20 blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-[400px] h-[300px] rounded-full bg-indigo-400/15 blur-[100px] pointer-events-none" />
 
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
@@ -84,7 +85,7 @@ export function Testimonials() {
         </motion.div>
 
         <div className="relative max-w-3xl mx-auto">
-          <div className="relative bg-white rounded-3xl border border-slate-100 shadow-lg px-6 sm:px-16 py-12 sm:py-16 min-h-[320px] flex items-center">
+          <div className="relative bg-white rounded-3xl border border-blue-100 shadow-lg px-6 sm:px-16 py-12 sm:py-16 min-h-[320px] flex items-center">
             <Quote className="absolute top-8 left-6 sm:left-10 w-10 h-10 sm:w-12 sm:h-12 text-primary/10" />
 
             <AnimatePresence mode="wait" custom={direction}>

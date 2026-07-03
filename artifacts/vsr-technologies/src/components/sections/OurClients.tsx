@@ -21,8 +21,8 @@ const clients = [
 
 function ClientCard({ name, icon: Icon }: { name: string; icon: typeof Plane }) {
   return (
-    <div className="flex flex-none items-center gap-3 px-6 py-4 rounded-2xl border border-slate-200/70 bg-white/80 backdrop-blur-sm shadow-sm min-w-[280px]">
-      <div className="p-2.5 rounded-xl bg-primary/10 text-primary shrink-0">
+    <div className="flex flex-none items-center gap-3 px-6 py-4 rounded-2xl border border-blue-100/80 bg-white/90 backdrop-blur-sm shadow-sm min-w-[280px]">
+      <div className="p-2.5 rounded-xl bg-blue-600/10 text-blue-600 shrink-0">
         <Icon className="w-5 h-5" />
       </div>
       <span className="text-sm font-medium text-slate-600 leading-snug">{name}</span>
@@ -34,7 +34,8 @@ export function OurClients() {
   const track = [...clients, ...clients];
 
   return (
-    <section className="py-24 sm:py-28 bg-[#EEF3F8] relative overflow-hidden">
+    <section className="py-24 sm:py-28 bg-gradient-to-b from-[#EFF6FF] to-[#EEF4FF] relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-[500px] h-[400px] bg-blue-400/15 blur-[120px] pointer-events-none rounded-full" />
       <div className="container mx-auto px-6 relative z-10">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
           <div className="max-w-2xl">

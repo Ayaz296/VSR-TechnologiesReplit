@@ -35,7 +35,7 @@ function RotatingText() {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: -40, opacity: 0 }}
           transition={{ duration: 0.45, ease: "easeInOut" }}
-          className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-primary"
+          className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-sky-400"
         >
           {rotatingServices[index]}
         </motion.span>

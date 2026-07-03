@@ -17,7 +17,7 @@ const services = [
     title: "Video Analytics",
     desc: "AI and computer-vision powered video analytics for real-time monitoring, automated threat detection, and data-driven decisions.",
     features: ["Facial recognition & object detection/tracking", "ANPR / LPR solutions", "Perimeter security & intrusion detection", "Crowd, people & behavioural analytics"],
-    color: "from-slate-600 to-slate-800",
+    color: "from-indigo-500 to-violet-600",
     num: "02",
   },
   {
@@ -41,7 +41,7 @@ const services = [
     title: "Smart City Solutions",
     desc: "Smart and Safe City services spanning surveillance, traffic management, utilities, and AI-driven decision support.",
     features: ["City surveillance & intelligent traffic management (ITMS)", "Smart street lighting & smart parking", "IoT sensor networks & cybersecurity services", "AI, analytics & decision support platforms"],
-    color: "from-slate-600 to-slate-800",
+    color: "from-indigo-500 to-violet-600",
     num: "05",
   },
   {
@@ -84,7 +84,7 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
       transition={{ duration: 0.5, delay: index * 0.07 }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="group relative bg-white rounded-2xl overflow-hidden border border-slate-100 cursor-pointer"
+      className="group relative bg-white/90 backdrop-blur-sm rounded-2xl overflow-hidden border border-blue-100 cursor-pointer"
       style={{ boxShadow: hovered ? "0 20px 60px -10px rgba(0,0,0,0.12)" : "0 1px 4px rgba(0,0,0,0.05)" }}
     >
       {/* Animated gradient top bar */}
@@ -149,8 +149,9 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
 
 export function Services() {
   return (
-    <section id="services" className="py-32 bg-gradient-to-b from-white to-[#F8FAFC] relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-blue-100/40 blur-[120px] pointer-events-none" />
+    <section id="services" className="py-32 bg-gradient-to-b from-[#EFF6FF] to-[#EEF4FF] relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-blue-400/20 blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-indigo-400/15 blur-[100px] pointer-events-none" />
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Header */}

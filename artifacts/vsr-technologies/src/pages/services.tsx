@@ -418,7 +418,7 @@ export default function ServicesPage() {
       <main className="flex-1">
 
         {/* ── Tabbed Services Explorer ── */}
-        <section className="py-16 sm:py-24 bg-[#F8FAFC]">
+        <section className="py-16 sm:py-24 bg-gradient-to-b from-[#EEF4FF] to-[#EFF6FF]">
           <div className="container mx-auto px-4 sm:px-6">
             <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="mb-10 sm:mb-14">
               <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-3">Our Services</h2>
@@ -469,7 +469,7 @@ export default function ServicesPage() {
         </section>
 
         {/* ── Capabilities Grid ── */}
-        <section className="py-16 sm:py-24 bg-white">
+        <section className="py-16 sm:py-24 bg-gradient-to-b from-[#EFF6FF] to-white">
           <div className="container mx-auto px-4 sm:px-6">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
