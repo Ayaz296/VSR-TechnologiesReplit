@@ -8,7 +8,6 @@ import { Testimonials } from "@/components/sections/Testimonials";
 import { Milestones } from "@/components/sections/Milestones";
 import { OurClients } from "@/components/sections/OurClients";
 import { FAQ } from "@/components/sections/FAQ";
-import { ProjectHighlights } from "@/components/sections/ProjectHighlights";
 
 export default function Home() {
   return (
@@ -18,7 +17,6 @@ export default function Home() {
         <Hero />
         <WhyChooseUs />
         <Slider3D />
-        <ProjectHighlights />
         <Services />
         <OurClients />
         <Milestones />
