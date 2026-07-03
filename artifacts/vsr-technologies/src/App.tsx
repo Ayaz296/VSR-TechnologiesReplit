@@ -7,6 +7,7 @@ import Home from "@/pages/home";
 import ServicesPage from "@/pages/services";
 import ProjectsPage from "@/pages/projects";
 import AboutPage from "@/pages/about";
+import StyleGuide from "@/pages/style-guide";
 
 const queryClient = new QueryClient();
 
@@ -17,6 +18,7 @@ function Router() {
       <Route path="/services" component={ServicesPage} />
       <Route path="/projects" component={ProjectsPage} />
       <Route path="/about" component={AboutPage} />
+      <Route path="/style-guide" component={StyleGuide} />
       <Route component={NotFound} />
     </Switch>
   );
