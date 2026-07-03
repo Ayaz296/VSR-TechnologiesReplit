@@ -39,15 +39,6 @@ const values = [
   },
 ];
 
-const milestones = [
-  { year: "2017", event: "VSR Technologies founded in Hyderabad with a focus on CCTV surveillance and security solutions." },
-  { year: "2019", event: "Expanded into structured cabling, networking, and integrated infrastructure services for commercial clients." },
-  { year: "2021", event: "Successfully delivered large-scale security and networking projects across multiple industries." },
-  { year: "2023", event: "Strengthened expertise in access control systems, video management, and enterprise security solutions." },
-  { year: "2024", event: "Executed critical infrastructure projects, including airport and industrial sector deployments." },
-  { year: "2026", event: "Recognized as a trusted partner for security, networking, and technology infrastructure solutions across India." },
-];
-
 const certifications = [
   "ISO 9001:2015",
   "ISO 14001:2015",
@@ -183,49 +174,6 @@ export default function AboutPage() {
                   </div>
                 </motion.div>
               ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Timeline */}
-        <section className="py-24 bg-[#0A1628] relative overflow-hidden">
-          <div className="absolute inset-0 opacity-[0.04] pointer-events-none"
-            style={{ backgroundImage: "linear-gradient(to right, #fff 1px, transparent 1px), linear-gradient(to bottom, #fff 1px, transparent 1px)", backgroundSize: "80px 80px" }}
-          />
-          <div className="container mx-auto px-6 relative z-10">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="max-w-2xl mb-16"
-            >
-              <h2 className="text-4xl font-bold text-white tracking-tight mb-4">Our Journey</h2>
-              <p className="text-xl text-slate-400 leading-relaxed">Ten years of steady growth, earned one project at a time.</p>
-            </motion.div>
-
-            <div className="relative">
-              <div className="absolute left-[11px] top-0 bottom-0 w-[2px] bg-white/10" />
-              <div className="space-y-10">
-                {milestones.map((m, i) => (
-                  <motion.div
-                    key={m.year}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: i * 0.07 }}
-                    className="flex gap-8 items-start"
-                  >
-                    <div className="relative shrink-0 w-6 flex justify-center">
-                      <div className="w-3 h-3 rounded-full bg-primary mt-1.5 ring-4 ring-primary/20" />
-                    </div>
-                    <div className="pb-2">
-                      <div className="text-sky-400 text-sm font-bold mb-1 tracking-widest">{m.year}</div>
-                      <p className="text-slate-300 leading-relaxed">{m.event}</p>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
             </div>
           </div>
         </section>

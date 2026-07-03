@@ -72,13 +72,13 @@ export function Slider3D() {
   const slide = slides[current];
 
   return (
-    <section className="fluid-grid-section fluid-to-stats py-28 bg-[#080F1E] relative overflow-hidden">
+    <section className="py-28 bg-[#F8FAFC] relative overflow-hidden">
       {/* Background grid */}
       <div
-        className="absolute inset-0 opacity-[0.03] pointer-events-none"
+        className="absolute inset-0 opacity-[0.025] pointer-events-none"
         style={{
           backgroundImage:
-            "linear-gradient(to right,#fff 1px,transparent 1px),linear-gradient(to bottom,#fff 1px,transparent 1px)",
+            "linear-gradient(to right,#0A1628 1px,transparent 1px),linear-gradient(to bottom,#0A1628 1px,transparent 1px)",
           backgroundSize: "80px 80px",
         }}
       />
@@ -92,16 +92,16 @@ export function Slider3D() {
           transition={{ duration: 0.6 }}
           className="text-center mb-14"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-sky-400/30 bg-sky-400/10 text-sky-300 text-sm font-medium mb-8">
-            Case Studies
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/20 bg-primary/5 text-primary text-sm font-medium mb-8">
+            Services
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight mb-4 leading-[1.1]">
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground tracking-tight mb-4 leading-[1.1]">
             Proven across{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-primary">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-600 to-primary">
               every sector.
             </span>
           </h2>
-          <p className="text-xl text-slate-400 max-w-xl mx-auto">
+          <p className="text-xl text-slate-500 max-w-xl mx-auto">
             Explore how VSR Technologies delivers security infrastructure across industries.
           </p>
         </motion.div>
@@ -192,7 +192,7 @@ export function Slider3D() {
         <div className="flex items-center justify-center gap-6 mt-10">
           <button
             onClick={() => go(-1)}
-            className="w-11 h-11 rounded-full border border-white/15 bg-white/5 flex items-center justify-center text-white/60 hover:text-white hover:border-white/30 hover:bg-white/10 transition-all duration-200"
+            className="w-11 h-11 rounded-full border border-slate-200 bg-white flex items-center justify-center text-slate-500 hover:text-primary hover:border-primary/30 hover:bg-primary/5 shadow-sm transition-all duration-200"
           >
             <ChevronLeft size={18} />
           </button>
@@ -203,14 +203,14 @@ export function Slider3D() {
               <button
                 key={i}
                 onClick={() => { setDirection(i > current ? 1 : -1); setCurrent(i); }}
-                className={`rounded-full transition-all duration-300 ${i === current ? "w-8 h-2.5 bg-sky-400" : "w-2.5 h-2.5 bg-white/20 hover:bg-white/40"}`}
+                className={`rounded-full transition-all duration-300 ${i === current ? "w-8 h-2.5 bg-primary" : "w-2.5 h-2.5 bg-slate-300 hover:bg-slate-400"}`}
               />
             ))}
           </div>
 
           <button
             onClick={() => go(1)}
-            className="w-11 h-11 rounded-full border border-white/15 bg-white/5 flex items-center justify-center text-white/60 hover:text-white hover:border-white/30 hover:bg-white/10 transition-all duration-200"
+            className="w-11 h-11 rounded-full border border-slate-200 bg-white flex items-center justify-center text-slate-500 hover:text-primary hover:border-primary/30 hover:bg-primary/5 shadow-sm transition-all duration-200"
           >
             <ChevronRight size={18} />
           </button>

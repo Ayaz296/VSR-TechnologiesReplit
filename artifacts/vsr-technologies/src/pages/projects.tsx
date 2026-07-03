@@ -1,210 +1,252 @@
+import type React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { MapPin, Calendar, CheckCircle2, ArrowRight, Building, Plane, Factory, Shield, X } from "lucide-react";
+import {
+  MapPin,
+  Calendar,
+  CheckCircle2,
+  ArrowRight,
+  Plane,
+  Shield,
+  Factory,
+  Landmark,
+  Cross,
+  Building,
+  X,
+  Users,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import industryAirportImg from "@/assets/images/industry-airport.png";
-import industryCommercialImg from "@/assets/images/industry-commercial.png";
-import industryIndustrialImg from "@/assets/images/industry-industrial.png";
-import industryInfrastructureImg from "@/assets/images/industry-infrastructure.png";
-import serviceCctvImg from "@/assets/images/service-cctv.png";
-import serviceSmartcityImg from "@/assets/images/service-smartcity.png";
 
-const categories = ["All", "Aviation", "Commercial", "Industrial", "Smart City", "Critical Infrastructure"];
+type ProjectEntry = { y: number; w: string; p: string };
+type Client = {
+  id: string;
+  name: string;
+  cat: string;
+  intro: string;
+  projects: ProjectEntry[];
+};
 
-const projects = [
+const CATS: Record<string, { label: string; icon: React.ReactElement; accent: string; tagBg: string }> = {
+  aviation: { label: "Aviation", icon: <Plane size={14} />, accent: "from-blue-500 to-blue-700", tagBg: "bg-blue-50 text-blue-700 border-blue-200" },
+  defence: { label: "Defence & Aerospace", icon: <Shield size={14} />, accent: "from-violet-500 to-purple-700", tagBg: "bg-violet-50 text-violet-700 border-violet-200" },
+  industrial: { label: "Industrial & Energy", icon: <Factory size={14} />, accent: "from-amber-500 to-orange-700", tagBg: "bg-amber-50 text-amber-700 border-amber-200" },
+  government: { label: "Government & Smart City", icon: <Landmark size={14} />, accent: "from-teal-500 to-cyan-700", tagBg: "bg-teal-50 text-teal-700 border-teal-200" },
+  healthcare: { label: "Healthcare", icon: <Cross size={14} />, accent: "from-rose-500 to-pink-700", tagBg: "bg-rose-50 text-rose-700 border-rose-200" },
+  bfsi: { label: "BFSI & Commercial", icon: <Building size={14} />, accent: "from-slate-500 to-slate-700", tagBg: "bg-slate-50 text-slate-700 border-slate-200" },
+};
+
+const categories = ["All", ...Object.keys(CATS)];
+
+const clients: Client[] = [
   {
-    id: "terminal-a",
-    title: "International Terminal A — CCTV & Access Control Upgrade",
-    client: "Regional Aviation Authority",
-    location: "Dallas/Fort Worth, TX",
-    year: "2024",
-    status: "Completed",
-    category: "Aviation",
-    icon: <Plane size={14} />,
-    image: industryAirportImg,
-    scope: "Full replacement of an ageing analogue CCTV infrastructure with a 1,200-camera 4K IP network covering all passenger zones, baggage halls, apron areas, and restricted airside perimeters. Integrated with biometric boarding gates and a centralised Security Operations Centre.",
-    deliverables: ["1,200 × 4K IP cameras deployed", "Structured fiber optic backbone (40km)", "30 biometric access control doors", "Centralised Security Operations Centre", "AI-powered perimeter intrusion detection", "72-hour redundant NVR storage (120TB)"],
-    accent: "from-blue-500 to-blue-700",
-    tagBg: "bg-blue-50 text-blue-700 border-blue-200",
+    id: "gmr-hyderabad",
+    name: "GMR International Airport, Hyderabad",
+    cat: "aviation",
+    intro: "Our longest-running relationship: an ongoing, multi-year security and infrastructure programme covering CCTV, fire safety, access control, structured cabling and passive network infrastructure across the entire airport.",
+    projects: [
+      { y: 2025, w: "CCTV surveillance across the airside perimeter area for enhanced security monitoring.", p: "GMR Groups" },
+      { y: 2025, w: "Installation, testing and commissioning of the Fire Alarm System, enhancing facility-wide fire safety.", p: "Johnson Control (India) Pvt Ltd" },
+      { y: 2025, w: "Installation, testing and commissioning of the Access Control System at airport security gates.", p: "Johnson Control (India) Pvt Ltd" },
+      { y: 2025, w: "Supply, installation, testing and commissioning of CCTV surveillance at Cargo T2 of GHIAL.", p: "WAISL Limited" },
+      { y: 2025, w: "Supply, installation, testing and commissioning of IT passive infrastructure for parking ramps — FASTag enabling project.", p: "GMR Groups" },
+      { y: 2025, w: "Supply of skilled manpower for operation and maintenance of Stratacache kiosk machines displaying flight information.", p: "Stratecache India Pvt Ltd" },
+      { y: 2025, w: "CCTV surveillance ensuring enhanced security monitoring at the Air Traffic Reporting System.", p: "GMR Groups" },
+      { y: 2025, w: "Passive network infrastructure including IT cable re-routing near the storm water drain to the isolation bay.", p: "GMR Groups" },
+      { y: 2024, w: "Supply, installation, testing and commissioning of structured cabling throughout the entire airport premises.", p: "GMR Groups" },
+      { y: 2024, w: "Annual Maintenance Contract for operation and servicing of passive components, 24×7×365 support.", p: "WAISL Limited" },
+      { y: 2023, w: "Annual Maintenance Contract for operation and servicing of passive components, 24×7×365 support.", p: "WAISL Limited" },
+      { y: 2022, w: "AMC for UVSS, bollards, barriers, MRO taxiway gate, swing gates, public address and intercom systems.", p: "Sindoori Solutions" },
+      { y: 2021, w: "Supply and installation of high-quality structured cabling infrastructure (CAT6/Fiber), including conduiting and cable-tray dressing.", p: "GMR Groups" },
+      { y: 2021, w: "Installation and commissioning of around 3,300 CCTV cameras across the airport premises.", p: "Echelon Edge" },
+      { y: 2020, w: "Optical Fiber Cable (OFC) laying, including all associated civil works, as part of the IT infrastructure expansion project.", p: "GMR Groups" },
+      { y: 2020, w: "Laying and testing of 100km of Optical Fiber Cable for IT infrastructure and backbone networking.", p: "Orchids Network & Systems" },
+      { y: 2020, w: "Installation and commissioning of perimeter CCTV surveillance integrated with power fencing.", p: "Crown Solar" },
+      { y: 2018, w: "CCTV surveillance systems at the airport apron area for enhanced airside security monitoring.", p: "Atluri and Co." },
+      { y: 2018, w: "Installation, testing and commissioning of power fencing systems for enhanced perimeter security.", p: "Crown Solar" },
+    ],
   },
   {
-    id: "metro-towers",
-    title: "Metro Towers — Integrated Building Management & Surveillance",
-    client: "Metro Real Estate Group",
-    location: "Houston, TX",
-    year: "2024",
-    status: "Completed",
-    category: "Commercial",
-    icon: <Building size={14} />,
-    image: industryCommercialImg,
-    scope: "Full-building security and automation across a 42-storey Class-A commercial tower. Scope included CCTV, access control for 38 floors, visitor management, and a unified BMS platform connecting HVAC, lighting, elevators, and security under single management.",
-    deliverables: ["420 IP cameras across 42 floors", "1,100 access control points", "Visitor management kiosk system", "Unified BMS — HVAC, lighting, elevators", "Parking ALPR for 600-bay garage", "24/7 remote monitoring setup"],
-    accent: "from-violet-500 to-purple-700",
-    tagBg: "bg-violet-50 text-violet-700 border-violet-200",
+    id: "gmr-bhogapuram",
+    name: "GMR International Airport, Bhogapuram, Vishakhapatnam",
+    cat: "aviation",
+    intro: "Deploying solar-powered, wireless CCTV infrastructure for GMR's newest greenfield airport in Andhra Pradesh.",
+    projects: [
+      { y: 2024, w: "Supply, installation, testing and commissioning of CCTV systems integrated with solar power and wireless technology.", p: "GMR Groups" },
+    ],
   },
   {
-    id: "petrochemical-plant",
-    title: "Petrochemical Facility — Hazardous Zone Surveillance & Fire Safety",
-    client: "Confidential Industrial Client",
-    location: "Port Arthur, TX",
-    year: "2023",
-    status: "Completed",
-    category: "Industrial",
-    icon: <Factory size={14} />,
-    image: industryIndustrialImg,
-    scope: "Explosion-proof CCTV and thermal camera deployment across a live petrochemical facility with ATEX Zone 1 and Zone 2 classifications. Simultaneously integrated a full addressable fire detection and suppression control system compliant with NFPA 72 and API 505 standards.",
-    deliverables: ["220 ATEX-certified explosion-proof cameras", "80 thermal imaging units", "Full addressable fire alarm (1,400 points)", "Sprinkler and deluge system integration", "Perimeter fence intrusion detection", "Dedicated air-gapped security VLAN"],
-    accent: "from-orange-500 to-orange-700",
-    tagBg: "bg-orange-50 text-orange-700 border-orange-200",
+    id: "kempegowda",
+    name: "Kempegowda International Airport, Bangalore",
+    cat: "aviation",
+    intro: "A turnkey building-systems deployment covering fire safety, access control and building management for one of India's busiest airports.",
+    projects: [
+      { y: 2019, w: "Installation, testing and commissioning of Building Management System (BMS), Fire Alarm System (FAS), Public Address System (PA) and Access Control System (ACS).", p: "Siemens Limited" },
+    ],
   },
   {
-    id: "smart-city-pilot",
-    title: "Smart City Surveillance Pilot — Downtown Public Safety Network",
-    client: "City of San Antonio",
-    location: "San Antonio, TX",
-    year: "2023",
-    status: "Completed",
-    category: "Smart City",
-    icon: <MapPin size={14} />,
-    image: serviceSmartcityImg,
-    scope: "Deployment of a 200-camera public safety surveillance network across 18 city blocks, fed into a real-time command centre with AI-powered crowd analytics and direct integration with emergency dispatch services.",
-    deliverables: ["200 public safety cameras (4K, 360°)", "AI crowd density and incident analytics", "Dedicated fiber optic ring network", "Real-time command and control centre", "Emergency services CAD integration", "LiDAR traffic monitoring at 12 intersections"],
-    accent: "from-teal-500 to-cyan-700",
-    tagBg: "bg-teal-50 text-teal-700 border-teal-200",
+    id: "bharat-dynamics",
+    name: "Bharat Dynamics Limited, Hyderabad",
+    cat: "defence",
+    intro: "Perimeter and premises-wide surveillance for a Government of India defence public sector undertaking.",
+    projects: [
+      { y: 2022, w: "Supply, installation, testing and commissioning of CCTV surveillance covering the entire perimeter and premises.", p: "IH Automation" },
+    ],
   },
   {
-    id: "data-center",
-    title: "Tier III Data Centre — Physical Security & Structured Cabling",
-    client: "Confidential Technology Client",
-    location: "Austin, TX",
-    year: "2024",
-    status: "In Progress",
-    category: "Critical Infrastructure",
-    icon: <Shield size={14} />,
-    image: industryInfrastructureImg,
-    scope: "Comprehensive physical security and networking for a 40,000 sq ft Tier III data centre — mantrap entrance control, server room access management, full CCTV coverage, and high-density structured cabling for 10G and 40G data paths.",
-    deliverables: ["Mantrap and biometric server room access", "340 IP cameras — internal and external", "High-density Cat6A + OM4 fiber cabling", "24-port PoE switch infrastructure", "Rack-level access monitoring sensors", "SOC design and fit-out"],
-    accent: "from-slate-500 to-slate-700",
-    tagBg: "bg-slate-50 text-slate-700 border-slate-200",
+    id: "hal",
+    name: "Hindustan Aeronautics Limited",
+    cat: "defence",
+    intro: "Facility-wide fire detection and early-warning infrastructure at HAL.",
+    projects: [
+      { y: 2018, w: "Installation, testing and commissioning of the Fire Alarm System, enhancing facility-wide fire safety and early warning capabilities.", p: "Godrej Security Solutions" },
+    ],
   },
   {
-    id: "logistics-hub",
-    title: "Regional Logistics Hub — Perimeter & Parking Management",
-    client: "National Freight Solutions",
-    location: "Memphis, TN",
-    year: "2023",
-    status: "Completed",
-    category: "Industrial",
-    icon: <Factory size={14} />,
-    image: serviceCctvImg,
-    scope: "Security infrastructure for a 1.2 million sq ft distribution warehouse and truck yard — perimeter fence analytics, ALPR-controlled truck entry gates, and a vehicle tracking system monitoring all yard movements in real time.",
-    deliverables: ["180 perimeter cameras with fence analytics", "ALPR-controlled entry/exit gates (8 lanes)", "Real-time yard vehicle tracking", "Driver ID and dwell time reporting", "Thermal perimeter coverage — night ops", "Integrated warehouse interior CCTV"],
-    accent: "from-green-500 to-emerald-700",
-    tagBg: "bg-green-50 text-green-700 border-green-200",
+    id: "tata-advanced",
+    name: "Tata Advanced, Tata Lockheed Martin, Tata Sikorsky & Tata Boeing",
+    cat: "defence",
+    intro: "Comprehensive perimeter and premises CCTV across the Tata Group's aerostructures manufacturing joint ventures.",
+    projects: [
+      { y: 2017, w: "Installation, testing and commissioning of a comprehensive CCTV surveillance system, ensuring enhanced security monitoring across both premises and perimeter areas.", p: "Atluri and Co." },
+    ],
   },
   {
-    id: "hospital-campus",
-    title: "Regional Medical Centre — Campus-Wide Security Infrastructure",
-    client: "Confidential Healthcare Group",
-    location: "Dallas, TX",
-    year: "2024",
-    status: "Completed",
-    category: "Commercial",
-    icon: <Building size={14} />,
-    image: industryCommercialImg,
-    scope: "End-to-end physical security deployment across a three-building medical campus. Scope included paediatric ward access control, pharmacy safe rooms, parking ALPR, and an integrated emergency alert system.",
-    deliverables: ["380 IP cameras across 3 buildings", "Pharmacy and safe room access control", "ALPR parking for 1,200 bays", "Emergency alert and lockdown system", "Visitor badge printing kiosks", "24/7 remote SOC monitoring"],
-    accent: "from-rose-500 to-pink-700",
-    tagBg: "bg-rose-50 text-rose-700 border-rose-200",
+    id: "pi-industries",
+    name: "PI Industries, Jambusar, Gujarat",
+    cat: "industrial",
+    intro: "Two phases of large-scale surveillance rollout at PI Industries' agrochemical manufacturing complex in Gujarat.",
+    projects: [
+      { y: 2023, w: "Supply, installation, testing and commissioning of approximately 150 CCTV surveillance systems, including all associated hardware and software components.", p: "Echelon Edge" },
+      { y: 2021, w: "Supply, installation, testing and commissioning of approximately 200 CCTV surveillance systems, including hardware and software components.", p: "Echelon Edge" },
+    ],
   },
   {
-    id: "port-terminal",
-    title: "Container Terminal — Port Security & Perimeter Surveillance",
-    client: "Confidential Port Authority",
-    location: "Galveston, TX",
-    year: "2023",
-    status: "Completed",
-    category: "Critical Infrastructure",
-    icon: <Shield size={14} />,
-    image: industryAirportImg,
-    scope: "Maritime perimeter surveillance and access control across a 280-acre container terminal including quayside, gate lanes, and restricted cargo zones. Integrated with US CBP and Coast Guard notification systems.",
-    deliverables: ["620 cameras — perimeter and quayside", "ALPR and vehicle screening at 6 gate lanes", "Vessel tracking radar integration", "CBP notification interface", "Waterside PTZ thermal cameras", "Intrusion detection along 4.5km fence line"],
-    accent: "from-sky-500 to-blue-700",
-    tagBg: "bg-sky-50 text-sky-700 border-sky-200",
+    id: "iocl",
+    name: "Indian Oil Corporation Limited",
+    cat: "industrial",
+    intro: "Ongoing annual maintenance of surveillance infrastructure across IOCL bottling plants in two states.",
+    projects: [
+      { y: 2019, w: "Annual Maintenance Contract for CCTV surveillance systems across IOCL bottling plants in Andhra Pradesh and Telangana.", p: "Godrej Security Solutions" },
+    ],
   },
   {
-    id: "university",
-    title: "State University — Campus Safety Modernisation",
-    client: "Public University System",
-    location: "Austin, TX",
-    year: "2022",
-    status: "Completed",
-    category: "Commercial",
-    icon: <Building size={14} />,
-    image: industryCommercialImg,
-    scope: "Phased security modernisation across a 400-acre campus — replacing legacy CCTV with 4K IP infrastructure, implementing single-credential access across 80 buildings, and deploying a mass notification and emergency alert system.",
-    deliverables: ["900 cameras across 80 buildings", "Single-credential campus access system", "Mass notification emergency alert system", "24/7 campus security command centre", "Parking permit ALPR integration", "Blue-light emergency phones upgrade"],
-    accent: "from-indigo-500 to-indigo-700",
-    tagBg: "bg-indigo-50 text-indigo-700 border-indigo-200",
+    id: "ntpc",
+    name: "National Thermal Power Corporation, Ramagundam",
+    cat: "industrial",
+    intro: "Annual maintenance of critical surveillance infrastructure at NTPC's Ramagundam power plant.",
+    projects: [
+      { y: 2019, w: "Annual Maintenance Contract for CCTV surveillance systems at NTPC.", p: "Godrej Security Solutions" },
+    ],
   },
   {
-    id: "power-plant",
-    title: "Gas Power Station — NERC CIP Physical Security Compliance",
-    client: "Confidential Energy Utility",
-    location: "Corpus Christi, TX",
-    year: "2022",
-    status: "Completed",
-    category: "Critical Infrastructure",
-    icon: <Shield size={14} />,
-    image: industryInfrastructureImg,
-    scope: "Full NERC CIP physical security programme for a 500MW combined-cycle gas plant — perimeter hardening, electronic security perimeter (ESP) implementation, and automated intrusion detection with SCADA integration.",
-    deliverables: ["NERC CIP compliant ESP implementation", "340 cameras — internal and perimeter", "Multi-factor authentication at all ESPs", "24/7 electronic access monitoring", "SCADA and DCS network segregation", "Security plan documentation and audit support"],
-    accent: "from-yellow-500 to-amber-600",
-    tagBg: "bg-yellow-50 text-yellow-700 border-yellow-200",
+    id: "dr-reddys",
+    name: "Dr. Reddy's Laboratories, Hyderabad",
+    cat: "industrial",
+    intro: "Perimeter access control for a leading pharmaceutical manufacturing facility.",
+    projects: [
+      { y: 2018, w: "Installation, testing and commissioning of power fencing and boom barriers for enhanced access control and perimeter security.", p: "Godrej Security Solutions" },
+    ],
   },
   {
-    id: "retail-chain",
-    title: "National Retail Chain — Loss Prevention & Analytics Rollout",
-    client: "Confidential Retail Group",
-    location: "Multi-site — TX, OK, LA",
-    year: "2023",
-    status: "Completed",
-    category: "Commercial",
-    icon: <Building size={14} />,
-    image: industryCommercialImg,
-    scope: "Standardised CCTV and video analytics rollout across 120 retail locations — including shelf analytics, customer flow heatmapping, automated self-checkout exception reporting, and centralised monitoring from a regional SOC.",
-    deliverables: ["4,800 cameras across 120 stores", "Self-checkout exception reporting", "Customer flow and heat mapping analytics", "Regional SOC with centralised management", "Real-time shrinkage alert platform", "120-store structured cabling standardisation"],
-    accent: "from-pink-500 to-rose-600",
-    tagBg: "bg-pink-50 text-pink-700 border-pink-200",
+    id: "gomti-nagar",
+    name: "Gomti Nagar Railway Station, Lucknow, UP",
+    cat: "government",
+    intro: "A complete station-safety upgrade covering surveillance, fire safety, access control and public announcements.",
+    projects: [
+      { y: 2023, w: "Installation and commissioning of CCTV, Fire Alarm System, Access Control System, and Public Address System.", p: "TNS Groups" },
+    ],
   },
   {
-    id: "stadium",
-    title: "Multi-Use Stadium — Event Security & Crowd Analytics",
-    client: "Confidential Sports & Entertainment Group",
-    location: "Fort Worth, TX",
-    year: "2024",
-    status: "In Progress",
-    category: "Smart City",
-    icon: <MapPin size={14} />,
-    image: serviceSmartcityImg,
-    scope: "Comprehensive event security infrastructure for a 55,000-capacity stadium — perimeter crowd analytics, facial recognition at VIP and restricted access gates, incident detection, and an integrated command and control centre for event-day operations.",
-    deliverables: ["780 cameras — bowl, concourse, perimeter", "AI crowd density and incident analytics", "Facial recognition at 12 VIP access gates", "Event-day command and control centre", "Emergency evacuation guidance system", "Broadcast-compatible camera integration"],
-    accent: "from-teal-500 to-green-600",
-    tagBg: "bg-teal-50 text-teal-700 border-teal-200",
+    id: "telangana-secretariat",
+    name: "Telangana Secretariat, Hyderabad",
+    cat: "government",
+    intro: "Fire safety, public address and surveillance systems for the state government's administrative headquarters.",
+    projects: [
+      { y: 2022, w: "Installation, testing and commissioning of Fire Alarm System, Public Address System, and CCTV Surveillance System.", p: "Technocraft" },
+    ],
   },
+  {
+    id: "ghmc",
+    name: "Municipal Corporation of Hyderabad",
+    cat: "government",
+    intro: "High-security bollards to control vehicle access at the historic Charminar in Hyderabad's old city.",
+    projects: [
+      { y: 2019, w: "Installation of high-security bollards to enhance perimeter protection and control vehicle access at Charminar.", p: "Bgi Engitech Pvt Ltd" },
+    ],
+  },
+  {
+    id: "aiims-guntur",
+    name: "All India Institute of Medical Sciences, Guntur",
+    cat: "healthcare",
+    intro: "A full building-systems deployment across CCTV, BMS, fire alarm and access control for AIIMS Guntur.",
+    projects: [
+      { y: 2019, w: "Installation, testing and commissioning of CCTV, Building Management System (BMS), Fire Alarm System (FAS), and Access Control System (ACS).", p: "Tata Groups" },
+    ],
+  },
+  {
+    id: "manappuram",
+    name: "Manappuram Finance Limited",
+    cat: "bfsi",
+    intro: "A rare non-industrial engagement: fire safety rolled out across 200+ branch offices nationwide, backed by an extended AMC.",
+    projects: [
+      { y: 2018, w: "Fire Alarm System installation across 200+ offices, along with an extended Annual Maintenance Contract for support and reliability.", p: "Godrej Security Solutions" },
+    ],
+  },
+];
+
+const partners = [
+  { n: "GMR Groups", d: "Core client partner across airside CCTV, cabling, passive infra and fibre projects at GMR airports since 2020." },
+  { n: "WAISL Limited", d: "Joint AMC delivery and cargo-terminal CCTV at GMR International Airport, Hyderabad." },
+  { n: "Johnson Control (India) Pvt Ltd", d: "Fire alarm and access-control system rollout at GMR Hyderabad's security gates." },
+  { n: "Godrej Security Solutions", d: "Longest-standing OEM partner — fire alarm and CCTV AMCs across IOCL, NTPC, HAL, Dr. Reddy's and Manappuram." },
+  { n: "Echelon Edge", d: "CCTV hardware and software rollout partner — 3,300+ cameras at GMR Hyderabad and PI Industries Gujarat." },
+  { n: "Siemens Limited", d: "Building management and fire-safety systems integration at Kempegowda International Airport, Bangalore." },
+  { n: "Tata Groups", d: "CCTV, BMS, fire alarm and access control delivery at AIIMS Guntur." },
+  { n: "Crown Solar, Hyderabad", d: "Perimeter CCTV and power-fencing installations at GMR Hyderabad." },
+  { n: "Atluri and Co., Hyderabad", d: "Airside and perimeter CCTV at GMR Hyderabad's apron and the Tata aerostructures joint ventures." },
+  { n: "IH Automation", d: "Perimeter surveillance at Bharat Dynamics Limited, Hyderabad." },
+  { n: "Bgi Engitech Pvt Ltd", d: "High-security bollard installation at Charminar for the Municipal Corporation of Hyderabad." },
+  { n: "Sindoori Solutions, Hyderabad", d: "AMC for UVSS, bollards, barriers and gate systems at GMR Hyderabad." },
+  { n: "Stratecache India Pvt Ltd", d: "Kiosk operations manpower supply for flight-information displays at GMR Hyderabad." },
+  { n: "Technocraft", d: "Fire alarm, PA and CCTV systems at the Telangana Secretariat, Hyderabad." },
+  { n: "TNS Groups", d: "Station-wide safety systems at Gomti Nagar Railway Station, Lucknow." },
+  { n: "Orchids Network & Systems Pvt Ltd", d: "100km backbone fibre laying and testing at GMR Hyderabad." },
 ];
 
 const stats = [
-  { value: "500+", label: "Projects Delivered" },
-  { value: "14+", label: "Years of Experience" },
-  { value: "40+", label: "Enterprise Clients" },
-  { value: "98%", label: "Client Retention" },
+  { value: "15", label: "Enterprise Clients" },
+  { value: "35+", label: "Projects Delivered" },
+  { value: "16", label: "Execution Partners" },
+  { value: "2017", label: "Founded" },
 ];
 
-function ProjectModal({ project, onClose }: { project: typeof projects[0]; onClose: () => void }) {
+function yearRange(client: Client) {
+  const years = client.projects.map((p) => p.y);
+  return years.length > 1 ? `${Math.min(...years)}–${Math.max(...years)}` : `${years[0]}`;
+}
+
+function partnerList(client: Client) {
+  return Array.from(new Set(client.projects.map((p) => p.p)));
+}
+
+function initials(name: string) {
+  return name
+    .replace(/\(.*?\)/g, "")
+    .split(/[\s,&]+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((w) => w[0])
+    .join("")
+    .toUpperCase();
+}
+
+function ClientModal({ client, onClose }: { client: Client; onClose: () => void }) {
+  const cat = CATS[client.cat];
+  const sortedProjects = [...client.projects].sort((a, b) => b.y - a.y);
+
   return (
     <motion.div
       className="fixed inset-0 z-50 flex items-center justify-center p-4"
@@ -220,55 +262,54 @@ function ProjectModal({ project, onClose }: { project: typeof projects[0]; onClo
         exit={{ scale: 0.95, y: 20 }}
         transition={{ duration: 0.25 }}
       >
-        {/* Image */}
-        <div className="relative h-56 overflow-hidden rounded-t-3xl">
-          <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
-          <div className={`absolute bottom-5 left-5 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold border ${project.tagBg} backdrop-blur-sm`}>
-            {project.icon} {project.category}
-          </div>
+        <div className={`relative p-8 pb-6 bg-gradient-to-br ${cat.accent}`}>
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 bg-white/10 backdrop-blur-sm border border-white/20 text-white rounded-full p-2 hover:bg-white/20 transition-colors"
+            className="absolute top-4 right-4 bg-white/15 backdrop-blur-sm border border-white/25 text-white rounded-full p-2 hover:bg-white/25 transition-colors"
           >
             <X size={16} />
           </button>
+          <div className="flex items-center gap-4">
+            <div className="w-14 h-14 rounded-2xl bg-white/15 border border-white/25 flex items-center justify-center text-white font-bold text-lg shrink-0">
+              {initials(client.name)}
+            </div>
+            <div>
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-white/15 text-white mb-2">
+                {cat.icon} {cat.label}
+              </div>
+              <h2 className="text-xl font-bold text-white leading-snug">{client.name}</h2>
+            </div>
+          </div>
         </div>
 
         <div className="p-8">
-          {/* Meta */}
-          <div className="flex flex-wrap items-center gap-3 mb-4 text-sm text-slate-500">
-            <span className="flex items-center gap-1.5"><MapPin size={12} />{project.location}</span>
+          <div className="flex flex-wrap items-center gap-3 mb-6 text-sm text-slate-500 pb-6 border-b border-slate-100">
+            <span className="flex items-center gap-1.5"><Calendar size={12} />{yearRange(client)}</span>
             <span className="w-1 h-1 rounded-full bg-slate-300" />
-            <span className="flex items-center gap-1.5"><Calendar size={12} />{project.year}</span>
+            <span>{client.projects.length} project{client.projects.length > 1 ? "s" : ""}</span>
             <span className="w-1 h-1 rounded-full bg-slate-300" />
-            <span className={cn("font-medium", project.status === "In Progress" ? "text-amber-600" : "text-green-600")}>
-              {project.status}
-            </span>
+            <span className="flex items-center gap-1.5"><Users size={12} />{partnerList(client).length} partner{partnerList(client).length > 1 ? "s" : ""}</span>
           </div>
 
-          <h2 className="text-xl font-bold text-foreground mb-4 leading-snug">{project.title}</h2>
+          <p className="text-slate-600 text-sm leading-relaxed mb-8">{client.intro}</p>
 
-          {/* Accent line */}
-          <div className={`h-1 w-12 rounded-full bg-gradient-to-r ${project.accent} mb-6`} />
-
-          <p className="text-slate-600 text-sm leading-relaxed mb-6">{project.scope}</p>
-
-          <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">Key Deliverables</h4>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mb-8">
-            {project.deliverables.map((d) => (
-              <div key={d} className="flex items-start gap-2 text-sm text-slate-700">
-                <CheckCircle2 size={13} className="text-primary mt-0.5 shrink-0" />
-                {d}
+          <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">Project History</h4>
+          <div className="space-y-4">
+            {sortedProjects.map((p, i) => (
+              <div key={i} className="border-l-2 border-slate-100 pl-4">
+                <div className="flex items-center gap-3 mb-1.5">
+                  <span className="text-xs font-bold text-primary">{p.y}</span>
+                  <span className="text-xs text-slate-400">Delivered with {p.p}</span>
+                </div>
+                <p className="text-sm text-slate-700 leading-relaxed">{p.w}</p>
               </div>
             ))}
           </div>
 
-          <div className="pt-5 border-t border-slate-100 flex items-center justify-between">
-            <span className="text-xs text-slate-400 font-medium uppercase tracking-wider">Client: {project.client}</span>
-            <a href="mailto:procurement@vsrtech.com">
-              <Button size="sm" className={`bg-gradient-to-r ${project.accent} text-white border-0 hover:opacity-90`}>
-                Similar Project? <ArrowRight size={13} className="ml-1" />
+          <div className="pt-6 mt-6 border-t border-slate-100 flex justify-end">
+            <a href="mailto:info@vsrt.in">
+              <Button size="sm" className={`bg-gradient-to-r ${cat.accent} text-white border-0 hover:opacity-90`}>
+                Discuss a Similar Project <ArrowRight size={13} className="ml-1" />
               </Button>
             </a>
           </div>
@@ -280,11 +321,9 @@ function ProjectModal({ project, onClose }: { project: typeof projects[0]; onClo
 
 export default function ProjectsPage() {
   const [activeCategory, setActiveCategory] = useState("All");
-  const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
+  const [selectedClient, setSelectedClient] = useState<Client | null>(null);
 
-  const filtered = activeCategory === "All"
-    ? projects
-    : projects.filter((p) => p.category === activeCategory);
+  const filtered = activeCategory === "All" ? clients : clients.filter((c) => c.cat === activeCategory);
 
   return (
     <div className="flex flex-col min-h-screen bg-background text-foreground">
@@ -307,7 +346,7 @@ export default function ProjectsPage() {
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-primary">Across Every Sector.</span>
             </h1>
             <p className="text-xl text-slate-300 leading-relaxed max-w-2xl mb-16">
-              From international airports to city-wide smart surveillance networks, our portfolio demonstrates the depth of our capabilities.
+              From India's busiest airports to defence PSUs, industrial plants, and government institutions — our portfolio demonstrates the depth of our capabilities.
             </p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-8 border-t border-white/10">
               {stats.map((s) => (
@@ -321,7 +360,7 @@ export default function ProjectsPage() {
         </div>
       </div>
 
-      {/* ── Projects grid ── */}
+      {/* ── Clients grid ── */}
       <main className="flex-1 py-16 bg-[#F8FAFC]">
         <div className="container mx-auto px-6">
 
@@ -338,12 +377,12 @@ export default function ProjectsPage() {
                     : "bg-white text-slate-600 border-slate-200 hover:border-primary/40 hover:text-primary"
                 )}
               >
-                {cat}
+                {cat === "All" ? "All" : CATS[cat].label}
                 <span className={cn(
                   "ml-2 text-xs font-bold",
                   activeCategory === cat ? "text-white/70" : "text-slate-400"
                 )}>
-                  {cat === "All" ? projects.length : projects.filter((p) => p.category === cat).length}
+                  {cat === "All" ? clients.length : clients.filter((c) => c.cat === cat).length}
                 </span>
               </button>
             ))}
@@ -352,67 +391,56 @@ export default function ProjectsPage() {
           {/* Cards */}
           <motion.div
             layout
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
           >
             <AnimatePresence>
-              {filtered.map((project, i) => (
-                <motion.div
-                  key={project.id}
-                  layout
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.95 }}
-                  transition={{ duration: 0.3, delay: i * 0.04 }}
-                  className="group relative rounded-2xl overflow-hidden cursor-pointer bg-white border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-400"
-                  onClick={() => setSelectedProject(project)}
-                >
-                  {/* Image */}
-                  <div className="relative h-44 overflow-hidden">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-950/10 to-transparent" />
-
-                    {/* Status dot */}
-                    <div className={cn(
-                      "absolute top-3 right-3 flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold backdrop-blur-sm border",
-                      project.status === "In Progress"
-                        ? "bg-amber-500/20 text-amber-300 border-amber-400/30"
-                        : "bg-green-500/20 text-green-300 border-green-400/30"
-                    )}>
-                      <div className={cn("w-1.5 h-1.5 rounded-full", project.status === "In Progress" ? "bg-amber-400 animate-pulse" : "bg-green-400")} />
-                      {project.status}
+              {filtered.map((client, i) => {
+                const cat = CATS[client.cat];
+                const partnersForClient = partnerList(client);
+                return (
+                  <motion.div
+                    key={client.id}
+                    layout
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.95 }}
+                    transition={{ duration: 0.3, delay: i * 0.04 }}
+                    className="group relative rounded-2xl overflow-hidden cursor-pointer bg-white border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-400"
+                    onClick={() => setSelectedClient(client)}
+                  >
+                    <div className={`relative h-28 bg-gradient-to-br ${cat.accent} flex items-center justify-between p-5`}>
+                      <div className={cn("inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-semibold bg-white/15 text-white backdrop-blur-sm")}>
+                        {cat.icon} {cat.label}
+                      </div>
+                      <div className="w-11 h-11 rounded-xl bg-white/15 border border-white/25 flex items-center justify-center text-white font-bold text-sm shrink-0">
+                        {initials(client.name)}
+                      </div>
                     </div>
 
-                    {/* Category tag */}
-                    <div className={cn("absolute bottom-3 left-3 inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-semibold border backdrop-blur-sm", project.tagBg)}>
-                      {project.icon} {project.category}
+                    <div className="p-5">
+                      <div className={`h-0.5 w-8 rounded-full bg-gradient-to-r ${cat.accent} mb-3 group-hover:w-16 transition-all duration-300`} />
+
+                      <h3 className="text-sm font-bold text-foreground leading-snug mb-3 line-clamp-2 group-hover:text-primary transition-colors duration-300">
+                        {client.name}
+                      </h3>
+
+                      <p className="text-xs text-slate-500 mb-4">
+                        {partnersForClient.length} partner{partnersForClient.length > 1 ? "s" : ""} · {partnersForClient.slice(0, 2).join(", ")}
+                        {partnersForClient.length > 2 ? ` +${partnersForClient.length - 2}` : ""}
+                      </p>
+
+                      <div className="flex items-center justify-between text-xs text-slate-400">
+                        <span className="flex items-center gap-1"><Calendar size={10} />{yearRange(client)}</span>
+                        <span>{client.projects.length} project{client.projects.length > 1 ? "s" : ""}</span>
+                      </div>
+
+                      <div className="mt-4 flex items-center gap-1 text-xs font-semibold text-primary opacity-0 group-hover:opacity-100 transition-all duration-200 -translate-y-1 group-hover:translate-y-0">
+                        View details <ArrowRight size={11} />
+                      </div>
                     </div>
-                  </div>
-
-                  {/* Content */}
-                  <div className="p-5">
-                    {/* Gradient accent */}
-                    <div className={`h-0.5 w-8 rounded-full bg-gradient-to-r ${project.accent} mb-3 group-hover:w-16 transition-all duration-300`} />
-
-                    <h3 className="text-sm font-bold text-foreground leading-snug mb-3 line-clamp-2 group-hover:text-primary transition-colors duration-300">
-                      {project.title}
-                    </h3>
-
-                    <div className="flex items-center justify-between text-xs text-slate-400">
-                      <span className="flex items-center gap-1"><MapPin size={10} />{project.location.split(",")[0]}</span>
-                      <span className="flex items-center gap-1"><Calendar size={10} />{project.year}</span>
-                    </div>
-
-                    {/* View details hint */}
-                    <div className="mt-4 flex items-center gap-1 text-xs font-semibold text-primary opacity-0 group-hover:opacity-100 transition-all duration-200 -translate-y-1 group-hover:translate-y-0">
-                      View details <ArrowRight size={11} />
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
+                  </motion.div>
+                );
+              })}
             </AnimatePresence>
           </motion.div>
         </div>
@@ -420,10 +448,48 @@ export default function ProjectsPage() {
 
       {/* Modal */}
       <AnimatePresence>
-        {selectedProject && (
-          <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
+        {selectedClient && (
+          <ClientModal client={selectedClient} onClose={() => setSelectedClient(null)} />
         )}
       </AnimatePresence>
+
+      {/* Execution partners */}
+      <div className="py-24 bg-white">
+        <div className="container mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="max-w-2xl mb-14"
+          >
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/20 bg-primary/5 text-primary text-sm font-medium mb-6">
+              <MapPin size={14} />
+              Execution Partners
+            </div>
+            <h2 className="text-4xl font-bold tracking-tight mb-4">Delivered alongside trusted partners</h2>
+            <p className="text-xl text-slate-500 leading-relaxed">
+              Every engagement is executed hand-in-hand with leading OEMs, system integrators, and contractors.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {partners.map((p, i) => (
+              <motion.div
+                key={p.n}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.04 }}
+                className="bg-[#F8FAFC] rounded-2xl p-5 border border-slate-100 hover:shadow-md transition-all duration-300"
+              >
+                <div className="font-semibold text-foreground text-sm mb-2">{p.n}</div>
+                <div className="text-xs text-slate-500 leading-relaxed">{p.d}</div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
 
       {/* CTA */}
       <div className="bg-primary py-20">

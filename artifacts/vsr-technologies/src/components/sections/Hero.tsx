@@ -63,7 +63,7 @@ export function Hero() {
   const opacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
 
   return (
-    <section ref={containerRef} className="fluid-grid-section fluid-to-story relative min-h-[100dvh] flex items-center overflow-hidden">
+    <section ref={containerRef} className="relative min-h-[100dvh] flex items-center overflow-hidden bg-[#0A1628]">
       {/* Parallax background */}
       <motion.div style={{ y }} className="absolute inset-0 z-0">
         <img
