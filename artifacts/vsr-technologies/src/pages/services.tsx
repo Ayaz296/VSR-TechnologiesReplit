@@ -469,7 +469,7 @@ export default function ServicesPage() {
         </section>
 
         {/* ── Capabilities Grid ── */}
-        <section className="pt-0 pb-16 sm:pb-24 bg-[#EEF4FF]">
+        <section className="pt-16 sm:pt-20 pb-16 sm:pb-24 bg-[#EEF4FF]">
           <div className="container mx-auto px-4 sm:px-6">
             <motion.div
               initial={{ opacity: 0, y: 20 }}

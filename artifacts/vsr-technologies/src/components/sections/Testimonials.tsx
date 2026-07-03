@@ -61,7 +61,7 @@ export function Testimonials() {
   const active = testimonials[index];
 
   return (
-    <section className="pt-24 sm:pt-28 pb-0 bg-[#EEF4FF] relative overflow-hidden">
+    <section className="pt-24 sm:pt-28 pb-0 bg-[#EEF4FF] relative">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] rounded-full bg-blue-400/20 blur-[140px] pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-[400px] h-[300px] rounded-full bg-indigo-400/15 blur-[100px] pointer-events-none" />
 
