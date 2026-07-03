@@ -93,7 +93,7 @@ export function Slider3D() {
           className="text-center mb-14"
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/20 bg-primary/5 text-primary text-sm font-medium mb-8">
-            Services
+            Deployments
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-foreground tracking-tight mb-4 leading-[1.1]">
             Proven across{" "}

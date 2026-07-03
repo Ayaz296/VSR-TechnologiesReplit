@@ -263,3 +263,12 @@
     --fluid-next-bg: #060e1e;
   }
 }
+
+@keyframes clients-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}

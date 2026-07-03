@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VSR Technologies — Enterprise-Grade CCTV Surveillance for Critical Infrastructure</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-950:#070c17;
+    --navy-900:#0a1226;
+    --navy-800:#0f1c36;
+    --navy-700:#152447;
+    --blue-500:#2f6fed;
+    --blue-400:#4f8dff;
+    --blue-300:#8fb6ff;
+    --purple:#8b5cf6;
+    --teal:#14b8a6;
+    --orange:#f59e0b;
+    --green:#22c55e;
+    --red:#ef4444;
+    --slate:#64748b;
+    --bg-light:#f3f5fb;
+    --card:#ffffff;
+    --ink-900:#0c1424;
+    --ink-600:#4b5670;
+    --ink-400:#8994ab;
+    --line:#e4e8f2;
+    --radius:14px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter',system-ui,sans-serif;
+    color:var(--ink-900);
+    background:var(--bg-light);
+    -webkit-font-smoothing:antialiased;
+  }
+  img,svg{display:block;}
+  a{text-decoration:none; color:inherit;}
+  ul{list-style:none;}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  .wrap{max-width:1240px; margin:0 auto; padding:0 32px;}
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:13px; font-weight:600; letter-spacing:.02em;
+    color:var(--blue-300);
+  }
+  section{position:relative;}
+
+  /* ---------- NAV ---------- */
+  header.site-nav{
+    background:rgba(7,12,23,.85);
+    backdrop-filter:blur(10px);
+    position:sticky; top:0; z-index:50;
+    border-bottom:1px solid rgba(255,255,255,.06);
+  }
+  .nav-inner{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 32px; max-width:1240px; margin:0 auto;
+  }
+  .logo{display:flex; align-items:center; gap:10px; font-weight:800; font-size:19px; color:#fff;}
+  .logo .mark{
+    width:32px; height:32px; border-radius:9px;
+    background:linear-gradient(135deg,var(--blue-400),var(--blue-500));
+    display:flex; align-items:center; justify-content:center;
+  }
+  .logo span{color:var(--blue-400);}
+  .nav-links{display:flex; gap:36px;}
+  .nav-links a{
+    color:#c6cede; font-size:14.5px; font-weight:500; transition:color .2s;
+  }
+  .nav-links a.active{color:#fff;}
+  .nav-links a:hover{color:#fff;}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:11px 22px; border-radius:9px;
+    font-size:14.5px; font-weight:600; border:none; cursor:pointer;
+    transition:transform .15s, box-shadow .15s, background .2s;
+  }
+  .btn-primary{background:var(--blue-500); color:#fff;}
+  .btn-primary:hover{background:var(--blue-400); box-shadow:0 8px 22px rgba(47,111,237,.35);}
+  .btn-ghost{background:rgba(255,255,255,.06); color:#fff; border:1px solid rgba(255,255,255,.14);}
+  .btn-ghost:hover{background:rgba(255,255,255,.12);}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background:
+      radial-gradient(1100px 600px at 78% 15%, rgba(47,111,237,.28), transparent 60%),
+      linear-gradient(180deg,var(--navy-950),var(--navy-900) 55%, var(--navy-800));
+    padding:88px 0 90px;
+    overflow:hidden;
+    position:relative;
+  }
+  .hero-grid{
+    display:grid; grid-template-columns:1.05fr .95fr; gap:40px; align-items:center;
+  }
+  .hero-badge{
+    display:inline-flex; align-items:center; gap:8px;
+    background:rgba(47,111,237,.14); border:1px solid rgba(79,141,255,.3);
+    padding:7px 14px; border-radius:100px; font-size:13px; font-weight:600;
+    color:var(--blue-300); margin-bottom:22px;
+  }
+  .hero h1{
+    font-size:52px; line-height:1.06; font-weight:800; color:#fff; letter-spacing:-.01em;
+  }
+  .hero h1 .accent{
+    background:linear-gradient(90deg,var(--blue-300),var(--blue-400));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .hero h1 .tail{display:block; font-weight:700; font-size:38px; margin-top:6px; color:#eef1fb;}
+  .hero p{
+    margin-top:20px; color:#a8b2c9; font-size:16px; line-height:1.7; max-width:520px;
+  }
+  .tag-row{display:flex; flex-wrap:wrap; gap:10px; margin-top:26px;}
+  .tag-pill{
+    font-size:12.5px; font-weight:600; color:#cbd5f5;
+    background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1);
+    padding:8px 13px; border-radius:8px;
+  }
+  .hero-ctas{display:flex; gap:14px; margin-top:34px;}
+
+  .hero-art{
+    position:relative; aspect-ratio:1/1; display:flex; align-items:center; justify-content:center;
+  }
+  .hero-art .ring{
+    position:absolute; inset:0; border-radius:50%;
+    border:1px dashed rgba(79,141,255,.25);
+  }
+  .hero-art .ring2{inset:40px; border-color:rgba(79,141,255,.15);}
+  .cam-icon{width:62%; filter:drop-shadow(0 30px 60px rgba(47,111,237,.35));}
+
+  /* ---------- SECTION HEADERS ---------- */
+  .section{padding:96px 0;}
+  .section.tight{padding:80px 0;}
+  .sec-head{
+    display:flex; justify-content:space-between; align-items:flex-end; gap:24px;
+    margin-bottom:48px; flex-wrap:wrap;
+  }
+  .sec-head h2{
+    font-size:36px; font-weight:800; letter-spacing:-.01em; line-height:1.15; color:var(--ink-900);
+  }
+  .sec-head h2 .blue{color:var(--blue-500);}
+  .sec-head p{color:var(--ink-600); font-size:15.5px; margin-top:10px; max-width:520px;}
+  .view-all{font-size:14px; font-weight:700; color:var(--blue-500); white-space:nowrap;}
+  .view-all:hover{text-decoration:underline;}
+
+  /* ---------- SERVICES GRID ---------- */
+  .grid-4{display:grid; grid-template-columns:repeat(4,1fr); gap:22px;}
+  .svc-card{
+    background:var(--card); border-radius:var(--radius);
+    border:1px solid var(--line); border-top:3px solid var(--c);
+    padding:26px 22px 24px; position:relative; overflow:hidden;
+    transition:transform .2s, box-shadow .2s;
+  }
+  .svc-card:hover{transform:translateY(-4px); box-shadow:0 16px 30px rgba(15,25,60,.08);}
+  .svc-card .num{
+    position:absolute; top:10px; right:16px; font-size:38px; font-weight:800;
+    font-family:'IBM Plex Mono',monospace; color:#eef1f8;
+  }
+  .svc-icon{
+    width:42px; height:42px; border-radius:11px; display:flex; align-items:center; justify-content:center;
+    background:var(--c); margin-bottom:16px;
+  }
+  .svc-icon svg{width:21px; height:21px; stroke:#fff;}
+  .svc-card h3{font-size:16.5px; font-weight:700; margin-bottom:8px;}
+  .svc-card p{font-size:13.8px; color:var(--ink-600); line-height:1.55;}
+
+  /* ---------- COMMITMENTS ---------- */
+  .grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+  .commit-card{
+    background:var(--card); border-radius:var(--radius);
+    border:1px solid var(--line); border-top:3px solid var(--c);
+    padding:26px 22px; position:relative; overflow:hidden;
+  }
+  .commit-card .num{
+    position:absolute; top:10px; right:16px; font-size:38px; font-weight:800;
+    font-family:'IBM Plex Mono',monospace; color:#eef1f8;
+  }
+  .commit-icon{
+    width:40px; height:40px; border-radius:10px; display:flex; align-items:center; justify-content:center;
+    background:color-mix(in srgb, var(--c) 14%, white); margin-bottom:16px;
+  }
+  .commit-icon svg{width:19px; height:19px; stroke:var(--c);}
+  .commit-card h3{font-size:16px; font-weight:700; margin-bottom:8px;}
+  .commit-card p{font-size:13.5px; color:var(--ink-600); line-height:1.55;}
+
+  /* ---------- MILESTONES (Arun-style horizontal) ---------- */
+  .milestones{
+    background:var(--navy-900);
+    padding:90px 0 110px;
+  }
+  .milestones .sec-head h2, .milestones .sec-head p{color:#fff;}
+  .milestones .sec-head p{color:#a8b2c9;}
+  .ms-track-outer{position:relative;}
+  .ms-track{
+    display:grid; grid-auto-flow:column; grid-auto-columns:250px;
+    gap:0; overflow-x:auto; padding:20px 4px 40px;
+    scroll-snap-type:x proximity;
+  }
+  .ms-track::-webkit-scrollbar{height:6px;}
+  .ms-track::-webkit-scrollbar-thumb{background:rgba(255,255,255,.15); border-radius:10px;}
+  .ms-item{
+    position:relative; padding:0 18px; scroll-snap-align:start;
+    display:flex; flex-direction:column; align-items:center; text-align:center;
+  }
+  .ms-bubble{
+    background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1);
+    border-radius:14px; padding:16px 16px 20px; margin-bottom:22px; min-height:118px;
+    display:flex; align-items:center; font-size:12.8px; line-height:1.55; color:#cdd5ea;
+  }
+  .ms-bubble b{color:#fff;}
+  .ms-circle{
+    width:66px; height:66px; border-radius:50%;
+    background:linear-gradient(135deg,var(--navy-700),var(--navy-800));
+    border:2px solid var(--blue-400);
+    display:flex; align-items:center; justify-content:center;
+    margin-bottom:16px; z-index:2;
+    box-shadow:0 0 0 6px rgba(47,111,237,.1);
+  }
+  .ms-circle svg{width:26px; height:26px; stroke:var(--blue-300);}
+  .ms-line{
+    position:absolute; top:calc(118px + 16px + 33px); left:0; right:0; height:2px;
+    background:repeating-linear-gradient(90deg, rgba(79,141,255,.5) 0 8px, transparent 8px 16px);
+    z-index:1;
+  }
+  .ms-dot{
+    width:11px; height:11px; border-radius:50%; background:var(--blue-400);
+    margin-bottom:14px; z-index:2; box-shadow:0 0 0 5px rgba(47,111,237,.18);
+  }
+  .ms-year{
+    background:var(--blue-500); color:#fff; font-weight:700; font-size:13.5px;
+    padding:7px 18px; border-radius:7px;
+  }
+  .ms-nav{
+    display:flex; justify-content:center; gap:12px; margin-top:6px;
+  }
+  .ms-nav button{
+    width:38px; height:38px; border-radius:50%; border:1px solid rgba(255,255,255,.16);
+    background:rgba(255,255,255,.05); color:#fff; cursor:pointer; font-size:16px;
+    display:flex; align-items:center; justify-content:center; transition:background .2s;
+  }
+  .ms-nav button:hover{background:rgba(255,255,255,.14);}
+
+  /* ---------- CLIENTS MARQUEE ---------- */
+  .clients{background:var(--card); padding:70px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .clients h2{
+    text-align:center; font-size:14px; font-weight:800; letter-spacing:.14em;
+    color:var(--blue-500); margin-bottom:36px;
+  }
+  .marquee{
+    overflow:hidden; position:relative;
+    -webkit-mask-image:linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    mask-image:linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  }
+  .marquee-track{
+    display:flex; align-items:center; gap:64px;
+    width:max-content;
+    animation:scroll-left 26s linear infinite;
+  }
+  .marquee:hover .marquee-track{animation-play-state:paused;}
+  @keyframes scroll-left{
+    from{transform:translateX(0);}
+    to{transform:translateX(-50%);}
+  }
+  .client-logo{
+    height:46px; width:150px; border-radius:8px;
+    display:flex; align-items:center; justify-content:center;
+    border:1px dashed var(--line); color:var(--ink-400);
+    font-size:12px; font-weight:600; letter-spacing:.02em; flex:none;
+    background:#fafbff;
+  }
+
+  /* ---------- TESTIMONIALS ---------- */
+  .testimonials{
+    background:var(--navy-900); padding:90px 0;
+    position:relative; overflow:hidden;
+  }
+  .testimonials::before{
+    content:""; position:absolute; inset:0;
+    background:radial-gradient(700px 300px at 50% 0%, rgba(47,111,237,.18), transparent 65%);
+  }
+  .t-head{text-align:center; margin-bottom:8px; position:relative;}
+  .t-head h2{
+    font-size:14px; font-weight:800; letter-spacing:.16em; color:#fff;
+  }
+  .t-slider{
+    max-width:760px; margin:40px auto 0; position:relative;
+    display:flex; align-items:center; gap:22px;
+  }
+  .t-arrow{
+    width:44px; height:44px; border-radius:50%; flex:none;
+    background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.16);
+    color:#fff; font-size:18px; cursor:pointer;
+    display:flex; align-items:center; justify-content:center; transition:background .2s;
+  }
+  .t-arrow:hover{background:rgba(255,255,255,.16);}
+  .t-body{flex:1; text-align:center; min-height:150px;}
+  .t-quote{
+    font-size:19px; line-height:1.6; color:#eef1fb; font-weight:500;
+    max-width:600px; margin:0 auto;
+  }
+  .t-meta{margin-top:22px;}
+  .t-meta .name{font-weight:700; color:#fff; font-size:14.5px;}
+  .t-meta .org{font-size:12.5px; color:var(--blue-300); margin-top:2px;}
+  .t-dots{display:flex; justify-content:center; gap:8px; margin-top:30px;}
+  .t-dots span{
+    width:7px; height:7px; border-radius:50%; background:rgba(255,255,255,.22); cursor:pointer;
+    transition:background .2s, width .2s;
+  }
+  .t-dots span.on{background:var(--blue-400); width:20px; border-radius:6px;}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--navy-950); padding:70px 0 0; color:#c6cede;}
+  .footer-grid{
+    display:grid; grid-template-columns:1.6fr 1fr 1fr 1.2fr; gap:32px;
+    padding-bottom:50px; border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .footer-logo{display:flex; align-items:center; gap:10px; font-weight:800; font-size:18px; color:#fff; margin-bottom:16px;}
+  .footer-logo .mark{
+    width:30px; height:30px; border-radius:8px;
+    background:linear-gradient(135deg,var(--blue-400),var(--blue-500));
+    display:flex; align-items:center; justify-content:center;
+  }
+  .footer-logo span{color:var(--blue-400);}
+  .footer-grid p{font-size:13.5px; line-height:1.7; color:#8f9ab3; max-width:280px;}
+  .footer-col h4{
+    font-size:12.5px; letter-spacing:.08em; color:#fff; font-weight:700; margin-bottom:18px;
+  }
+  .footer-col ul li{margin-bottom:12px;}
+  .footer-col ul li a{font-size:13.8px; color:#a6b0c8; transition:color .2s;}
+  .footer-col ul li a:hover{color:#fff;}
+  .contact-item{display:flex; gap:10px; font-size:13.5px; color:#a6b0c8; margin-bottom:14px; line-height:1.6;}
+  .contact-item svg{width:16px; height:16px; stroke:var(--blue-400); flex:none; margin-top:2px;}
+  .footer-bottom{
+    display:flex; justify-content:space-between; align-items:center; padding:22px 0; font-size:12.8px; color:#79839c;
+    flex-wrap:wrap; gap:10px;
+  }
+  .footer-bottom .links{display:flex; gap:22px;}
+  .footer-bottom .links a{color:#79839c;}
+  .footer-bottom .links a:hover{color:#fff;}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:980px){
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-art{max-width:340px; margin:0 auto;}
+    .grid-4{grid-template-columns:repeat(2,1fr);}
+    .grid-3{grid-template-columns:repeat(1,1fr);}
+    .footer-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:640px){
+    .nav-links{display:none;}
+    .hero h1{font-size:36px;}
+    .hero h1 .tail{font-size:26px;}
+    .grid-4{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr;}
+    .sec-head{flex-direction:column; align-items:flex-start;}
+    .wrap{padding:0 20px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= NAV ================= -->
+<header class="site-nav">
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      <span class="mark">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 2 3 6v6c0 5 4 9 9 10 5-1 9-5 9-10V6l-9-4Z"/></svg>
+      </span>
+      VSR<span>Technologies</span>
+    </a>
+    <nav class="nav-links">
+      <a href="#" class="active">Home</a>
+      <a href="#services">Services</a>
+      <a href="#projects">Projects</a>
+      <a href="#about">About Us</a>
+    </nav>
+    <a href="#contact" class="btn btn-primary">Contact Sales</a>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="hero-badge">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2 3 6v6c0 5 4 9 9 10 5-1 9-5 9-10V6l-9-4Z"/></svg>
+        Full-Spectrum Physical Security Infrastructure
+      </div>
+      <h1>
+        Enterprise-Grade
+        <span class="accent tail">CCTV Surveillance</span>
+        <span class="tail">for Critical Infrastructure.</span>
+      </h1>
+      <p>From CCTV and fire alarm systems to structured cabling, building management, entrance control, and parking solutions — we design, install, and maintain the complete security stack for airports, commercial towers, and industrial facilities.</p>
+      <div class="tag-row">
+        <span class="tag-pill">CCTV &amp; Video Analytics</span>
+        <span class="tag-pill">Structured Cabling</span>
+        <span class="tag-pill">Building Management</span>
+        <span class="tag-pill">Fire Alarm Systems</span>
+        <span class="tag-pill">Entrance Control</span>
+        <span class="tag-pill">Parking Management</span>
+      </div>
+      <div class="hero-ctas">
+        <a href="#services" class="btn btn-primary">Explore Services →</a>
+        <a href="#projects" class="btn btn-ghost">View Projects</a>
+      </div>
+    </div>
+    <div class="hero-art">
+      <div class="ring"></div>
+      <div class="ring2"></div>
+      <svg class="cam-icon" viewBox="0 0 200 200" fill="none">
+        <rect x="40" y="70" width="110" height="60" rx="10" fill="#101d3a" stroke="#4f8dff" stroke-width="2"/>
+        <circle cx="150" cy="100" r="26" fill="#0b1730" stroke="#4f8dff" stroke-width="2"/>
+        <circle cx="150" cy="100" r="14" fill="#2f6fed"/>
+        <circle cx="150" cy="100" r="5" fill="#8fb6ff"/>
+        <rect x="20" y="90" width="24" height="20" rx="4" fill="#0b1730" stroke="#4f8dff" stroke-width="2"/>
+        <rect x="85" y="45" width="10" height="30" rx="3" fill="#0b1730" stroke="#4f8dff" stroke-width="2"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SERVICES ================= -->
+<section class="section" id="services">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <h2>Integrated Security<br><span class="blue">Ecosystems</span></h2>
+        <p>We don't install components — we architect complete security infrastructure tailored to your environment.</p>
+      </div>
+      <a href="#" class="view-all">View all services →</a>
+    </div>
+
+    <div class="grid-4">
+      <div class="svc-card" style="--c:var(--blue-500)">
+        <div class="num">01</div>
+        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="2" y="6" width="14" height="11" rx="2"/><path d="m16 10 6-3v10l-6-3"/></svg></div>
+        <h3>CCTV Surveillance</h3>
+        <p>HD networked camera systems for total site visibility.</p>
+      </div>
+      <div class="svc-card" style="--c:var(--purple)">
+        <div class="num">02</div>
+        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7Z"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <h3>Video Analytics</h3>
+        <p>AI-driven threat detection and behavioral analysis.</p>
+      </div>
+      <div class="svc-card" style="--c:var(--teal)">
+        <div class="num">03</div>
+        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="6" cy="6" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/><path d="M6 8v8M18 8v8M8 6h8M8 18h8"/></svg></div>
+        <h3>Networking Solutions</h3>
+        <p>Structured cabling and fiber backbone infrastructure.</p>
+      </div>
+      <div class="svc-card" style="--c:var(--orange)">
+        <div class="num">04</div>
+        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M3 21V9l9-6 9 6v12"/><path d="M9 21v-6h6v6"/></svg></div>
+        <h3>Building Management</h3>
+        <p>Unified control of HVAC, access, and security systems.</p>
+      </div>
+      <div class="svc-card" style="--c:var(--blue-500)">
+        <div class="num">05</div>
+        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 2v4M12 18v4M4.9 4.9l2.9 2.9M16.2 16.2l2.9 2.9M2 12h4M18 12h4M4.9 19.1l2.9-2.9M16.2 7.8l2.9-2.9"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <h3>Smart City Solutions</h3>
+        <p>Municipal-scale surveillance and public safety networks.</p>
+      </div>
+      <div class="svc-card" style="--c:var(--green)">
+        <div class="num">06</div>
+        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
+        <h3>Entrance Control</h3>
+        <p>Biometric and credential access for restricted zones.</p>
+      </div>
+      <div class="svc-card" style="--c:var(--red)">
+        <div class="num">07</div>
+        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a6 6 0 1 1-12 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></div>
+        <h3>Fire Alarm Systems</h3>
+        <p>NFPA-compliant fire detection and suppression control.</p>
+      </div>
+      <div class="svc-card" style="--c:var(--slate)">
+        <div class="num">08</div>
+        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M14 16H9m10 0h3v-3.15a1 1 0 0 0-.84-.99L16 11l-2.7-3.6a1 1 0 0 0-.8-.4H5.5a1 1 0 0 0-1 .8L3 11.5V16h2"/><circle cx="6.5" cy="16.5" r="2.5"/><circle cx="16.5" cy="16.5" r="2.5"/></svg></div>
+        <h3>Parking Management</h3>
+        <p>ALPR-controlled vehicle flow and occupancy tracking.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= COMMITMENTS ================= -->
+<section class="section tight">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <h2>What We Commit<br><span class="blue">To Every Client</span></h2>
+        <p>Security is a long-term responsibility, not a one-time installation. Every commitment we make is built into the systems we design, the engineers we deploy, and the support we provide — without exception.</p>
+      </div>
+    </div>
+    <div class="grid-3">
+      <div class="commit-card" style="--c:var(--blue-500)">
+        <div class="num">01</div>
+        <div class="commit-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="9" cy="7" r="4"/><path d="M2 21v-2a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v2"/><path d="M17 11a3 3 0 1 0 0-6"/></svg></div>
+        <h3>Zero Third-Party Handoffs</h3>
+        <p>From initial CAD design through to commissioning and ongoing maintenance, our own certified team handles every stage. No subcontractors, no accountability gaps.</p>
+      </div>
+      <div class="commit-card" style="--c:var(--purple)">
+        <div class="num">02</div>
+        <div class="commit-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 10h16M10 4v16"/></svg></div>
+        <h3>Systems Built for You</h3>
+        <p>Every deployment is bespoke. We engineer around your specific threat model, facility layout, and compliance obligations — never from a pre-packaged template.</p>
+      </div>
+      <div class="commit-card" style="--c:var(--teal)">
+        <div class="num">03</div>
+        <div class="commit-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 2 3 6v6c0 5 4 9 9 10 5-1 9-5 9-10V6l-9-4Z"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <h3>99.9% Uptime, Guaranteed</h3>
+        <p>Commercial-grade hardware, redundant network paths, and failover configurations are standard — not optional extras — on every mission-critical system we build.</p>
+      </div>
+      <div class="commit-card" style="--c:var(--orange)">
+        <div class="num">04</div>
+        <div class="commit-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="8" cy="8" r="4"/><circle cx="17" cy="6" r="3"/><path d="M2 20c0-3.3 2.7-6 6-6s6 2.7 6 6M14 20c0-2.4 1.6-4.4 3.8-5"/></svg></div>
+        <h3>Certified at Every Level</h3>
+        <p>NICET, BICSI, Axis, and Bosch-certified engineers on every project. You receive verified specialists, not generalists learning on your site.</p>
+      </div>
+      <div class="commit-card" style="--c:var(--red)">
+        <div class="num">05</div>
+        <div class="commit-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg></div>
+        <h3>Proven in Critical Environments</h3>
+        <p>Airports, power plants, data centres, government complexes — we have delivered in environments where a single failure has real operational and safety consequences.</p>
+      </div>
+      <div class="commit-card" style="--c:var(--slate)">
+        <div class="num">06</div>
+        <div class="commit-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+        <h3>Always-On Support</h3>
+        <p>24/7 remote monitoring, proactive maintenance, and guaranteed rapid on-site response. Our commitment doesn't end at commissioning — it begins there.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MILESTONES (Arun-style) ================= -->
+<section class="milestones">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <h2 style="color:#fff">VSR Technology Milestones</h2>
+        <p>Ten years of steady growth, earned one project at a time.</p>
+      </div>
+    </div>
+    <div class="ms-track-outer">
+      <div class="ms-track" id="msTrack">
+        <div class="ms-item">
+          <div class="ms-bubble"><span><b>VSR Technologies</b> was founded in Hyderabad with a focused mandate: CCTV surveillance and physical security solutions for local businesses.</span></div>
+          <div class="ms-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="2" y="6" width="14" height="11" rx="2"/><path d="m16 10 6-3v10l-6-3"/></svg></div>
+          <div class="ms-dot"></div>
+          <div class="ms-year">2017</div>
+        </div>
+        <div class="ms-item">
+          <div class="ms-bubble"><span>Expanded into <b>structured cabling</b>, networking, and integrated infrastructure services for commercial clients across Telangana.</span></div>
+          <div class="ms-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="6" cy="6" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/><path d="M6 8v8M18 8v8M8 6h8M8 18h8"/></svg></div>
+          <div class="ms-dot"></div>
+          <div class="ms-year">2019</div>
+        </div>
+        <div class="ms-item">
+          <div class="ms-bubble"><span>Successfully delivered <b>large-scale security and networking projects</b> across multiple industries, from manufacturing to hospitality.</span></div>
+          <div class="ms-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 2 3 6v6c0 5 4 9 9 10 5-1 9-5 9-10V6l-9-4Z"/></svg></div>
+          <div class="ms-dot"></div>
+          <div class="ms-year">2021</div>
+        </div>
+        <div class="ms-item">
+          <div class="ms-bubble"><span>Strengthened expertise in <b>access control systems</b>, video management, and enterprise-grade security architecture.</span></div>
+          <div class="ms-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
+          <div class="ms-dot"></div>
+          <div class="ms-year">2023</div>
+        </div>
+        <div class="ms-item">
+          <div class="ms-bubble"><span>Executed <b>critical infrastructure projects</b>, including airport and industrial-sector deployments demanding zero-failure tolerance.</span></div>
+          <div class="ms-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M3 21V9l9-6 9 6v12"/><path d="M9 21v-6h6v6"/></svg></div>
+          <div class="ms-dot"></div>
+          <div class="ms-year">2024</div>
+        </div>
+        <div class="ms-item">
+          <div class="ms-bubble"><span>Recognized as a <b>trusted partner</b> for security, networking, and technology infrastructure solutions across India.</span></div>
+          <div class="ms-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 2 3 6v6c0 5 4 9 9 10 5-1 9-5 9-10V6l-9-4Z"/><path d="m9 12 2 2 4-4"/></svg></div>
+          <div class="ms-dot"></div>
+          <div class="ms-year">2026</div>
+        </div>
+        <div class="ms-line"></div>
+      </div>
+    </div>
+    <div class="ms-nav">
+      <button id="msPrev" aria-label="Scroll milestones left">←</button>
+      <button id="msNext" aria-label="Scroll milestones right">→</button>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CLIENTS MARQUEE ================= -->
+<section class="clients">
+  <div class="wrap">
+    <h2>OUR CLIENTS</h2>
+  </div>
+  <div class="marquee">
+    <div class="marquee-track" id="marqueeTrack">
+      <!-- Set 1 -->
+      <div class="client-logo">Logo 1</div>
+      <div class="client-logo">Logo 2</div>
+      <div class="client-logo">Logo 3</div>
+      <div class="client-logo">Logo 4</div>
+      <div class="client-logo">Logo 5</div>
+      <div class="client-logo">Logo 6</div>
+      <div class="client-logo">Logo 7</div>
+      <!-- Set 2 (duplicate for seamless loop) -->
+      <div class="client-logo">Logo 1</div>
+      <div class="client-logo">Logo 2</div>
+      <div class="client-logo">Logo 3</div>
+      <div class="client-logo">Logo 4</div>
+      <div class="client-logo">Logo 5</div>
+      <div class="client-logo">Logo 6</div>
+      <div class="client-logo">Logo 7</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TESTIMONIALS ================= -->
+<section class="testimonials">
+  <div class="wrap">
+    <div class="t-head"><h2>TESTIMONIALS</h2></div>
+    <div class="t-slider">
+      <button class="t-arrow" id="tPrev" aria-label="Previous testimonial">‹</button>
+      <div class="t-body">
+        <p class="t-quote" id="tQuote"></p>
+        <div class="t-meta">
+          <div class="name" id="tName"></div>
+          <div class="org" id="tOrg"></div>
+        </div>
+      </div>
+      <button class="t-arrow" id="tNext" aria-label="Next testimonial">›</button>
+    </div>
+    <div class="t-dots" id="tDots"></div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer id="contact">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">
+          <span class="mark"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 2 3 6v6c0 5 4 9 9 10 5-1 9-5 9-10V6l-9-4Z"/></svg></span>
+          VSR<span>Technologies</span>
+        </div>
+        <p>Premium physical security infrastructure, structured cabling, and smart building solutions for enterprise and critical environments.</p>
+      </div>
+      <div class="footer-col">
+        <h4>SOLUTIONS</h4>
+        <ul>
+          <li><a href="#">CCTV Surveillance</a></li>
+          <li><a href="#">Video Analytics</a></li>
+          <li><a href="#">Entrance Control</a></li>
+          <li><a href="#">Fire Alarm Systems</a></li>
+          <li><a href="#">Building Management</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>COMPANY</h4>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Our Projects</a></li>
+          <li><a href="#">All Services</a></li>
+          <li><a href="#">Industries</a></li>
+          <li><a href="#">Contact Sales</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>CONTACT</h4>
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>6th Floor Regus, GMR Aero Tower 2, GMR Business Park Aerocity, Rajiv Gandhi International Airport, Shamshabad, Hyderabad, Telangana, 500108</span>
+        </div>
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.4 2.1L8.1 9.7a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.4c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.9 2.2Z"/></svg>
+          <span>+91 91211 91397</span>
+        </div>
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+          <span>info@vsrt.in</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 VSR Technologies. All rights reserved.</span>
+      <div class="links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Compliance</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ---------- Milestone horizontal nudge buttons ----------
+  const msTrack = document.getElementById('msTrack');
+  document.getElementById('msPrev').addEventListener('click', () => msTrack.scrollBy({left:-260, behavior:'smooth'}));
+  document.getElementById('msNext').addEventListener('click', () => msTrack.scrollBy({left:260, behavior:'smooth'}));
+
+  // ---------- Testimonials carousel ----------
+  const testimonials = [
+    {
+      quote: "As ever, it was a good service from you and we appreciate the time you take to explain the probable cause of the fault.",
+      name: "Facilities Manager",
+      org: "Airport Services Ltd."
+    },
+    {
+      quote: "The team designed our entire CCTV and access control system from scratch and delivered ahead of schedule, with zero downtime during installation.",
+      name: "Operations Head",
+      org: "Commercial Tower, Hyderabad"
+    },
+    {
+      quote: "Their 24/7 monitoring support has caught issues before we even noticed them. It genuinely feels like an extension of our own team.",
+      name: "Security Director",
+      org: "Industrial Manufacturing Unit"
+    },
+    {
+      quote: "From CAD design to commissioning, everything was handled by their own certified engineers — no subcontractors, no confusion.",
+      name: "Project Lead",
+      org: "Data Centre Client"
+    }
+  ];
+
+  let tIndex = 0;
+  const tQuote = document.getElementById('tQuote');
+  const tName = document.getElementById('tName');
+  const tOrg = document.getElementById('tOrg');
+  const tDots = document.getElementById('tDots');
+
+  function renderDots(){
+    tDots.innerHTML = '';
+    testimonials.forEach((_, i) => {
+      const d = document.createElement('span');
+      if(i === tIndex) d.classList.add('on');
+      d.addEventListener('click', () => { tIndex = i; renderTestimonial(); });
+      tDots.appendChild(d);
+    });
+  }
+
+  function renderTestimonial(){
+    const t = testimonials[tIndex];
+    tQuote.textContent = '“' + t.quote + '”';
+    tName.textContent = t.name;
+    tOrg.textContent = t.org;
+    renderDots();
+  }
+
+  document.getElementById('tPrev').addEventListener('click', () => {
+    tIndex = (tIndex - 1 + testimonials.length) % testimonials.length;
+    renderTestimonial();
+  });
+  document.getElementById('tNext').addEventListener('click', () => {
+    tIndex = (tIndex + 1) % testimonials.length;
+    renderTestimonial();
+  });
+
+  renderTestimonial();
+</script>
+
+</body>
+</html>

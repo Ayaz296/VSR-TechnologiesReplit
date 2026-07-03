@@ -4,14 +4,70 @@ import { Link } from "wouter";
 import { useRef, useState } from "react";
 
 const services = [
-  { icon: Video, title: "CCTV Surveillance", desc: "HD networked camera systems for total site visibility.", color: "from-blue-500 to-blue-700", num: "01" },
-  { icon: Eye, title: "Video Analytics", desc: "AI-driven threat detection and behavioral analysis.", color: "from-violet-500 to-purple-700", num: "02" },
-  { icon: Network, title: "Networking Solutions", desc: "Structured cabling and fiber backbone infrastructure.", color: "from-teal-500 to-cyan-700", num: "03" },
-  { icon: Building2, title: "Building Management", desc: "Unified control of HVAC, access, and security systems.", color: "from-amber-500 to-orange-700", num: "04" },
-  { icon: Map, title: "Smart City Solutions", desc: "Municipal-scale surveillance and public safety networks.", color: "from-sky-500 to-blue-600", num: "05" },
-  { icon: DoorClosed, title: "Entrance Control", desc: "Biometric and credential access for restricted zones.", color: "from-green-500 to-emerald-700", num: "06" },
-  { icon: Flame, title: "Fire Alarm Systems", desc: "NFPA-compliant fire detection and suppression control.", color: "from-red-500 to-rose-700", num: "07" },
-  { icon: Car, title: "Parking Management", desc: "ALPR-controlled vehicle flow and occupancy tracking.", color: "from-slate-500 to-slate-700", num: "08" },
+  {
+    icon: Video,
+    title: "CCTV Surveillance",
+    desc: "Comprehensive CCTV surveillance and security solutions designed to enhance safety, security, and operational visibility.",
+    features: ["Video Management Systems — Milestone, IndigoVision, Vehant & more", "HD/4K IP camera deployment", "Centralised NVR/DVR management", "24/7 remote monitoring integration"],
+    color: "from-blue-500 to-blue-700",
+    num: "01",
+  },
+  {
+    icon: Eye,
+    title: "Video Analytics",
+    desc: "AI and computer-vision powered video analytics for real-time monitoring, automated threat detection, and data-driven decisions.",
+    features: ["Facial recognition & object detection/tracking", "ANPR / LPR solutions", "Perimeter security & intrusion detection", "Crowd, people & behavioural analytics"],
+    color: "from-violet-500 to-purple-700",
+    num: "02",
+  },
+  {
+    icon: Network,
+    title: "Networking Solutions",
+    desc: "End-to-end networking solutions delivering reliable, secure, and scalable IT infrastructure.",
+    features: ["Network infrastructure design & deployment", "Wireless networking solutions", "Network security — firewalls & VPNs", "Data centre, server & storage infrastructure"],
+    color: "from-teal-500 to-cyan-700",
+    num: "03",
+  },
+  {
+    icon: Building2,
+    title: "Building Management",
+    desc: "Unified Building Management System integrating fire, access, CCTV, power, and automation into one control platform.",
+    features: ["Fire alarm & access control integration", "Public address & electrical power systems", "Solar power solutions", "Building analytics & reporting"],
+    color: "from-amber-500 to-orange-700",
+    num: "04",
+  },
+  {
+    icon: Map,
+    title: "Smart City Solutions",
+    desc: "Smart and Safe City services spanning surveillance, traffic management, utilities, and AI-driven decision support.",
+    features: ["City surveillance & intelligent traffic management (ITMS)", "Smart street lighting & smart parking", "IoT sensor networks & cybersecurity services", "AI, analytics & decision support platforms"],
+    color: "from-sky-500 to-blue-600",
+    num: "05",
+  },
+  {
+    icon: DoorClosed,
+    title: "Entrance Control",
+    desc: "Complete entrance control and perimeter security systems managing who enters your facility, when, and how.",
+    features: ["Access control — RFID, biometric, face, QR", "ANPR & boom barrier automation", "Turnstiles, flap barriers & tyre killers", "Video door phone & intercom systems"],
+    color: "from-green-500 to-emerald-700",
+    num: "06",
+  },
+  {
+    icon: Flame,
+    title: "Fire Alarm Systems",
+    desc: "Addressable fire detection, alarm, and suppression-integrated systems engineered for early warning and rapid response.",
+    features: ["Addressable smoke & heat detectors", "Voice evacuation & PA integration", "Sprinkler & suppression tie-in", "NFPA-compliant installations"],
+    color: "from-red-500 to-rose-700",
+    num: "07",
+  },
+  {
+    icon: Car,
+    title: "Parking Management",
+    desc: "Advanced parking management and access control solutions bringing order and intelligence to vehicle flow.",
+    features: ["ANPR-based access with boom barrier integration", "Boom barriers, tyre killers & bollards", "Visitor management system", "Smart parking with AI video analytics"],
+    color: "from-slate-500 to-slate-700",
+    num: "08",
+  },
 ];
 
 function ServiceCard({ service, index }: { service: typeof services[0]; index: number }) {
@@ -58,9 +114,18 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
         <h3 className="relative z-10 text-base sm:text-lg font-bold text-foreground mb-1.5 sm:mb-2 group-hover:text-primary transition-colors duration-300">
           {service.title}
         </h3>
-        <p className="relative z-10 text-slate-500 text-xs sm:text-sm leading-relaxed mb-4 sm:mb-5">
+        <p className="relative z-10 text-slate-500 text-xs sm:text-sm leading-relaxed mb-4">
           {service.desc}
         </p>
+
+        <ul className="relative z-10 space-y-1.5 mb-4 sm:mb-5">
+          {service.features.map((f) => (
+            <li key={f} className="flex items-start gap-2 text-[11px] sm:text-xs text-slate-500 leading-relaxed">
+              <span className={`mt-1.5 w-1 h-1 rounded-full bg-gradient-to-br ${service.color} shrink-0`} />
+              {f}
+            </li>
+          ))}
+        </ul>
 
         {/* Reveal arrow */}
         <motion.div

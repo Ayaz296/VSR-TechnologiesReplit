@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { Plane, Shield, Factory, Landmark, Cross, Building2 } from "lucide-react";
 import { Link } from "wouter";
 
@@ -20,17 +19,24 @@ const clients = [
   { name: "Manappuram Finance Limited", icon: Building2 },
 ];
 
-export function OurClients() {
+function ClientCard({ name, icon: Icon }: { name: string; icon: typeof Plane }) {
   return (
-    <section className="py-24 sm:py-28 bg-white relative overflow-hidden">
+    <div className="flex flex-none items-center gap-3 px-6 py-4 rounded-2xl border border-slate-200/70 bg-white/80 backdrop-blur-sm shadow-sm min-w-[280px]">
+      <div className="p-2.5 rounded-xl bg-primary/10 text-primary shrink-0">
+        <Icon className="w-5 h-5" />
+      </div>
+      <span className="text-sm font-medium text-slate-600 leading-snug">{name}</span>
+    </div>
+  );
+}
+
+export function OurClients() {
+  const track = [...clients, ...clients];
+
+  return (
+    <section className="py-24 sm:py-28 bg-[#EAF3FE] relative overflow-hidden">
       <div className="container mx-auto px-6 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16"
-        >
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/20 bg-primary/5 text-primary text-sm font-medium mb-6">
               Our Clients
@@ -47,27 +53,22 @@ export function OurClients() {
               View all projects
             </div>
           </Link>
-        </motion.div>
+        </div>
+      </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
-          {clients.map((c, i) => {
-            const Icon = c.icon;
-            return (
-              <motion.div
-                key={c.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.04 }}
-                className="flex flex-col items-center justify-center text-center gap-3 p-5 rounded-2xl border border-slate-100 bg-[#F8FAFC] hover:shadow-md hover:border-primary/20 transition-all duration-300"
-              >
-                <div className="p-2.5 rounded-xl bg-primary/10 text-primary">
-                  <Icon className="w-5 h-5" />
-                </div>
-                <span className="text-xs font-medium text-slate-600 leading-snug">{c.name}</span>
-              </motion.div>
-            );
-          })}
+      <div
+        className="relative z-10 overflow-hidden"
+        style={{
+          maskImage: "linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent)",
+          WebkitMaskImage: "linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent)",
+        }}
+      >
+        <div
+          className="flex items-center gap-5 w-max animate-[clients-scroll_38s_linear_infinite] hover:[animation-play-state:paused]"
+        >
+          {track.map((c, i) => (
+            <ClientCard key={`${c.name}-${i}`} name={c.name} icon={c.icon} />
+          ))}
         </div>
       </div>
     </section>

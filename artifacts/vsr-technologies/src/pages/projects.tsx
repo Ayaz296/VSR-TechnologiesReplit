@@ -19,6 +19,12 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import imgAviation from "@/assets/images/ind-airport.png";
+import imgDefence from "@/assets/images/industry-industrial.png";
+import imgIndustrial from "@/assets/images/ind-industrial.png";
+import imgGovernment from "@/assets/images/ind-critical.png";
+import imgHealthcare from "@/assets/images/industry-commercial.png";
+import imgBfsi from "@/assets/images/ind-commercial.png";
 
 type ProjectEntry = { y: number; w: string; p: string };
 type Client = {
@@ -29,13 +35,13 @@ type Client = {
   projects: ProjectEntry[];
 };
 
-const CATS: Record<string, { label: string; icon: React.ReactElement; accent: string; tagBg: string }> = {
-  aviation: { label: "Aviation", icon: <Plane size={14} />, accent: "from-blue-500 to-blue-700", tagBg: "bg-blue-50 text-blue-700 border-blue-200" },
-  defence: { label: "Defence & Aerospace", icon: <Shield size={14} />, accent: "from-violet-500 to-purple-700", tagBg: "bg-violet-50 text-violet-700 border-violet-200" },
-  industrial: { label: "Industrial & Energy", icon: <Factory size={14} />, accent: "from-amber-500 to-orange-700", tagBg: "bg-amber-50 text-amber-700 border-amber-200" },
-  government: { label: "Government & Smart City", icon: <Landmark size={14} />, accent: "from-teal-500 to-cyan-700", tagBg: "bg-teal-50 text-teal-700 border-teal-200" },
-  healthcare: { label: "Healthcare", icon: <Cross size={14} />, accent: "from-rose-500 to-pink-700", tagBg: "bg-rose-50 text-rose-700 border-rose-200" },
-  bfsi: { label: "BFSI & Commercial", icon: <Building size={14} />, accent: "from-slate-500 to-slate-700", tagBg: "bg-slate-50 text-slate-700 border-slate-200" },
+const CATS: Record<string, { label: string; icon: React.ReactElement; accent: string; tagBg: string; image: string }> = {
+  aviation: { label: "Aviation", icon: <Plane size={14} />, accent: "from-blue-500 to-blue-700", tagBg: "bg-blue-50 text-blue-700 border-blue-200", image: imgAviation },
+  defence: { label: "Defence & Aerospace", icon: <Shield size={14} />, accent: "from-violet-500 to-purple-700", tagBg: "bg-violet-50 text-violet-700 border-violet-200", image: imgDefence },
+  industrial: { label: "Industrial & Energy", icon: <Factory size={14} />, accent: "from-amber-500 to-orange-700", tagBg: "bg-amber-50 text-amber-700 border-amber-200", image: imgIndustrial },
+  government: { label: "Government & Smart City", icon: <Landmark size={14} />, accent: "from-teal-500 to-cyan-700", tagBg: "bg-teal-50 text-teal-700 border-teal-200", image: imgGovernment },
+  healthcare: { label: "Healthcare", icon: <Cross size={14} />, accent: "from-rose-500 to-pink-700", tagBg: "bg-rose-50 text-rose-700 border-rose-200", image: imgHealthcare },
+  bfsi: { label: "BFSI & Commercial", icon: <Building size={14} />, accent: "from-slate-500 to-slate-700", tagBg: "bg-slate-50 text-slate-700 border-slate-200", image: imgBfsi },
 };
 
 const categories = ["All", ...Object.keys(CATS)];
@@ -262,19 +268,22 @@ function ClientModal({ client, onClose }: { client: Client; onClose: () => void 
         exit={{ scale: 0.95, y: 20 }}
         transition={{ duration: 0.25 }}
       >
-        <div className={`relative p-8 pb-6 bg-gradient-to-br ${cat.accent}`}>
+        <div className="relative h-56 sm:h-64 overflow-hidden">
+          <img src={cat.image} alt={cat.label} className="absolute inset-0 w-full h-full object-cover" />
+          <div className={`absolute inset-0 bg-gradient-to-t ${cat.accent} opacity-75 mix-blend-multiply`} />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
           <button
             onClick={onClose}
             className="absolute top-4 right-4 bg-white/15 backdrop-blur-sm border border-white/25 text-white rounded-full p-2 hover:bg-white/25 transition-colors"
           >
             <X size={16} />
           </button>
-          <div className="flex items-center gap-4">
-            <div className="w-14 h-14 rounded-2xl bg-white/15 border border-white/25 flex items-center justify-center text-white font-bold text-lg shrink-0">
+          <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8 flex items-center gap-4">
+            <div className="w-14 h-14 rounded-2xl bg-white/15 border border-white/25 flex items-center justify-center text-white font-bold text-lg shrink-0 backdrop-blur-sm">
               {initials(client.name)}
             </div>
             <div>
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-white/15 text-white mb-2">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-white/15 text-white mb-2 backdrop-blur-sm">
                 {cat.icon} {cat.label}
               </div>
               <h2 className="text-xl font-bold text-white leading-snug">{client.name}</h2>
@@ -408,12 +417,20 @@ export default function ProjectsPage() {
                     className="group relative rounded-2xl overflow-hidden cursor-pointer bg-white border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-400"
                     onClick={() => setSelectedClient(client)}
                   >
-                    <div className={`relative h-28 bg-gradient-to-br ${cat.accent} flex items-center justify-between p-5`}>
-                      <div className={cn("inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-semibold bg-white/15 text-white backdrop-blur-sm")}>
-                        {cat.icon} {cat.label}
-                      </div>
-                      <div className="w-11 h-11 rounded-xl bg-white/15 border border-white/25 flex items-center justify-center text-white font-bold text-sm shrink-0">
-                        {initials(client.name)}
+                    <div className="relative h-44 sm:h-48 overflow-hidden">
+                      <img
+                        src={cat.image}
+                        alt={cat.label}
+                        className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                      <div className={`absolute inset-0 bg-gradient-to-t ${cat.accent} opacity-70 mix-blend-multiply`} />
+                      <div className="relative h-full flex items-start justify-between p-5">
+                        <div className={cn("inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-semibold bg-white/15 text-white backdrop-blur-sm")}>
+                          {cat.icon} {cat.label}
+                        </div>
+                        <div className="w-11 h-11 rounded-xl bg-white/15 border border-white/25 flex items-center justify-center text-white font-bold text-sm shrink-0 backdrop-blur-sm">
+                          {initials(client.name)}
+                        </div>
                       </div>
                     </div>
 

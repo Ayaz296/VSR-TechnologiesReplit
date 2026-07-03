@@ -1,5 +1,6 @@
-import { motion } from "framer-motion";
-import { Quote } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Quote, ChevronLeft, ChevronRight } from "lucide-react";
+import { useState, useEffect, useCallback } from "react";
 
 const testimonials = [
   {
@@ -41,9 +42,27 @@ const testimonials = [
 ];
 
 export function Testimonials() {
+  const [index, setIndex] = useState(0);
+  const [direction, setDirection] = useState(1);
+
+  const goTo = useCallback((next: number) => {
+    setDirection(next > index ? 1 : -1);
+    setIndex((next + testimonials.length) % testimonials.length);
+  }, [index]);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setDirection(1);
+      setIndex((i) => (i + 1) % testimonials.length);
+    }, 6000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const active = testimonials[index];
+
   return (
-    <section className="py-24 sm:py-28 bg-white relative overflow-hidden">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] rounded-full bg-primary/5 blur-[140px] pointer-events-none" />
+    <section className="py-24 sm:py-28 bg-[#F0F4FF] relative overflow-hidden">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] rounded-full bg-primary/10 blur-[140px] pointer-events-none" />
 
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
@@ -51,7 +70,7 @@ export function Testimonials() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="max-w-2xl mx-auto text-center mb-16"
+          className="max-w-2xl mx-auto text-center mb-14"
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/20 bg-primary/5 text-primary text-sm font-medium mb-6">
             Testimonials
@@ -64,24 +83,58 @@ export function Testimonials() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {testimonials.map((t, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="bg-[#F8FAFC] rounded-2xl p-7 border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col"
-            >
-              <Quote className="w-8 h-8 text-primary/25 mb-4 shrink-0" />
-              <p className="text-slate-700 leading-relaxed mb-6 flex-1">"{t.quote}"</p>
-              <div className="pt-5 border-t border-slate-200">
-                <div className="font-semibold text-foreground text-sm">{t.role}</div>
-                <div className="text-slate-500 text-sm mt-0.5">{t.company}</div>
-              </div>
-            </motion.div>
-          ))}
+        <div className="relative max-w-3xl mx-auto">
+          <div className="relative bg-white rounded-3xl border border-slate-100 shadow-lg px-6 sm:px-16 py-12 sm:py-16 min-h-[320px] flex items-center">
+            <Quote className="absolute top-8 left-6 sm:left-10 w-10 h-10 sm:w-12 sm:h-12 text-primary/10" />
+
+            <AnimatePresence mode="wait" custom={direction}>
+              <motion.div
+                key={index}
+                custom={direction}
+                initial={{ opacity: 0, x: direction > 0 ? 40 : -40 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: direction > 0 ? -40 : 40 }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
+                className="relative z-10 text-center w-full"
+              >
+                <p className="text-lg sm:text-2xl text-slate-700 leading-relaxed font-medium mb-8">
+                  "{active.quote}"
+                </p>
+                <div className="font-semibold text-foreground text-base">{active.role}</div>
+                <div className="text-primary text-sm mt-1">{active.company}</div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+
+          {/* Arrows */}
+          <button
+            onClick={() => goTo(index - 1)}
+            aria-label="Previous testimonial"
+            className="absolute top-1/2 -translate-y-1/2 -left-4 sm:-left-6 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white border border-slate-200 shadow-md flex items-center justify-center text-slate-500 hover:text-primary hover:border-primary/30 transition-colors"
+          >
+            <ChevronLeft size={20} />
+          </button>
+          <button
+            onClick={() => goTo(index + 1)}
+            aria-label="Next testimonial"
+            className="absolute top-1/2 -translate-y-1/2 -right-4 sm:-right-6 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white border border-slate-200 shadow-md flex items-center justify-center text-slate-500 hover:text-primary hover:border-primary/30 transition-colors"
+          >
+            <ChevronRight size={20} />
+          </button>
+
+          {/* Dots */}
+          <div className="flex items-center justify-center gap-2 mt-8">
+            {testimonials.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => goTo(i)}
+                aria-label={`Go to testimonial ${i + 1}`}
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  i === index ? "w-7 bg-primary" : "w-2 bg-slate-300 hover:bg-slate-400"
+                }`}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>
