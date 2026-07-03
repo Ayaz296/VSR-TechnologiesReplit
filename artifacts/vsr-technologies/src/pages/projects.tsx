@@ -352,7 +352,7 @@ export default function ProjectsPage() {
             </div>
             <h1 className="text-5xl md:text-6xl font-bold text-white tracking-tight mb-6 max-w-3xl leading-[1.1]">
               Proven at Scale.<br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-primary">Across Every Sector.</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-sky-100">Across Every Sector.</span>
             </h1>
             <p className="text-xl text-slate-300 leading-relaxed max-w-2xl mb-16">
               From India's busiest airports to defence PSUs, industrial plants, and government institutions, our portfolio demonstrates the depth of our capabilities.

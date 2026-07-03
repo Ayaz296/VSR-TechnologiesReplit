@@ -406,7 +406,7 @@ export default function ServicesPage() {
             </div>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white tracking-tight mb-5 sm:mb-6 max-w-3xl leading-[1.1]">
               Every System.<br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-primary">One Partner.</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-sky-100">One Partner.</span>
             </h1>
             <p className="text-lg sm:text-xl text-slate-300 leading-relaxed max-w-2xl">
               We design, install, and maintain the complete stack of physical security and building infrastructure, from a single access point to a campus-wide smart city deployment.
