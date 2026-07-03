@@ -85,7 +85,7 @@ function FAQItem({ item, index }: { item: typeof faqs[0]; index: number }) {
 
 export function FAQ() {
   return (
-    <section className="pt-0 pb-28 bg-[#EEF4FF] relative">
+    <section className="pt-20 pb-28 bg-[#EEF4FF] relative">
       <div className="absolute bottom-0 right-0 w-[400px] h-[300px] rounded-full bg-indigo-400/15 blur-[100px] pointer-events-none" />
 
       <div className="container mx-auto px-6 relative z-10">

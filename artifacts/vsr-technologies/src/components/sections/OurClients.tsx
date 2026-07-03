@@ -34,7 +34,7 @@ export function OurClients() {
   const track = [...clients, ...clients];
 
   return (
-    <section className="py-24 sm:py-28 relative overflow-hidden bg-white">
+    <section className="py-24 sm:py-28 relative overflow-hidden bg-gradient-to-b from-[#EEF4FF] to-[#EFF6FF]">
       <div className="container mx-auto px-6 relative z-10">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
           <div className="max-w-2xl">

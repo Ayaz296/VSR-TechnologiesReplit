@@ -67,7 +67,7 @@ export function Contact() {
 
             {/* Right Form Panel */}
             <div className="md:col-span-3 p-6 sm:p-8 md:p-10">
-              <form className="space-y-4 sm:space-y-5" onSubmit={(e) => e.preventDefault()}>
+              <form className="space-y-4 sm:space-y-5" onSubmit={(e) => { e.preventDefault(); window.location.href = "mailto:Info@vsrt.in"; }}>
                 <div className="grid grid-cols-2 gap-3 sm:gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="firstName" className="text-slate-300 text-xs sm:text-sm">First Name</Label>
