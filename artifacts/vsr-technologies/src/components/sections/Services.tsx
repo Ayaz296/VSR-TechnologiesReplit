@@ -84,8 +84,8 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
       transition={{ duration: 0.5, delay: index * 0.07 }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="group relative bg-white/90 backdrop-blur-sm rounded-2xl overflow-hidden border border-blue-100 cursor-pointer"
-      style={{ boxShadow: hovered ? "0 20px 60px -10px rgba(0,0,0,0.12)" : "0 1px 4px rgba(0,0,0,0.05)" }}
+      className="group relative bg-white/8 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/15 cursor-pointer hover:bg-white/12 hover:border-white/25 transition-colors duration-300"
+      style={{ boxShadow: hovered ? "0 20px 60px -10px rgba(0,0,0,0.3)" : "none" }}
     >
       {/* Animated gradient top bar */}
       <motion.div
@@ -98,7 +98,7 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
 
       <div className="p-5 sm:p-7 relative">
         {/* Large faded number in background */}
-        <div className="absolute top-4 right-5 text-[72px] font-black text-slate-100 leading-none select-none transition-colors duration-300 group-hover:text-slate-50">
+        <div className="absolute top-4 right-5 text-[72px] font-black text-white/6 leading-none select-none transition-colors duration-300 group-hover:text-white/10">
           {service.num}
         </div>
 
@@ -111,16 +111,16 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
           <Icon className="w-5 h-5" />
         </motion.div>
 
-        <h3 className="relative z-10 text-base sm:text-lg font-bold text-foreground mb-1.5 sm:mb-2 group-hover:text-primary transition-colors duration-300">
+        <h3 className="relative z-10 text-base sm:text-lg font-bold text-white mb-1.5 sm:mb-2 group-hover:text-sky-200 transition-colors duration-300">
           {service.title}
         </h3>
-        <p className="relative z-10 text-slate-500 text-xs sm:text-sm leading-relaxed mb-4">
+        <p className="relative z-10 text-slate-300 text-xs sm:text-sm leading-relaxed mb-4">
           {service.desc}
         </p>
 
         <ul className="relative z-10 space-y-1.5 mb-4 sm:mb-5">
           {service.features.map((f) => (
-            <li key={f} className="flex items-start gap-2 text-[11px] sm:text-xs text-slate-500 leading-relaxed">
+            <li key={f} className="flex items-start gap-2 text-[11px] sm:text-xs text-slate-400 leading-relaxed">
               <span className={`mt-1.5 w-1 h-1 rounded-full bg-gradient-to-br ${service.color} shrink-0`} />
               {f}
             </li>
@@ -129,7 +129,7 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
 
         {/* Reveal arrow */}
         <motion.div
-          className="relative z-10 flex items-center gap-1.5 text-xs font-semibold text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          className="relative z-10 flex items-center gap-1.5 text-xs font-semibold text-sky-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
           animate={{ x: hovered ? 0 : -8 }}
           transition={{ duration: 0.2 }}
         >
@@ -149,9 +149,16 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
 
 export function Services() {
   return (
-    <section id="services" className="py-32 bg-gradient-to-b from-[#EFF6FF] to-[#EEF4FF] relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-blue-400/20 blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-indigo-400/15 blur-[100px] pointer-events-none" />
+    <section id="services" className="py-32 relative overflow-hidden" style={{ background: "#003978" }}>
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-blue-400/15 blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-cyan-400/10 blur-[100px] pointer-events-none" />
+      <div
+        className="absolute inset-0 opacity-[0.06] pointer-events-none"
+        style={{
+          backgroundImage: "radial-gradient(circle, #ffffff 1px, transparent 1px)",
+          backgroundSize: "32px 32px",
+        }}
+      />
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Header */}
@@ -163,12 +170,12 @@ export function Services() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-4">
               Integrated Security
               <br />
-              <span className="text-primary">Ecosystems</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-cyan-400">Ecosystems</span>
             </h2>
-            <p className="text-xl text-slate-500 leading-relaxed">
+            <p className="text-xl text-slate-300 leading-relaxed">
               We don't install components. We architect complete security infrastructure tailored to your environment.
             </p>
           </motion.div>
@@ -179,7 +186,7 @@ export function Services() {
             transition={{ duration: 0.6 }}
           >
             <Link href="/services">
-              <div className="group flex items-center gap-2 text-sm font-semibold text-primary border-b-2 border-primary/30 hover:border-primary pb-0.5 transition-colors cursor-pointer whitespace-nowrap">
+              <div className="group flex items-center gap-2 text-sm font-semibold text-sky-300 border-b-2 border-sky-300/30 hover:border-sky-300 pb-0.5 transition-colors cursor-pointer whitespace-nowrap">
                 View all services <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
               </div>
             </Link>

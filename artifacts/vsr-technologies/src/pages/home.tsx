@@ -16,8 +16,8 @@ export default function Home() {
       <main className="flex-1">
         <Hero />
         <WhyChooseUs />
-        <Slider3D />
         <Services />
+        <Slider3D />
         <OurClients />
         <Milestones />
         <Testimonials />
