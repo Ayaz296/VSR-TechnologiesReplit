@@ -57,7 +57,7 @@ export default function AboutPage() {
       <Navbar />
 
       {/* Header */}
-      <div className="relative pt-36 pb-24 bg-[#0F2747] overflow-hidden">
+      <div className="relative pt-36 pb-24 bg-[#003978] overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(56,189,248,0.12)_0%,transparent_60%)] pointer-events-none" />
         <div className="absolute inset-0 opacity-[0.04] pointer-events-none"
           style={{ backgroundImage: "linear-gradient(to right, #fff 1px, transparent 1px), linear-gradient(to bottom, #fff 1px, transparent 1px)", backgroundSize: "80px 80px" }}
@@ -86,7 +86,7 @@ export default function AboutPage() {
       <main className="flex-1">
 
         {/* Mission split */}
-        <section className="py-24 bg-gradient-to-b from-[#EFF6FF] to-white">
+        <section className="py-24 bg-[#EEF4FF]">
           <div className="container mx-auto px-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
               <motion.div
@@ -140,8 +140,13 @@ export default function AboutPage() {
         </section>
 
         {/* Values */}
-        <section className="py-24 bg-gradient-to-b from-[#EEF4FF] to-[#EFF6FF]">
-          <div className="container mx-auto px-6">
+        <section className="py-24 relative overflow-hidden" style={{ background: "#003978" }}>
+          <div
+            className="absolute inset-0 opacity-[0.06] pointer-events-none"
+            style={{ backgroundImage: "radial-gradient(circle, #ffffff 1px, transparent 1px)", backgroundSize: "32px 32px" }}
+          />
+          <div className="absolute top-0 right-0 w-[500px] h-[400px] bg-blue-400/15 blur-[120px] pointer-events-none rounded-full" />
+          <div className="container mx-auto px-6 relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -149,8 +154,8 @@ export default function AboutPage() {
               transition={{ duration: 0.6 }}
               className="max-w-2xl mb-16"
             >
-              <h2 className="text-4xl font-bold tracking-tight mb-4">Our Core Values</h2>
-              <p className="text-xl text-slate-600 leading-relaxed">
+              <h2 className="text-4xl font-bold tracking-tight mb-4 text-white">Our Core Values</h2>
+              <p className="text-xl text-slate-300 leading-relaxed">
                 The principles that guide every decision, from system design to client relationships.
               </p>
             </motion.div>
@@ -163,14 +168,14 @@ export default function AboutPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: i * 0.1 }}
-                  className="bg-white/90 rounded-2xl p-8 border border-blue-100 shadow-sm hover:shadow-md transition-all duration-300 flex gap-6"
+                  className="bg-white/8 rounded-2xl p-8 border border-white/15 hover:bg-white/12 transition-all duration-300 flex gap-6"
                 >
-                  <div className="p-3 rounded-xl bg-primary/10 text-primary h-fit shrink-0">
+                  <div className="p-3 rounded-xl bg-sky-400/15 text-sky-300 h-fit shrink-0">
                     {v.icon}
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold mb-3">{v.title}</h3>
-                    <p className="text-slate-600 leading-relaxed">{v.desc}</p>
+                    <h3 className="text-xl font-semibold mb-3 text-white">{v.title}</h3>
+                    <p className="text-slate-400 leading-relaxed">{v.desc}</p>
                   </div>
                 </motion.div>
               ))}
@@ -179,7 +184,7 @@ export default function AboutPage() {
         </section>
 
         {/* Certifications */}
-        <section className="py-24 bg-gradient-to-b from-[#EFF6FF] to-white">
+        <section className="py-24 bg-[#EEF4FF]">
           <div className="container mx-auto px-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
               <motion.div
@@ -224,8 +229,13 @@ export default function AboutPage() {
         </section>
 
         {/* Leadership */}
-        <section className="py-24 bg-gradient-to-b from-[#EEF4FF] to-[#EFF6FF]">
-          <div className="container mx-auto px-6">
+        <section className="py-24 relative overflow-hidden" style={{ background: "#003978" }}>
+          <div
+            className="absolute inset-0 opacity-[0.06] pointer-events-none"
+            style={{ backgroundImage: "radial-gradient(circle, #ffffff 1px, transparent 1px)", backgroundSize: "32px 32px" }}
+          />
+          <div className="absolute bottom-0 left-0 w-[400px] h-[300px] bg-cyan-400/10 blur-[100px] pointer-events-none rounded-full" />
+          <div className="container mx-auto px-6 relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -233,8 +243,8 @@ export default function AboutPage() {
               transition={{ duration: 0.6 }}
               className="max-w-2xl mb-16"
             >
-              <h2 className="text-4xl font-bold tracking-tight mb-4">Leadership Team</h2>
-              <p className="text-xl text-slate-600 leading-relaxed">
+              <h2 className="text-4xl font-bold tracking-tight mb-4 text-white">Leadership Team</h2>
+              <p className="text-xl text-slate-300 leading-relaxed">
                 Engineers and operators who have built and run mission-critical security systems at scale.
               </p>
             </motion.div>
@@ -247,7 +257,7 @@ export default function AboutPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: i * 0.1 }}
-                  className="bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300 group"
+                  className="bg-white/8 rounded-2xl overflow-hidden border border-white/15 hover:bg-white/12 transition-all duration-300 group"
                 >
                   <div className={`h-48 bg-gradient-to-br ${person.bg} flex items-center justify-center`}>
                     <div className="w-20 h-20 rounded-full bg-white/20 border-2 border-white/40 flex items-center justify-center">
@@ -257,8 +267,8 @@ export default function AboutPage() {
                     </div>
                   </div>
                   <div className="p-6">
-                    <div className="font-bold text-foreground mb-1">{person.name}</div>
-                    <div className="text-sm text-slate-500">{person.title}</div>
+                    <div className="font-bold text-white mb-1">{person.name}</div>
+                    <div className="text-sm text-slate-400">{person.title}</div>
                   </div>
                 </motion.div>
               ))}

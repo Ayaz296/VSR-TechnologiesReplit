@@ -339,7 +339,7 @@ export default function ProjectsPage() {
       <Navbar />
 
       {/* ── Header ── */}
-      <div className="relative pt-36 pb-24 bg-[#0F2747] overflow-hidden">
+      <div className="relative pt-36 pb-24 bg-[#003978] overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(56,189,248,0.12)_0%,transparent_60%)] pointer-events-none" />
         <div className="absolute inset-0 opacity-[0.04] pointer-events-none"
           style={{ backgroundImage: "linear-gradient(to right,#fff 1px,transparent 1px),linear-gradient(to bottom,#fff 1px,transparent 1px)", backgroundSize: "80px 80px" }}
@@ -370,7 +370,7 @@ export default function ProjectsPage() {
       </div>
 
       {/* ── Clients grid ── */}
-      <main className="flex-1 py-16 bg-gradient-to-b from-[#EEF4FF] to-[#EFF6FF]">
+      <main className="flex-1 py-16 bg-[#EEF4FF]">
         <div className="container mx-auto px-6">
 
           {/* Filter tabs */}
@@ -471,8 +471,14 @@ export default function ProjectsPage() {
       </AnimatePresence>
 
       {/* Execution partners */}
-      <div className="py-24 bg-white">
-        <div className="container mx-auto px-6">
+      <div className="py-24 relative overflow-hidden" style={{ background: "#003978" }}>
+        <div
+          className="absolute inset-0 opacity-[0.06] pointer-events-none"
+          style={{ backgroundImage: "radial-gradient(circle, #ffffff 1px, transparent 1px)", backgroundSize: "32px 32px" }}
+        />
+        <div className="absolute top-0 right-0 w-[500px] h-[400px] bg-blue-400/15 blur-[120px] pointer-events-none rounded-full" />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[300px] bg-cyan-400/10 blur-[100px] pointer-events-none rounded-full" />
+        <div className="container mx-auto px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -480,12 +486,12 @@ export default function ProjectsPage() {
             transition={{ duration: 0.6 }}
             className="max-w-2xl mb-14"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/20 bg-primary/5 text-primary text-sm font-medium mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-sky-400/30 bg-sky-400/10 text-sky-300 text-sm font-medium mb-6">
               <MapPin size={14} />
               Execution Partners
             </div>
-            <h2 className="text-4xl font-bold tracking-tight mb-4">Delivered alongside trusted partners</h2>
-            <p className="text-xl text-slate-500 leading-relaxed">
+            <h2 className="text-4xl font-bold tracking-tight mb-4 text-white">Delivered alongside trusted partners</h2>
+            <p className="text-xl text-slate-300 leading-relaxed">
               Every engagement is executed hand-in-hand with leading OEMs, system integrators, and contractors.
             </p>
           </motion.div>
@@ -498,10 +504,10 @@ export default function ProjectsPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.04 }}
-                className="bg-[#F8FAFC] rounded-2xl p-5 border border-slate-100 hover:shadow-md transition-all duration-300"
+                className="bg-white/8 rounded-2xl p-5 border border-white/15 hover:bg-white/12 transition-all duration-300"
               >
-                <div className="font-semibold text-foreground text-sm mb-2">{p.n}</div>
-                <div className="text-xs text-slate-500 leading-relaxed">{p.d}</div>
+                <div className="font-semibold text-white text-sm mb-2">{p.n}</div>
+                <div className="text-xs text-slate-400 leading-relaxed">{p.d}</div>
               </motion.div>
             ))}
           </div>

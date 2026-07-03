@@ -393,7 +393,7 @@ export default function ServicesPage() {
       <Navbar />
 
       {/* ── Page header ── */}
-      <div className="relative pt-32 sm:pt-36 pb-20 sm:pb-24 bg-[#0F2747] overflow-hidden">
+      <div className="relative pt-32 sm:pt-36 pb-20 sm:pb-24 bg-[#003978] overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(56,189,248,0.12)_0%,transparent_60%)] pointer-events-none" />
         <div className="absolute inset-0 opacity-[0.04] pointer-events-none"
           style={{ backgroundImage: "linear-gradient(to right,#fff 1px,transparent 1px),linear-gradient(to bottom,#fff 1px,transparent 1px)", backgroundSize: "80px 80px" }}
@@ -418,7 +418,7 @@ export default function ServicesPage() {
       <main className="flex-1">
 
         {/* ── Tabbed Services Explorer ── */}
-        <section className="py-16 sm:py-24 bg-gradient-to-b from-[#EEF4FF] to-[#EFF6FF]">
+        <section className="pt-16 sm:pt-24 pb-0 bg-[#EEF4FF]">
           <div className="container mx-auto px-4 sm:px-6">
             <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="mb-10 sm:mb-14">
               <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-3">Our Services</h2>
@@ -469,7 +469,7 @@ export default function ServicesPage() {
         </section>
 
         {/* ── Capabilities Grid ── */}
-        <section className="py-16 sm:py-24 bg-gradient-to-b from-[#EFF6FF] to-white">
+        <section className="pt-0 pb-16 sm:pb-24 bg-[#EEF4FF]">
           <div className="container mx-auto px-4 sm:px-6">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -515,7 +515,7 @@ export default function ServicesPage() {
         </section>
 
         {/* Process Timeline (vertical) */}
-        <section className="py-16 sm:py-24 bg-[#0F2747] relative overflow-hidden">
+        <section className="py-16 sm:py-24 bg-[#003978] relative overflow-hidden">
           <div className="absolute inset-0 opacity-[0.04] pointer-events-none"
             style={{ backgroundImage: "linear-gradient(to right,#fff 1px,transparent 1px),linear-gradient(to bottom,#fff 1px,transparent 1px)", backgroundSize: "80px 80px" }}
           />
