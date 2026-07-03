@@ -11,8 +11,17 @@ const milestones = [
 
 export function Milestones() {
   return (
-    <section className="py-24 sm:py-28 bg-gradient-to-br from-[#EEF4FF] to-[#E8F0FE] relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-[500px] h-[400px] bg-blue-400/15 blur-[120px] pointer-events-none rounded-full" />
+    <section className="py-24 sm:py-28 relative overflow-hidden" style={{ background: "#003978" }}>
+      {/* Dot grid */}
+      <div
+        className="absolute inset-0 opacity-[0.07] pointer-events-none"
+        style={{
+          backgroundImage: "radial-gradient(circle, #ffffff 1px, transparent 1px)",
+          backgroundSize: "32px 32px",
+        }}
+      />
+      <div className="absolute top-0 right-0 w-[500px] h-[400px] bg-cyan-400/10 blur-[140px] pointer-events-none rounded-full" />
+
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -21,15 +30,15 @@ export function Milestones() {
           transition={{ duration: 0.6 }}
           className="max-w-2xl mb-16"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/20 bg-primary/5 text-primary text-sm font-medium mb-6">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-sky-400/30 bg-sky-400/10 text-sky-300 text-sm font-medium mb-6">
             Milestones
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground mb-4">Our Journey</h2>
-          <p className="text-xl text-slate-500 leading-relaxed">Nearly a decade of steady growth, earned one project at a time.</p>
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-4">Our Journey</h2>
+          <p className="text-xl text-slate-300 leading-relaxed">Nearly a decade of steady growth, earned one project at a time.</p>
         </motion.div>
 
         <div className="relative max-w-3xl">
-          <div className="absolute left-[11px] top-0 bottom-0 w-[2px] bg-gradient-to-b from-primary via-blue-400 to-cyan-400" />
+          <div className="absolute left-[11px] top-0 bottom-0 w-[2px] bg-gradient-to-b from-sky-400 via-blue-400 to-cyan-400 opacity-60" />
           <div className="space-y-10">
             {milestones.map((m, i) => (
               <motion.div
@@ -41,11 +50,11 @@ export function Milestones() {
                 className="flex gap-8 items-start"
               >
                 <div className="relative shrink-0 w-6 flex justify-center">
-                  <div className="w-3 h-3 rounded-full bg-primary mt-1.5 ring-4 ring-primary/15" />
+                  <div className="w-3 h-3 rounded-full bg-cyan-400 mt-1.5 ring-4 ring-cyan-400/20" />
                 </div>
                 <div className="pb-2">
-                  <div className="text-primary text-sm font-bold mb-1 tracking-widest">{m.year}</div>
-                  <p className="text-slate-600 leading-relaxed">{m.event}</p>
+                  <div className="text-cyan-300 text-sm font-bold mb-1 tracking-widest">{m.year}</div>
+                  <p className="text-slate-300 leading-relaxed">{m.event}</p>
                 </div>
               </motion.div>
             ))}
