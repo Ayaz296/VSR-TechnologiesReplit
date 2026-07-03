@@ -18,10 +18,10 @@ const services = [
     icon: Network,
     title: "Networking Solutions",
     tagline: "Reliable, secure, and scalable IT infrastructure",
-    gradient: "from-teal-500 to-cyan-700",
+    gradient: "from-teal-500 to-teal-700",
     glow: "rgba(20,184,166,0.15)",
     description:
-      "VSR Technologies is a comprehensive networking solutions provider committed to delivering reliable, secure, and scalable IT infrastructure services — covering end-to-end networking from design through deployment.",
+      "VSR Technologies is a comprehensive networking solutions provider committed to delivering reliable, secure, and scalable IT infrastructure services, covering end-to-end networking from design through deployment.",
     features: [
       "Network infrastructure design & deployment",
       "Wireless networking solutions",
@@ -38,12 +38,12 @@ const services = [
     icon: Video,
     title: "CCTV Surveillance",
     tagline: "Advanced video monitoring for total site visibility",
-    gradient: "from-blue-500 to-blue-700",
+    gradient: "from-primary to-blue-700",
     glow: "rgba(59,130,246,0.15)",
     description:
       "VSR Technologies provides comprehensive CCTV surveillance and security solutions designed to enhance safety, security, and operational visibility across every facility type.",
     features: [
-      "Video Management Systems — Milestone, IndigoVision, Vehant & more",
+      "Video Management Systems: Milestone, IndigoVision, Vehant & more",
       "4K and HD IP camera deployment",
       "Night vision and thermal imaging options",
       "Centralised NVR/DVR management",
@@ -58,8 +58,8 @@ const services = [
     icon: Eye,
     title: "Video Analytics",
     tagline: "AI and computer-vision powered intelligence",
-    gradient: "from-violet-500 to-purple-700",
-    glow: "rgba(139,92,246,0.15)",
+    gradient: "from-slate-600 to-slate-800",
+    glow: "rgba(100,116,139,0.15)",
     description:
       "VSR Technologies delivers advanced video analytics solutions powered by AI and computer vision to enhance security, operational efficiency, and business intelligence across government, smart city, transportation, industrial, commercial, healthcare, educational, and critical infrastructure environments.",
     features: [
@@ -79,7 +79,7 @@ const services = [
     icon: Car,
     title: "Parking Management",
     tagline: "Intelligent solutions for optimised vehicle flow",
-    gradient: "from-slate-500 to-slate-700",
+    gradient: "from-slate-600 to-slate-800",
     glow: "rgba(100,116,139,0.15)",
     description:
       "VSR Technologies offers advanced parking management and access control solutions that bring order, automation, and accountability to vehicle flow.",
@@ -115,10 +115,10 @@ const services = [
     icon: DoorClosed,
     title: "Entrance Control",
     tagline: "Secure access management for regulated entry",
-    gradient: "from-green-500 to-emerald-700",
-    glow: "rgba(34,197,94,0.15)",
+    gradient: "from-teal-500 to-teal-700",
+    glow: "rgba(20,184,166,0.15)",
     description:
-      "VSR Technologies delivers complete entrance control and perimeter security systems — managing who enters your facility, when, and how, through a seamless, integrated workflow.",
+      "VSR Technologies delivers complete entrance control and perimeter security systems, managing who enters your facility, when, and how, through a seamless, integrated workflow.",
     features: [
       "Access Control System (RFID, biometric, face recognition, QR code)",
       "ANPR (Automatic Number Plate Recognition)",
@@ -138,10 +138,10 @@ const services = [
     icon: Building2,
     title: "Building Management",
     tagline: "Unified control for optimal building operations",
-    gradient: "from-amber-500 to-orange-600",
-    glow: "rgba(245,158,11,0.15)",
+    gradient: "from-primary to-blue-700",
+    glow: "rgba(59,130,246,0.15)",
     description:
-      "We integrate fire, access, CCTV, power, and automation subsystems into a single, unified Building Management System — giving facility managers one platform to oversee, control, and automate every critical building function.",
+      "We integrate fire, access, CCTV, power, and automation subsystems into a single, unified Building Management System, giving facility managers one platform to oversee, control, and automate every critical building function.",
     features: [
       "Fire alarm system",
       "Access control system",
@@ -158,10 +158,10 @@ const services = [
     icon: Map,
     title: "Smart City Solutions",
     tagline: "Municipal-scale technology for safer urban environments",
-    gradient: "from-sky-500 to-blue-600",
-    glow: "rgba(14,165,233,0.15)",
+    gradient: "from-slate-600 to-slate-800",
+    glow: "rgba(100,116,139,0.15)",
     description:
-      "VSR Technologies extends its expertise to macro-scale urban deployments — smart and safe city services spanning surveillance, traffic management, utilities, and AI-driven decision support.",
+      "VSR Technologies extends its expertise to macro-scale urban deployments: smart and safe city services spanning surveillance, traffic management, utilities, and AI-driven decision support.",
     features: [
       "City surveillance and video monitoring system",
       "Intelligent Traffic Management Systems (ITMS)",
@@ -183,7 +183,7 @@ const steps = [
     num: "01",
     icon: Search,
     title: "Site Inspection & Threat Assessment",
-    desc: "Every engagement begins with a comprehensive physical survey. Our engineers walk every metre of your facility — mapping all zones, identifying structural blind spots, cataloguing existing infrastructure, and building a detailed threat model specific to your environment and operational profile.",
+    desc: "Every engagement begins with a comprehensive physical survey. Our engineers walk every metre of your facility, mapping all zones, identifying structural blind spots, cataloguing existing infrastructure, and building a detailed threat model specific to your environment and operational profile.",
     detail: [
       "Full-perimeter and interior zone mapping",
       "Existing cabling and network infrastructure audit",
@@ -191,17 +191,17 @@ const steps = [
       "Environmental assessment for camera and detector placement",
       "Regulatory compliance gap analysis",
     ],
-    color: "text-sky-400",
-    ring: "ring-sky-400/20",
-    bg: "bg-sky-400/10",
-    border: "border-sky-400/30",
-    lineBg: "bg-sky-400",
+    color: "text-blue-400",
+    ring: "ring-blue-400/20",
+    bg: "bg-blue-400/10",
+    border: "border-blue-400/30",
+    lineBg: "bg-blue-400",
   },
   {
     num: "02",
     icon: ClipboardList,
     title: "Bespoke System Design",
-    desc: "Site data feeds directly into a full engineering design package. We produce camera placement CAD drawings, structured cabling schematics, equipment schedules with full specifications, network topology diagrams, and a phased deployment plan — presented to you for review and sign-off before a single cable is run.",
+    desc: "Site data feeds directly into a full engineering design package. We produce camera placement CAD drawings, structured cabling schematics, equipment schedules with full specifications, network topology diagrams, and a phased deployment plan, presented to you for review and sign-off before a single cable is run.",
     detail: [
       "CAD camera placement and coverage diagrams",
       "Structured cabling and fiber route schematics",
@@ -209,17 +209,17 @@ const steps = [
       "Network topology and VLAN segmentation plan",
       "Phased deployment timeline and milestone schedule",
     ],
-    color: "text-violet-400",
-    ring: "ring-violet-400/20",
-    bg: "bg-violet-400/10",
-    border: "border-violet-400/30",
-    lineBg: "bg-violet-400",
+    color: "text-slate-400",
+    ring: "ring-slate-400/20",
+    bg: "bg-slate-400/10",
+    border: "border-slate-400/30",
+    lineBg: "bg-slate-400",
   },
   {
     num: "03",
     icon: FileText,
     title: "Procurement & Material Staging",
-    desc: "We manage the full procurement cycle — sourcing certified equipment from approved vendors, verifying specifications against the design, staging and pre-configuring hardware off-site, and coordinating delivery windows to align with your facility's operational schedule.",
+    desc: "We manage the full procurement cycle: sourcing certified equipment from approved vendors, verifying specifications against the design, staging and pre-configuring hardware off-site, and coordinating delivery windows to align with your facility's operational schedule.",
     detail: [
       "Certified vendor sourcing and supply chain management",
       "Equipment specification verification against design",
@@ -227,17 +227,17 @@ const steps = [
       "Delivery and on-site logistics coordination",
       "Full material traceability documentation",
     ],
-    color: "text-rose-400",
-    ring: "ring-rose-400/20",
-    bg: "bg-rose-400/10",
-    border: "border-rose-400/30",
-    lineBg: "bg-rose-400",
+    color: "text-teal-400",
+    ring: "ring-teal-400/20",
+    bg: "bg-teal-400/10",
+    border: "border-teal-400/30",
+    lineBg: "bg-teal-400",
   },
   {
     num: "04",
     icon: Wrench,
     title: "Certified Installation",
-    desc: "Our field teams execute the installation precisely to the approved design — structured cabling runs, camera and detector mounting, server rack build-out, network switch configuration, and software platform setup — all completed without disrupting your ongoing facility operations.",
+    desc: "Our field teams execute the installation precisely to the approved design, covering structured cabling runs, camera and detector mounting, server rack build-out, network switch configuration, and software platform setup, all completed without disrupting your ongoing facility operations.",
     detail: [
       "TIA-568 and manufacturer-certified cabling installation",
       "Camera, detector, and access reader mounting and alignment",
@@ -245,11 +245,11 @@ const steps = [
       "Software platform and VMS configuration",
       "Zero-disruption scheduling around operational hours",
     ],
-    color: "text-amber-400",
-    ring: "ring-amber-400/20",
-    bg: "bg-amber-400/10",
-    border: "border-amber-400/30",
-    lineBg: "bg-amber-400",
+    color: "text-blue-400",
+    ring: "ring-blue-400/20",
+    bg: "bg-blue-400/10",
+    border: "border-blue-400/30",
+    lineBg: "bg-blue-400",
   },
   {
     num: "05",
@@ -263,17 +263,17 @@ const steps = [
       "Failover and redundancy scenario validation",
       "Formal commissioning certificate issued on completion",
     ],
-    color: "text-green-400",
-    ring: "ring-green-400/20",
-    bg: "bg-green-400/10",
-    border: "border-green-400/30",
-    lineBg: "bg-green-400",
+    color: "text-slate-400",
+    ring: "ring-slate-400/20",
+    bg: "bg-slate-400/10",
+    border: "border-slate-400/30",
+    lineBg: "bg-slate-400",
   },
   {
     num: "06",
     icon: GraduationCap,
     title: "Operator Training & Handover",
-    desc: "A system is only as effective as the team operating it. We deliver structured training sessions for your security operations staff — covering system navigation, alert response workflows, reporting tools, and escalation procedures. Full as-built documentation and user manuals are provided at handover.",
+    desc: "A system is only as effective as the team operating it. We deliver structured training sessions for your security operations staff, covering system navigation, alert response workflows, reporting tools, and escalation procedures. Full as-built documentation and user manuals are provided at handover.",
     detail: [
       "Hands-on VMS and BMS operator training sessions",
       "Alert response and escalation workflow walkthroughs",
@@ -299,17 +299,17 @@ const steps = [
       "Incident logging and post-event reporting",
       "Regular security review calls with your team",
     ],
-    color: "text-orange-400",
-    ring: "ring-orange-400/20",
-    bg: "bg-orange-400/10",
-    border: "border-orange-400/30",
-    lineBg: "bg-orange-400",
+    color: "text-blue-400",
+    ring: "ring-blue-400/20",
+    bg: "bg-blue-400/10",
+    border: "border-blue-400/30",
+    lineBg: "bg-blue-400",
   },
   {
     num: "08",
     icon: RefreshCw,
     title: "Lifecycle Management & Annual Review",
-    desc: "Security threats and technology evolve — your infrastructure should too. We conduct annual system reviews, manage firmware and software update cycles, replace end-of-life hardware before it becomes a risk, and provide strategic roadmap recommendations to keep your security posture ahead of emerging threats.",
+    desc: "Security threats and technology evolve, and your infrastructure should too. We conduct annual system reviews, manage firmware and software update cycles, replace end-of-life hardware before it becomes a risk, and provide strategic roadmap recommendations to keep your security posture ahead of emerging threats.",
     detail: [
       "Annual on-site system performance review",
       "Firmware and software update lifecycle management",
@@ -317,11 +317,11 @@ const steps = [
       "Emerging threat and technology briefings",
       "Strategic infrastructure upgrade roadmapping",
     ],
-    color: "text-indigo-400",
-    ring: "ring-indigo-400/20",
-    bg: "bg-indigo-400/10",
-    border: "border-indigo-400/30",
-    lineBg: "bg-indigo-400",
+    color: "text-slate-400",
+    ring: "ring-slate-400/20",
+    bg: "bg-slate-400/10",
+    border: "border-slate-400/30",
+    lineBg: "bg-slate-400",
   },
 ];
 
@@ -409,7 +409,7 @@ export default function ServicesPage() {
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-primary">One Partner.</span>
             </h1>
             <p className="text-lg sm:text-xl text-slate-300 leading-relaxed max-w-2xl">
-              We design, install, and maintain the complete stack of physical security and building infrastructure — from a single access point to a campus-wide smart city deployment.
+              We design, install, and maintain the complete stack of physical security and building infrastructure, from a single access point to a campus-wide smart city deployment.
             </p>
           </motion.div>
         </div>
@@ -426,7 +426,7 @@ export default function ServicesPage() {
             </motion.div>
 
             <div className="grid grid-cols-1 lg:grid-cols-[260px_1fr] gap-4 sm:gap-6">
-              {/* Left nav — horizontal scroll on mobile, vertical on desktop */}
+              {/* Left nav: horizontal scroll on mobile, vertical on desktop */}
               <div className="flex lg:flex-col gap-2 overflow-x-auto lg:overflow-visible pb-2 lg:pb-0 scrollbar-hide">
                 {services.map((s) => {
                   const SIcon = s.icon;
@@ -486,7 +486,7 @@ export default function ServicesPage() {
                 <span className="text-primary">standards.</span>
               </h2>
               <p className="text-lg text-slate-500 leading-relaxed">
-                These aren't add-ons — they're built into how we engineer every system we deploy.
+                These aren't add-ons. They're built into how we engineer every system we deploy.
               </p>
             </motion.div>
 
@@ -514,7 +514,7 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        {/* ── Process Timeline — VERTICAL ── */}
+        {/* Process Timeline (vertical) */}
         <section className="py-16 sm:py-24 bg-[#0A1628] relative overflow-hidden">
           <div className="absolute inset-0 opacity-[0.04] pointer-events-none"
             style={{ backgroundImage: "linear-gradient(to right,#fff 1px,transparent 1px),linear-gradient(to bottom,#fff 1px,transparent 1px)", backgroundSize: "80px 80px" }}

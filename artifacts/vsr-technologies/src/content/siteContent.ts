@@ -75,7 +75,7 @@ export const defaultSiteContent: SiteContent = {
     headlinePrefix: "Enterprise-Grade",
     headlineSuffix: "for Critical Infrastructure.",
     description:
-      "From CCTV and fire alarm systems to structured cabling, building management, entrance control, and parking solutions — we design, install, and maintain the complete security stack for airports, commercial towers, and industrial facilities.",
+      "From CCTV and fire alarm systems to structured cabling, building management, entrance control, and parking solutions, we design, install, and maintain the complete security stack for airports, commercial towers, and industrial facilities.",
     rotatingServices: [
       "CCTV Surveillance",
       "Video Analytics",
@@ -106,7 +106,7 @@ export const defaultSiteContent: SiteContent = {
     title: "Integrated Security",
     titleAccent: "Ecosystems",
     description:
-      "We don't install components — we architect complete security infrastructure tailored to your environment.",
+      "We don't install components. We architect complete security infrastructure tailored to your environment.",
     cta: "View all services",
     items: [
       { title: "CCTV Surveillance", desc: "HD networked camera systems for total site visibility." },
@@ -124,7 +124,7 @@ export const defaultSiteContent: SiteContent = {
     title: "What We Commit",
     titleAccent: "To Every Client",
     description:
-      "Security is a long-term responsibility, not a one-time installation. Every commitment we make is built into the systems we design, the engineers we deploy, and the support we provide — without exception.",
+      "Security is a long-term responsibility, not a one-time installation. Every commitment we make is built into the systems we design, the engineers we deploy, and the support we provide, without exception.",
     features: [
       {
         title: "Zero Third-Party Handoffs",
@@ -132,11 +132,11 @@ export const defaultSiteContent: SiteContent = {
       },
       {
         title: "Systems Built for You",
-        desc: "Every deployment is bespoke. We engineer around your specific threat model, facility layout, and compliance obligations — never from a pre-packaged template.",
+        desc: "Every deployment is bespoke. We engineer around your specific threat model, facility layout, and compliance obligations, never from a pre-packaged template.",
       },
       {
         title: "99.9% Uptime, Guaranteed",
-        desc: "Commercial-grade hardware, redundant network paths, and failover configurations are standard — not optional extras — on every mission-critical system we build.",
+        desc: "Commercial-grade hardware, redundant network paths, and failover configurations are standard on every mission-critical system we build, not optional extras.",
       },
       {
         title: "Certified at Every Level",
@@ -144,11 +144,11 @@ export const defaultSiteContent: SiteContent = {
       },
       {
         title: "Proven in Critical Environments",
-        desc: "Airports, power plants, data centres, government complexes — we have delivered in environments where a single failure has real operational and safety consequences.",
+        desc: "Airports, power plants, data centres, and government complexes: we have delivered in environments where a single failure has real operational and safety consequences.",
       },
       {
         title: "Always-On Support",
-        desc: "24/7 remote monitoring, proactive maintenance, and guaranteed rapid on-site response. Our commitment doesn't end at commissioning — it begins there.",
+        desc: "24/7 remote monitoring, proactive maintenance, and guaranteed rapid on-site response. Our commitment doesn't end at commissioning, it begins there.",
       },
     ],
   },
@@ -185,10 +185,10 @@ export const defaultSiteContent: SiteContent = {
     title: "Frequently Asked",
     titleAccent: "Questions",
     description:
-      "Everything you need to know about working with VSR Technologies — from project scope to ongoing support.",
+      "Everything you need to know about working with VSR Technologies, from project scope to ongoing support.",
     items: [
-      { q: "What types of facilities does VSR Technologies typically serve?", a: "We serve enterprise and institutional facilities that demand the highest security standards — including international airports, government complexes, data centres, industrial plants, hospital campuses, high-rise commercial towers, and smart city infrastructure. If reliability and zero-failure are non-negotiable, VSR belongs there." },
-      { q: "Do you handle the full project lifecycle or just installation?", a: "We manage the complete lifecycle: site inspection and threat assessment, bespoke system design, equipment supply, certified installation, commissioning, operator training, and ongoing 24/7 monitoring and maintenance. There are no third-party handoffs — every stage is handled by our own certified engineers." },
+      { q: "What types of facilities does VSR Technologies typically serve?", a: "We serve enterprise and institutional facilities that demand the highest security standards, including international airports, government complexes, data centres, industrial plants, hospital campuses, high-rise commercial towers, and smart city infrastructure. If reliability and zero-failure are non-negotiable, VSR belongs there." },
+      { q: "Do you handle the full project lifecycle or just installation?", a: "We manage the complete lifecycle: site inspection and threat assessment, bespoke system design, equipment supply, certified installation, commissioning, operator training, and ongoing 24/7 monitoring and maintenance. There are no third-party handoffs; every stage is handled by our own certified engineers." },
       { q: "What certifications do your engineers hold?", a: "Our technical team holds industry-leading credentials including NICET Level III, BICSI RCDD, and vendor certifications from Axis Communications, Bosch Security Systems, Genetec, Lenel S2, Honeywell, and Milestone." },
       { q: "Can VSR integrate multiple systems into a unified platform?", a: "Absolutely. Integration is at the core of our approach. We connect CCTV, video analytics, access control, fire alarm, HVAC, and building management systems into a single unified dashboard." },
       { q: "How do you approach projects in sensitive or secure environments?", a: "All VSR personnel undergo background verification before site access. Our installations are designed to minimise operational disruption, and we coordinate closely with security and facilities teams throughout every phase." },

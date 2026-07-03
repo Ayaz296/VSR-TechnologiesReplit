@@ -57,7 +57,7 @@ const clients: Client[] = [
       { y: 2025, w: "Installation, testing and commissioning of the Fire Alarm System, enhancing facility-wide fire safety.", p: "Johnson Control (India) Pvt Ltd" },
       { y: 2025, w: "Installation, testing and commissioning of the Access Control System at airport security gates.", p: "Johnson Control (India) Pvt Ltd" },
       { y: 2025, w: "Supply, installation, testing and commissioning of CCTV surveillance at Cargo T2 of GHIAL.", p: "WAISL Limited" },
-      { y: 2025, w: "Supply, installation, testing and commissioning of IT passive infrastructure for parking ramps — FASTag enabling project.", p: "GMR Groups" },
+      { y: 2025, w: "Supply, installation, testing and commissioning of IT passive infrastructure for parking ramps, FASTag enabling project.", p: "GMR Groups" },
       { y: 2025, w: "Supply of skilled manpower for operation and maintenance of Stratacache kiosk machines displaying flight information.", p: "Stratecache India Pvt Ltd" },
       { y: 2025, w: "CCTV surveillance ensuring enhanced security monitoring at the Air Traffic Reporting System.", p: "GMR Groups" },
       { y: 2025, w: "Passive network infrastructure including IT cable re-routing near the storm water drain to the isolation bay.", p: "GMR Groups" },
@@ -207,8 +207,8 @@ const partners = [
   { n: "GMR Groups", d: "Core client partner across airside CCTV, cabling, passive infra and fibre projects at GMR airports since 2020." },
   { n: "WAISL Limited", d: "Joint AMC delivery and cargo-terminal CCTV at GMR International Airport, Hyderabad." },
   { n: "Johnson Control (India) Pvt Ltd", d: "Fire alarm and access-control system rollout at GMR Hyderabad's security gates." },
-  { n: "Godrej Security Solutions", d: "Longest-standing OEM partner — fire alarm and CCTV AMCs across IOCL, NTPC, HAL, Dr. Reddy's and Manappuram." },
-  { n: "Echelon Edge", d: "CCTV hardware and software rollout partner — 3,300+ cameras at GMR Hyderabad and PI Industries Gujarat." },
+  { n: "Godrej Security Solutions", d: "Longest-standing OEM partner: fire alarm and CCTV AMCs across IOCL, NTPC, HAL, Dr. Reddy's and Manappuram." },
+  { n: "Echelon Edge", d: "CCTV hardware and software rollout partner: 3,300+ cameras at GMR Hyderabad and PI Industries Gujarat." },
   { n: "Siemens Limited", d: "Building management and fire-safety systems integration at Kempegowda International Airport, Bangalore." },
   { n: "Tata Groups", d: "CCTV, BMS, fire alarm and access control delivery at AIIMS Guntur." },
   { n: "Crown Solar, Hyderabad", d: "Perimeter CCTV and power-fencing installations at GMR Hyderabad." },
@@ -355,7 +355,7 @@ export default function ProjectsPage() {
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-primary">Across Every Sector.</span>
             </h1>
             <p className="text-xl text-slate-300 leading-relaxed max-w-2xl mb-16">
-              From India's busiest airports to defence PSUs, industrial plants, and government institutions — our portfolio demonstrates the depth of our capabilities.
+              From India's busiest airports to defence PSUs, industrial plants, and government institutions, our portfolio demonstrates the depth of our capabilities.
             </p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-8 border-t border-white/10">
               {stats.map((s) => (

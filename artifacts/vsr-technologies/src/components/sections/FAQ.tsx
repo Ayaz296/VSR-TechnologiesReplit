@@ -5,11 +5,11 @@ import { Plus, Minus } from "lucide-react";
 const faqs = [
   {
     q: "What types of facilities does VSR Technologies typically serve?",
-    a: "We serve enterprise and institutional facilities that demand the highest security standards — including international airports, government complexes, data centres, industrial plants, hospital campuses, high-rise commercial towers, and smart city infrastructure. If reliability and zero-failure are non-negotiable, VSR belongs there.",
+    a: "We serve enterprise and institutional facilities that demand the highest security standards, including international airports, government complexes, data centres, industrial plants, hospital campuses, high-rise commercial towers, and smart city infrastructure. If reliability and zero-failure are non-negotiable, VSR belongs there.",
   },
   {
     q: "Do you handle the full project lifecycle or just installation?",
-    a: "We manage the complete lifecycle: site inspection and threat assessment, bespoke system design (with full CAD documentation), equipment supply, certified installation, commissioning, operator training, and ongoing 24/7 monitoring and maintenance. There are no third-party handoffs — every stage is handled by our own certified engineers.",
+    a: "We manage the complete lifecycle: site inspection and threat assessment, bespoke system design (with full CAD documentation), equipment supply, certified installation, commissioning, operator training, and ongoing 24/7 monitoring and maintenance. There are no third-party handoffs; every stage is handled by our own certified engineers.",
   },
   {
     q: "What certifications do your engineers hold?",
@@ -17,7 +17,7 @@ const faqs = [
   },
   {
     q: "Can VSR integrate multiple systems into a unified platform?",
-    a: "Absolutely. Integration is at the core of our approach. We connect CCTV, video analytics, access control, fire alarm, HVAC, and building management systems into a single unified dashboard — giving your operators one pane of glass for total situational awareness and control.",
+    a: "Absolutely. Integration is at the core of our approach. We connect CCTV, video analytics, access control, fire alarm, HVAC, and building management systems into a single unified dashboard, giving your operators one pane of glass for total situational awareness and control.",
   },
   {
     q: "How do you approach projects in sensitive or secure environments?",
@@ -25,15 +25,15 @@ const faqs = [
   },
   {
     q: "What kind of ongoing support do you provide after installation?",
-    a: "We offer 24/7 remote monitoring, proactive maintenance schedules, firmware and software update management, and guaranteed rapid on-site response time agreements. Our support contracts are structured to keep your system performing at peak — not just functional.",
+    a: "We offer 24/7 remote monitoring, proactive maintenance schedules, firmware and software update management, and guaranteed rapid on-site response time agreements. Our support contracts are structured to keep your system performing at peak, not just functional.",
   },
   {
     q: "Do you provide systems for smaller commercial buildings?",
-    a: "Yes. While our heritage is in large-scale enterprise deployments, we design scalable systems for commercial properties of any size. Every client receives the same engineering rigour and bespoke approach — scaled appropriately to their environment and budget.",
+    a: "Yes. While our heritage is in large-scale enterprise deployments, we design scalable systems for commercial properties of any size. Every client receives the same engineering rigour and bespoke approach, scaled appropriately to their environment and budget.",
   },
   {
     q: "How do I get a quote or schedule a site assessment?",
-    a: "Use our Contact form on this page or call our team directly. We offer a complimentary initial site assessment and consultation for all qualified enquiries. Our engineers will survey your facility, identify requirements, and deliver a detailed proposal — at no cost and with no obligation.",
+    a: "Use our Contact form on this page or call our team directly. We offer a complimentary initial site assessment and consultation for all qualified enquiries. Our engineers will survey your facility, identify requirements, and deliver a detailed proposal at no cost and with no obligation.",
   },
 ];
 
@@ -117,7 +117,7 @@ export function FAQ() {
               </span>
             </h2>
             <p className="text-xl text-slate-400 leading-relaxed max-w-2xl mx-auto">
-              Everything you need to know about working with VSR Technologies — from project scope to ongoing support.
+              Everything you need to know about working with VSR Technologies, from project scope to ongoing support.
             </p>
           </motion.div>
 

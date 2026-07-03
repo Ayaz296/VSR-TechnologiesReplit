@@ -135,7 +135,7 @@ export function Hero() {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="text-lg text-slate-300 mb-10 leading-relaxed max-w-2xl"
             >
-              From CCTV and fire alarm systems to structured cabling, building management, entrance control, and parking solutions — we design, install, and maintain the complete security stack for airports, commercial towers, and industrial facilities.
+              From CCTV and fire alarm systems to structured cabling, building management, entrance control, and parking solutions, we design, install, and maintain the complete security stack for airports, commercial towers, and industrial facilities.
             </motion.p>
 
             {/* Capability chips */}

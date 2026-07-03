@@ -117,10 +117,10 @@ export default function AboutPage() {
                   We don't just install systems. We build lasting security ecosystems.
                 </h2>
                 <p className="text-lg text-slate-600 leading-relaxed mb-6">
-                  VSR Technologies was founded on a simple belief: physical security infrastructure should be designed by engineers who understand how threats actually work — not just how cameras are mounted.
+                  VSR Technologies was founded on a simple belief: physical security infrastructure should be designed by engineers who understand how threats actually work, not just how cameras are mounted.
                 </p>
                 <p className="text-lg text-slate-600 leading-relaxed mb-10">
-                  Today, we bring that philosophy to every engagement — from scoping and design through to installation, commissioning, and lifelong system maintenance. Our clients include aviation authorities, Fortune 500 real estate groups, industrial operators, and municipal governments.
+                  Today, we bring that philosophy to every engagement, from scoping and design through to installation, commissioning, and lifelong system maintenance. Our clients include aviation authorities, Fortune 500 real estate groups, industrial operators, and municipal governments.
                 </p>
                 <div className="grid grid-cols-3 gap-8 pt-8 border-t border-slate-100">
                   {[
@@ -151,7 +151,7 @@ export default function AboutPage() {
             >
               <h2 className="text-4xl font-bold tracking-tight mb-4">Our Core Values</h2>
               <p className="text-xl text-slate-600 leading-relaxed">
-                The principles that guide every decision — from system design to client relationships.
+                The principles that guide every decision, from system design to client relationships.
               </p>
             </motion.div>
 

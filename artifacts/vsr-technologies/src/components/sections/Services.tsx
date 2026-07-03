@@ -8,8 +8,8 @@ const services = [
     icon: Video,
     title: "CCTV Surveillance",
     desc: "Comprehensive CCTV surveillance and security solutions designed to enhance safety, security, and operational visibility.",
-    features: ["Video Management Systems — Milestone, IndigoVision, Vehant & more", "HD/4K IP camera deployment", "Centralised NVR/DVR management", "24/7 remote monitoring integration"],
-    color: "from-blue-500 to-blue-700",
+    features: ["Video Management Systems: Milestone, IndigoVision, Vehant & more", "HD/4K IP camera deployment", "Centralised NVR/DVR management", "24/7 remote monitoring integration"],
+    color: "from-primary to-blue-700",
     num: "01",
   },
   {
@@ -17,15 +17,15 @@ const services = [
     title: "Video Analytics",
     desc: "AI and computer-vision powered video analytics for real-time monitoring, automated threat detection, and data-driven decisions.",
     features: ["Facial recognition & object detection/tracking", "ANPR / LPR solutions", "Perimeter security & intrusion detection", "Crowd, people & behavioural analytics"],
-    color: "from-violet-500 to-purple-700",
+    color: "from-slate-600 to-slate-800",
     num: "02",
   },
   {
     icon: Network,
     title: "Networking Solutions",
     desc: "End-to-end networking solutions delivering reliable, secure, and scalable IT infrastructure.",
-    features: ["Network infrastructure design & deployment", "Wireless networking solutions", "Network security — firewalls & VPNs", "Data centre, server & storage infrastructure"],
-    color: "from-teal-500 to-cyan-700",
+    features: ["Network infrastructure design & deployment", "Wireless networking solutions", "Network security: firewalls & VPNs", "Data centre, server & storage infrastructure"],
+    color: "from-teal-500 to-teal-700",
     num: "03",
   },
   {
@@ -33,7 +33,7 @@ const services = [
     title: "Building Management",
     desc: "Unified Building Management System integrating fire, access, CCTV, power, and automation into one control platform.",
     features: ["Fire alarm & access control integration", "Public address & electrical power systems", "Solar power solutions", "Building analytics & reporting"],
-    color: "from-amber-500 to-orange-700",
+    color: "from-primary to-blue-700",
     num: "04",
   },
   {
@@ -41,15 +41,15 @@ const services = [
     title: "Smart City Solutions",
     desc: "Smart and Safe City services spanning surveillance, traffic management, utilities, and AI-driven decision support.",
     features: ["City surveillance & intelligent traffic management (ITMS)", "Smart street lighting & smart parking", "IoT sensor networks & cybersecurity services", "AI, analytics & decision support platforms"],
-    color: "from-sky-500 to-blue-600",
+    color: "from-slate-600 to-slate-800",
     num: "05",
   },
   {
     icon: DoorClosed,
     title: "Entrance Control",
     desc: "Complete entrance control and perimeter security systems managing who enters your facility, when, and how.",
-    features: ["Access control — RFID, biometric, face, QR", "ANPR & boom barrier automation", "Turnstiles, flap barriers & tyre killers", "Video door phone & intercom systems"],
-    color: "from-green-500 to-emerald-700",
+    features: ["Access control: RFID, biometric, face, QR", "ANPR & boom barrier automation", "Turnstiles, flap barriers & tyre killers", "Video door phone & intercom systems"],
+    color: "from-teal-500 to-teal-700",
     num: "06",
   },
   {
@@ -65,7 +65,7 @@ const services = [
     title: "Parking Management",
     desc: "Advanced parking management and access control solutions bringing order and intelligence to vehicle flow.",
     features: ["ANPR-based access with boom barrier integration", "Boom barriers, tyre killers & bollards", "Visitor management system", "Smart parking with AI video analytics"],
-    color: "from-slate-500 to-slate-700",
+    color: "from-primary to-blue-700",
     num: "08",
   },
 ];
@@ -149,7 +149,7 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
 
 export function Services() {
   return (
-    <section id="services" className="py-32 bg-gradient-to-b from-[#F0F4FF] to-[#F8FAFC] relative overflow-hidden">
+    <section id="services" className="py-32 bg-gradient-to-b from-white to-[#F8FAFC] relative overflow-hidden">
       <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-blue-100/40 blur-[120px] pointer-events-none" />
 
       <div className="container mx-auto px-6 relative z-10">
@@ -168,7 +168,7 @@ export function Services() {
               <span className="text-primary">Ecosystems</span>
             </h2>
             <p className="text-xl text-slate-500 leading-relaxed">
-              We don't install components — we architect complete security infrastructure tailored to your environment.
+              We don't install components. We architect complete security infrastructure tailored to your environment.
             </p>
           </motion.div>
           <motion.div

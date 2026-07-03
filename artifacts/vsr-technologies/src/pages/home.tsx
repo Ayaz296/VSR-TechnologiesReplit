@@ -16,8 +16,8 @@ export default function Home() {
       <Navbar />
       <main className="flex-1">
         <Hero />
-        <Slider3D />
         <WhyChooseUs />
+        <Slider3D />
         <ProjectHighlights />
         <Services />
         <OurClients />

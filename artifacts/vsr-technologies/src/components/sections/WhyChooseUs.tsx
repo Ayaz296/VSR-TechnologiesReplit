@@ -5,12 +5,12 @@ import { defaultSiteContent, type SiteContent } from "@/content/siteContent";
 type WhyChooseUsContent = SiteContent["whyChooseUs"];
 
 const featureStyles = [
-  { num: "01", icon: Network,    color: "text-blue-500",   bg: "bg-blue-50",   border: "border-blue-100",   accent: "from-blue-400 to-blue-600" },
-  { num: "02", icon: Server,     color: "text-violet-500", bg: "bg-violet-50", border: "border-violet-100", accent: "from-violet-400 to-violet-600" },
-  { num: "03", icon: ShieldCheck,color: "text-teal-600",   bg: "bg-teal-50",   border: "border-teal-100",   accent: "from-teal-400 to-teal-600" },
-  { num: "04", icon: UserCog,    color: "text-amber-600",  bg: "bg-amber-50",  border: "border-amber-100",  accent: "from-amber-400 to-amber-600" },
-  { num: "05", icon: HardHat,    color: "text-red-500",    bg: "bg-red-50",    border: "border-red-100",    accent: "from-red-400 to-red-600" },
-  { num: "06", icon: Clock,      color: "text-sky-500",    bg: "bg-sky-50",    border: "border-sky-100",    accent: "from-sky-400 to-sky-600" },
+  { num: "01", icon: Network,    color: "text-primary",    bg: "bg-primary/5",  border: "border-primary/10",  accent: "from-primary to-blue-700" },
+  { num: "02", icon: Server,     color: "text-slate-700",  bg: "bg-slate-100",  border: "border-slate-200",   accent: "from-slate-600 to-slate-800" },
+  { num: "03", icon: ShieldCheck,color: "text-teal-700",   bg: "bg-teal-50",    border: "border-teal-100",    accent: "from-teal-500 to-teal-700" },
+  { num: "04", icon: UserCog,    color: "text-primary",    bg: "bg-primary/5",  border: "border-primary/10",  accent: "from-primary to-blue-700" },
+  { num: "05", icon: HardHat,    color: "text-slate-700",  bg: "bg-slate-100",  border: "border-slate-200",   accent: "from-slate-600 to-slate-800" },
+  { num: "06", icon: Clock,      color: "text-teal-700",   bg: "bg-teal-50",    border: "border-teal-100",    accent: "from-teal-500 to-teal-700" },
 ];
 
 export function WhyChooseUs({ content = defaultSiteContent.whyChooseUs }: { content?: WhyChooseUsContent }) {
@@ -20,7 +20,7 @@ export function WhyChooseUs({ content = defaultSiteContent.whyChooseUs }: { cont
   }));
 
   return (
-    <section className="py-20 sm:py-28 bg-gradient-to-b from-[#F8FAFC] to-[#F0F4FF] relative overflow-hidden">
+    <section className="py-20 sm:py-28 bg-gradient-to-b from-white to-[#F8FAFC] relative overflow-hidden">
       {/* Subtle dot grid */}
       <div
         className="absolute inset-0 opacity-[0.035] pointer-events-none"
@@ -30,7 +30,7 @@ export function WhyChooseUs({ content = defaultSiteContent.whyChooseUs }: { cont
         }}
       />
       {/* Light glow accent */}
-      <div className="absolute top-0 right-0 w-[600px] h-[400px] bg-blue-50/80 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-0 right-0 w-[600px] h-[400px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         {/* Header */}
@@ -47,7 +47,7 @@ export function WhyChooseUs({ content = defaultSiteContent.whyChooseUs }: { cont
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-foreground mb-4 sm:mb-5 leading-[1.1]">
             {content.title}
             <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-sky-500">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-700">
               {content.titleAccent}
             </span>
           </h2>

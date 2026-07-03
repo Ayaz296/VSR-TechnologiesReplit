@@ -19,8 +19,8 @@ const projects = [
       "ALPR-controlled 8,000-bay car park",
       "Single-pane PSIM dashboard",
     ],
-    accent: "from-blue-500 to-sky-400",
-    tag: "bg-blue-50 text-blue-700 border-blue-100",
+    accent: "from-primary to-blue-700",
+    tag: "bg-primary/5 text-primary border-primary/10",
   },
   {
     label: "Commercial Real Estate",
@@ -35,8 +35,8 @@ const projects = [
       "BMS integration with HVAC & lifts",
       "24/7 remote NOC monitoring",
     ],
-    accent: "from-violet-500 to-purple-400",
-    tag: "bg-violet-50 text-violet-700 border-violet-100",
+    accent: "from-slate-600 to-slate-800",
+    tag: "bg-slate-100 text-slate-700 border-slate-200",
   },
   {
     label: "Industrial",
@@ -44,15 +44,15 @@ const projects = [
     location: "Industrial Zone",
     image: industrialImg,
     summary:
-      "Explosion-proof thermal and HD cameras, multi-zone intrusion detection, and automated fire-and-gas suppression control across a 3.2 km secured perimeter — zero undetected breaches since commissioning.",
+      "Explosion-proof thermal and HD cameras, multi-zone intrusion detection, and automated fire-and-gas suppression control across a 3.2 km secured perimeter, with zero undetected breaches since commissioning.",
     outcomes: [
       "3.2 km secured perimeter",
       "Thermal + explosion-proof cameras",
       "Automated fire & gas suppression",
       "Zero undetected breaches post-commissioning",
     ],
-    accent: "from-amber-500 to-orange-400",
-    tag: "bg-amber-50 text-amber-700 border-amber-100",
+    accent: "from-teal-500 to-teal-700",
+    tag: "bg-teal-50 text-teal-700 border-teal-100",
   },
   {
     label: "Critical Infrastructure",
@@ -67,14 +67,14 @@ const projects = [
       "Encrypted access across all sites",
       "Centralised alarm & event management",
     ],
-    accent: "from-teal-500 to-emerald-400",
-    tag: "bg-teal-50 text-teal-700 border-teal-100",
+    accent: "from-slate-600 to-slate-800",
+    tag: "bg-slate-100 text-slate-700 border-slate-200",
   },
 ];
 
 export function ProjectHighlights() {
   return (
-    <section className="py-20 sm:py-28 bg-gradient-to-b from-[#F0F4FF] to-[#F8FAFC] relative overflow-hidden">
+    <section className="py-20 sm:py-28 bg-gradient-to-b from-white to-[#F8FAFC] relative overflow-hidden">
       {/* Subtle dot grid */}
       <div
         className="absolute inset-0 opacity-[0.035] pointer-events-none"
@@ -84,7 +84,7 @@ export function ProjectHighlights() {
         }}
       />
       <div className="absolute top-0 right-0 w-[600px] h-[400px] bg-blue-100/60 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[300px] bg-violet-100/50 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[300px] bg-slate-100/60 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         {/* Header */}
@@ -101,12 +101,12 @@ export function ProjectHighlights() {
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-foreground mb-4 sm:mb-5 leading-[1.1]">
             Deployed Across
             <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-sky-500">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-700">
               Critical Environments
             </span>
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-slate-500 leading-relaxed">
-            From international aviation hubs to unmanned infrastructure sites —
+            From international aviation hubs to unmanned infrastructure sites,
             these are the environments where our systems operate daily.
           </p>
         </motion.div>
@@ -163,7 +163,7 @@ export function ProjectHighlights() {
                 <ul className="space-y-1.5">
                   {p.outcomes.map((outcome) => (
                     <li key={outcome} className="flex items-start gap-2 text-xs sm:text-sm text-slate-600">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 flex-shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-3.5 h-3.5 text-primary flex-shrink-0 mt-0.5" />
                       {outcome}
                     </li>
                   ))}
