@@ -393,7 +393,7 @@ export default function ServicesPage() {
       <Navbar />
 
       {/* ── Page header ── */}
-      <div className="relative pt-32 sm:pt-36 pb-20 sm:pb-24 bg-[#0A1628] overflow-hidden">
+      <div className="relative pt-32 sm:pt-36 pb-20 sm:pb-24 bg-[#0F2747] overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(56,189,248,0.12)_0%,transparent_60%)] pointer-events-none" />
         <div className="absolute inset-0 opacity-[0.04] pointer-events-none"
           style={{ backgroundImage: "linear-gradient(to right,#fff 1px,transparent 1px),linear-gradient(to bottom,#fff 1px,transparent 1px)", backgroundSize: "80px 80px" }}
@@ -515,7 +515,7 @@ export default function ServicesPage() {
         </section>
 
         {/* Process Timeline (vertical) */}
-        <section className="py-16 sm:py-24 bg-[#0A1628] relative overflow-hidden">
+        <section className="py-16 sm:py-24 bg-[#0F2747] relative overflow-hidden">
           <div className="absolute inset-0 opacity-[0.04] pointer-events-none"
             style={{ backgroundImage: "linear-gradient(to right,#fff 1px,transparent 1px),linear-gradient(to bottom,#fff 1px,transparent 1px)", backgroundSize: "80px 80px" }}
           />

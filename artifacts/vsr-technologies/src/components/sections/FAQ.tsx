@@ -85,7 +85,7 @@ function FAQItem({ item, index }: { item: typeof faqs[0]; index: number }) {
 
 export function FAQ() {
   return (
-    <section className="py-28 bg-[#060E1E] relative overflow-hidden">
+    <section className="py-28 bg-[#091d38] relative overflow-hidden">
       {/* Grid */}
       <div
         className="absolute inset-0 opacity-[0.03] pointer-events-none"

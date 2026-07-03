@@ -63,7 +63,7 @@ export function Hero() {
   const opacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
 
   return (
-    <section ref={containerRef} className="relative min-h-[100dvh] flex items-center overflow-hidden bg-[#0A1628]">
+    <section ref={containerRef} className="relative min-h-[100dvh] flex items-center overflow-hidden bg-[#0F2747]">
       {/* Parallax background */}
       <motion.div style={{ y }} className="absolute inset-0 z-0">
         <img
@@ -73,8 +73,8 @@ export function Hero() {
           decoding="sync"
           className="w-full h-full object-cover object-center scale-110"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0A1628]/97 via-[#0A1628]/80 to-[#0A1628]/30" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628]/95 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0F2747]/97 via-[#0F2747]/80 to-[#0F2747]/30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0F2747]/95 via-transparent to-transparent" />
       </motion.div>
 
       {/* Grid overlay */}

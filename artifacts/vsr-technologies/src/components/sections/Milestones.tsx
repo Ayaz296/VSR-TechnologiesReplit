@@ -11,7 +11,7 @@ const milestones = [
 
 export function Milestones() {
   return (
-    <section className="py-24 sm:py-28 bg-[#FFF6EC] relative overflow-hidden">
+    <section className="py-24 sm:py-28 bg-[#EEF3F8] relative overflow-hidden">
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

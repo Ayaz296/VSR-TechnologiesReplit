@@ -1,0 +1,101 @@
+Colour Palette
+Usage	Colour	Hex
+Primary	Midnight Navy	#0F2747
+Secondary	Steel Blue	#4F6B8A
+Accent	Azure Blue	#2F80ED
+Highlight	Cyan	#33C3F0
+Background	Soft White	#F8FAFC
+Section Background	Cool Grey	#EEF3F8
+Cards	Pure White	#FFFFFF
+Primary Text	Rich Slate	#1B2430
+Secondary Text	Grey	#5F6C7B
+Border	Light Grey	#DCE6F1
+Success	#22C55E	
+Warning	#F59E0B	
+Danger	#EF4444	
+Gradient
+
+Use subtle gradients sparingly for hero sections and call-to-action areas.
+
+linear-gradient(
+135deg,
+#0F2747 0%,
+#1F4E79 45%,
+#2F80ED 100%
+)
+
+Or a lighter option:
+
+linear-gradient(
+180deg,
+#FFFFFF 0%,
+#F4F8FC 100%
+)
+Buttons
+Primary
+Background: #2F80ED
+Text: White
+
+Hover:
+
+#1E6FDB
+Secondary
+Background: White
+Border: #DCE6F1
+Text: #0F2747
+
+Hover:
+
+Background: #F5F9FD
+Accent CTA
+
+Use only for important actions like Get a Quote or Book a Consultation.
+
+Background: #0F2747
+Text: White
+
+Hover:
+
+#183A67
+Card Style
+Background: #FFFFFF
+Border: 1px solid #E6EDF5
+Radius: 16px
+
+Shadow:
+
+0 8px 30px rgba(15,39,71,0.08)
+Typography
+Purpose	Font
+Headings	Plus Jakarta Sans
+Body	Inter
+Numbers/KPIs	Space Grotesk (optional)
+Design Style
+Bright, airy layouts with plenty of white space
+Large photography of commercial buildings and integrated security systems
+Thin blue divider lines instead of heavy borders
+Soft shadows and rounded corners (12–16px)
+Minimal iconography with blue highlights
+Gentle gradients only in hero or feature sections
+Accent Usage
+70% White / Soft White backgrounds
+20% Navy and Slate for headings and navigation
+10% Azure Blue and Cyan for buttons, links, icons, and key highlights
+
+This balance keeps the interface feeling premium rather than overly saturated.
+
+Final Brand Palette
+Primary       #0F2747
+Secondary     #4F6B8A
+Accent        #2F80ED
+Highlight     #33C3F0
+
+Background    #F8FAFC
+Section BG    #EEF3F8
+Surface       #FFFFFF
+
+Text          #1B2430
+Text Light    #5F6C7B
+Border        #DCE6F1
+
+This palette gives the impression of a premium engineering and technology firm—clean, dependable, and sophisticated—while remaining suitable for services ranging from CCTV and fire protection to building management and smart parking solutions.

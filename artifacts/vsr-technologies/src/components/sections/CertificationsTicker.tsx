@@ -20,10 +20,10 @@ const items = [...certifications, ...certifications];
 
 export function CertificationsTicker() {
   return (
-    <section className="py-14 sm:py-16 bg-[#0A1628] border-y border-white/8 overflow-hidden relative">
+    <section className="py-14 sm:py-16 bg-[#0F2747] border-y border-white/8 overflow-hidden relative">
       {/* Fade edges */}
-      <div className="absolute left-0 top-0 bottom-0 w-20 sm:w-32 bg-gradient-to-r from-[#0A1628] to-transparent z-10 pointer-events-none" />
-      <div className="absolute right-0 top-0 bottom-0 w-20 sm:w-32 bg-gradient-to-l from-[#0A1628] to-transparent z-10 pointer-events-none" />
+      <div className="absolute left-0 top-0 bottom-0 w-20 sm:w-32 bg-gradient-to-r from-[#0F2747] to-transparent z-10 pointer-events-none" />
+      <div className="absolute right-0 top-0 bottom-0 w-20 sm:w-32 bg-gradient-to-l from-[#0F2747] to-transparent z-10 pointer-events-none" />
 
       {/* Label */}
       <div className="text-center mb-7 sm:mb-9">

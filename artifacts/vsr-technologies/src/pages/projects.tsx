@@ -339,7 +339,7 @@ export default function ProjectsPage() {
       <Navbar />
 
       {/* ── Header ── */}
-      <div className="relative pt-36 pb-24 bg-[#0A1628] overflow-hidden">
+      <div className="relative pt-36 pb-24 bg-[#0F2747] overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(56,189,248,0.12)_0%,transparent_60%)] pointer-events-none" />
         <div className="absolute inset-0 opacity-[0.04] pointer-events-none"
           style={{ backgroundImage: "linear-gradient(to right,#fff 1px,transparent 1px),linear-gradient(to bottom,#fff 1px,transparent 1px)", backgroundSize: "80px 80px" }}

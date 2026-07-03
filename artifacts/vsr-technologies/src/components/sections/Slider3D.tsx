@@ -78,7 +78,7 @@ export function Slider3D() {
         className="absolute inset-0 opacity-[0.025] pointer-events-none"
         style={{
           backgroundImage:
-            "linear-gradient(to right,#0A1628 1px,transparent 1px),linear-gradient(to bottom,#0A1628 1px,transparent 1px)",
+            "linear-gradient(to right,#0F2747 1px,transparent 1px),linear-gradient(to bottom,#0F2747 1px,transparent 1px)",
           backgroundSize: "80px 80px",
         }}
       />
