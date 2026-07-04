@@ -34,7 +34,7 @@ import imgTataAdvanced from "@/assets/images/projects/tata-advanced.webp";
 import imgPiIndustries from "@/assets/images/projects/pi-industries.jpg";
 import imgIocl from "@/assets/images/projects/iocl.jpg";
 import imgNtpc from "@/assets/images/projects/ntpc.jpg";
-import imgDrReddys from "@/assets/images/projects/dr-reddys.webp";
+import imgDrReddys from "@/assets/images/projects/dr-reddys.jpg";
 import imgGomtiNagar from "@/assets/images/projects/gomti-nagar.jpg";
 import imgTelanganaSecretariat from "@/assets/images/projects/telangana-secretariat.jpg";
 import imgGhmc from "@/assets/images/projects/ghmc.jpg";
