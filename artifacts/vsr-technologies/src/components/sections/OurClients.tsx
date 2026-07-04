@@ -2,29 +2,47 @@ import { Plane, Shield, Factory, Landmark, Cross, Building2 } from "lucide-react
 import { Link } from "wouter";
 
 const clients = [
-  { name: "GMR International Airport, Hyderabad", icon: Plane },
-  { name: "GMR International Airport, Bhogapuram", icon: Plane },
-  { name: "Kempegowda International Airport, Bangalore", icon: Plane },
-  { name: "Bharat Dynamics Limited", icon: Shield },
-  { name: "Hindustan Aeronautics Limited", icon: Shield },
-  { name: "Tata Advanced Systems", icon: Shield },
-  { name: "PI Industries, Gujarat", icon: Factory },
-  { name: "Indian Oil Corporation Limited", icon: Factory },
-  { name: "NTPC, Ramagundam", icon: Factory },
-  { name: "Dr. Reddy's Laboratories", icon: Factory },
-  { name: "Gomti Nagar Railway Station", icon: Landmark },
-  { name: "Telangana Secretariat", icon: Landmark },
-  { name: "Municipal Corporation of Hyderabad", icon: Landmark },
-  { name: "AIIMS, Guntur", icon: Cross },
-  { name: "Manappuram Finance Limited", icon: Building2 },
+  { name: "GMR International Airport, Hyderabad", icon: Plane, logo: "/logos/gmr.png" },
+  { name: "GMR International Airport, Bhogapuram", icon: Plane, logo: "/logos/gmr.png" },
+  { name: "Kempegowda International Airport, Bangalore", icon: Plane, logo: "/logos/kempegowda.png" },
+  { name: "Bharat Dynamics Limited", icon: Shield , logo: "/logos/gmr.png" },
+  { name: "Hindustan Aeronautics Limited", icon: Shield , logo: "/logos/gmr.png" },
+  { name: "Tata Advanced Systems", icon: Shield, logo: "/logos/Tata.png" },
+  { name: "PI Industries, Gujarat", icon: Factory, logo: "/logos/pi-industries.png" },
+  { name: "Indian Oil Corporation Limited", icon: Factory, logo: "/logos/gmr.png" },
+  { name: "NTPC, Ramagundam", icon: Factory , logo: "/logos/gmr.png"},
+  { name: "Dr. Reddy's Laboratories", icon: Factory, logo: "/logos/gmr.png" },
+  { name: "Gomti Nagar Railway Station", icon: Landmark , logo: "/logos/gmr.png"},
+  { name: "Telangana Secretariat", icon: Landmark , logo: "/logos/gmr.png" },
+  { name: "Municipal Corporation of Hyderabad", icon: Landmark , logo: "/logos/gmr.png" },
+  { name: "AIIMS, Guntur", icon: Cross, logo: "/public/GMR.png" },
+  { name: "Manappuram Finance Limited", icon: Building2, logo: "/logos/gmr.png" },
 ];
 
-function ClientCard({ name, icon: Icon }: { name: string; icon: typeof Plane }) {
+function ClientCard({
+  name,
+  icon: Icon,
+  logo,
+}: {
+  name: string;
+  icon: typeof Plane;
+  logo?: string;
+}) {
   return (
     <div className="flex flex-none items-center gap-3 px-6 py-4 rounded-2xl border border-slate-200 bg-white shadow-sm min-w-[280px]">
-      <div className="p-2.5 rounded-xl bg-primary/8 text-primary shrink-0">
-        <Icon className="w-5 h-5" />
-      </div>
+      {logo ? (
+        <div className="w-9 h-9 rounded-xl bg-white flex items-center justify-center shrink-0 overflow-hidden">
+          <img
+            src={logo}
+            alt={`${name} logo`}
+            className="max-w-full max-h-full object-contain"
+          />
+        </div>
+      ) : (
+        <div className="p-2.5 rounded-xl bg-primary/8 text-primary shrink-0">
+          <Icon className="w-5 h-5" />
+        </div>
+      )}
       <span className="text-sm font-medium text-slate-700 leading-snug">{name}</span>
     </div>
   );
@@ -55,7 +73,6 @@ export function OurClients() {
           </Link>
         </div>
       </div>
-
       <div
         className="relative z-10 overflow-hidden"
         style={{
@@ -63,11 +80,9 @@ export function OurClients() {
           WebkitMaskImage: "linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent)",
         }}
       >
-        <div
-          className="flex items-center gap-5 w-max animate-[clients-scroll_38s_linear_infinite] hover:[animation-play-state:paused]"
-        >
+        <div className="flex items-center gap-5 w-max animate-[clients-scroll_38s_linear_infinite] hover:[animation-play-state:paused]">
           {track.map((c, i) => (
-            <ClientCard key={`${c.name}-${i}`} name={c.name} icon={c.icon} />
+            <ClientCard key={`${c.name}-${i}`} name={c.name} icon={c.icon} logo={c.logo} />
           ))}
         </div>
       </div>
