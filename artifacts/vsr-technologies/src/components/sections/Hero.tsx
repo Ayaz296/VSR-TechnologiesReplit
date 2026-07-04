@@ -190,7 +190,7 @@ export function Hero() {
               className="grid grid-cols-3 gap-8 pt-8 border-t border-white/10 max-w-xl"
             >
               {[
-                { value: "500+", label: "Enterprise Sites" },
+                { value: "30+", label: "Enterprise Clients" },
                 { value: "99.9%", label: "Uptime SLA" },
                 { value: "24/7", label: "Active Monitoring" },
               ].map((stat) => (
