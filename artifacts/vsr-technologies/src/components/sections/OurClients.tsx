@@ -1,49 +1,28 @@
-import { Plane, Shield, Factory, Landmark, Cross, Building2 } from "lucide-react";
 import { Link } from "wouter";
 
 const clients = [
-  { name: "GMR International Airport, Hyderabad", icon: Plane, logo: "/logos/gmr.png" },
-  { name: "GMR International Airport, Bhogapuram", icon: Plane, logo: "/logos/gmr.png" },
-  { name: "Kempegowda International Airport, Bangalore", icon: Plane, logo: "/logos/kempegowda.png" },
-  { name: "Bharat Dynamics Limited", icon: Shield , logo: "/logos/gmr.png" },
-  { name: "Hindustan Aeronautics Limited", icon: Shield , logo: "/logos/gmr.png" },
-  { name: "Tata Advanced Systems", icon: Shield, logo: "/logos/Tata.png" },
-  { name: "PI Industries, Gujarat", icon: Factory, logo: "/logos/pi-industries.png" },
-  { name: "Indian Oil Corporation Limited", icon: Factory, logo: "/logos/gmr.png" },
-  { name: "NTPC, Ramagundam", icon: Factory , logo: "/logos/gmr.png"},
-  { name: "Dr. Reddy's Laboratories", icon: Factory, logo: "/logos/gmr.png" },
-  { name: "Gomti Nagar Railway Station", icon: Landmark , logo: "/logos/gmr.png"},
-  { name: "Telangana Secretariat", icon: Landmark , logo: "/logos/gmr.png" },
-  { name: "Municipal Corporation of Hyderabad", icon: Landmark , logo: "/logos/gmr.png" },
-  { name: "AIIMS, Guntur", icon: Cross, logo: "/public/GMR.png" },
-  { name: "Manappuram Finance Limited", icon: Building2, logo: "/logos/gmr.png" },
+  { name: "GMR", logo: "/GMR.png" },
+  { name: "WAISL", logo: "/waisl.png" },
+  { name: "Tata", logo: "/Tata.png" },
+  { name: "Godrej", logo: "/Godrej.png" },
+  { name: "Siemens", logo: "/siemen.png" },
+  { name: "Johnson Controls", logo: "/johnson.png" },
+  { name: "Echelon", logo: "/Echelon.png" },
+  { name: "BGI", logo: "/bgi.png" },
+  { name: "Crown", logo: "/crown.png" },
+  { name: "StrataCache", logo: "/stratacache.png" },
+  { name: "Sindori", logo: "/sindori.png" },
+  { name: "Automation", logo: "/automation.png" },
 ];
 
-function ClientCard({
-  name,
-  icon: Icon,
-  logo,
-}: {
-  name: string;
-  icon: typeof Plane;
-  logo?: string;
-}) {
+function ClientLogo({ name, logo }: { name: string; logo: string }) {
   return (
-    <div className="flex flex-none items-center gap-3 px-6 py-4 rounded-2xl border border-slate-200 bg-white shadow-sm min-w-[280px]">
-      {logo ? (
-        <div className="w-9 h-9 rounded-xl bg-white flex items-center justify-center shrink-0 overflow-hidden">
-          <img
-            src={logo}
-            alt={`${name} logo`}
-            className="max-w-full max-h-full object-contain"
-          />
-        </div>
-      ) : (
-        <div className="p-2.5 rounded-xl bg-primary/8 text-primary shrink-0">
-          <Icon className="w-5 h-5" />
-        </div>
-      )}
-      <span className="text-sm font-medium text-slate-700 leading-snug">{name}</span>
+    <div className="flex flex-none items-center justify-center px-8 py-5 rounded-2xl border border-slate-200 bg-white shadow-sm h-24 w-48">
+      <img
+        src={logo}
+        alt={name}
+        className="max-w-full max-h-full object-contain"
+      />
     </div>
   );
 }
@@ -82,7 +61,7 @@ export function OurClients() {
       >
         <div className="flex items-center gap-5 w-max animate-[clients-scroll_38s_linear_infinite] hover:[animation-play-state:paused]">
           {track.map((c, i) => (
-            <ClientCard key={`${c.name}-${i}`} name={c.name} icon={c.icon} logo={c.logo} />
+            <ClientLogo key={`${c.name}-${i}`} name={c.name} logo={c.logo} />
           ))}
         </div>
       </div>
