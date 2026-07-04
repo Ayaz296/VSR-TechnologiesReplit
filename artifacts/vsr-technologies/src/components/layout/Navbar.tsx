@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, X, Home } from "lucide-react";
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
-import faviconImg from "@/assets/images/favicon.png";
+import faviconImg from "@/assets/images/shared/favicon.png";
 
 
 

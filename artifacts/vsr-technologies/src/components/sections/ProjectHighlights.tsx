@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 import { ArrowRight, MapPin, CheckCircle2 } from "lucide-react";
-import airportImg from "@/assets/images/ind-airport.png";
-import commercialImg from "@/assets/images/ind-commercial.png";
-import industrialImg from "@/assets/images/ind-industrial.png";
-import criticalImg from "@/assets/images/ind-critical.png";
+import airportImg from "@/assets/images/projects/ind-airport.png";
+import commercialImg from "@/assets/images/projects/ind-commercial.png";
+import industrialImg from "@/assets/images/projects/ind-industrial.png";
+import criticalImg from "@/assets/images/projects/ind-critical.png";
 
 const projects = [
   {

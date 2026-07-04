@@ -1,7 +1,7 @@
-import industryAirport from "@/assets/images/ind-airport.png";
-import industryCommercial from "@/assets/images/ind-commercial.png";
-import industryIndustrial from "@/assets/images/ind-industrial.png";
-import industryInfrastructure from "@/assets/images/ind-critical.png";
+import industryAirport from "@/assets/images/projects/ind-airport.png";
+import industryCommercial from "@/assets/images/projects/ind-commercial.png";
+import industryIndustrial from "@/assets/images/projects/ind-industrial.png";
+import industryInfrastructure from "@/assets/images/projects/ind-critical.png";
 
 export type SiteContent = {
   contact: {

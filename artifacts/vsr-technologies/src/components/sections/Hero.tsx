@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ChevronDown } from "lucide-react";
-import heroBg from "@/assets/images/hero-bg.png";
+import heroBg from "@/assets/images/home/hero-bg.png";
 import { useRef, useState, useEffect } from "react";
 import { Link } from "wouter";
 

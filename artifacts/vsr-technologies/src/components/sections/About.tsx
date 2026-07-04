@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { CheckCircle2, Shield, Wrench, Settings, Clock, Award } from "lucide-react";
-import aboutUsImg from "@/assets/images/about-team.png";
+import aboutUsImg from "@/assets/images/home/about-team.png";
 
 export function About() {
   return (

@@ -13,8 +13,8 @@ import {
   Settings,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import aboutUsImg from "@/assets/images/about-us.png";
-import industryAirportImg from "@/assets/images/industry-airport.png";
+import aboutUsImg from "@/assets/images/about/about-us.png";
+import industryAirportImg from "@/assets/images/about/industry-airport.png";
 
 const values = [
   {

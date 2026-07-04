@@ -19,12 +19,12 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import imgAviation from "@/assets/images/ind-airport.png";
-import imgDefence from "@/assets/images/industry-industrial.png";
-import imgIndustrial from "@/assets/images/ind-industrial.png";
-import imgGovernment from "@/assets/images/ind-critical.png";
-import imgHealthcare from "@/assets/images/industry-commercial.png";
-import imgBfsi from "@/assets/images/ind-commercial.png";
+import imgAviation from "@/assets/images/projects/ind-airport.png";
+import imgDefence from "@/assets/images/projects/industry-industrial.png";
+import imgIndustrial from "@/assets/images/projects/ind-industrial.png";
+import imgGovernment from "@/assets/images/projects/ind-critical.png";
+import imgHealthcare from "@/assets/images/projects/industry-commercial.png";
+import imgBfsi from "@/assets/images/projects/ind-commercial.png";
 
 type ProjectEntry = { y: number; w: string; p: string };
 type Client = {
