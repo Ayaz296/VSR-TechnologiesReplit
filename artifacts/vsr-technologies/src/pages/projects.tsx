@@ -47,7 +47,8 @@ type Client = {
   name: string;
   cat: string;
   intro: string;
-  image?: string; // optional per-client photo — drop file in public/projects/ and set path here
+  image?: string;  // card photo  — drop file in src/assets/images/projects/ and import above
+  logo?: string;   // client logo — drop file in public/ (same folder as OurClients) and set "/filename.png" here
   projects: ProjectEntry[];
 };
 
@@ -68,6 +69,7 @@ const clients: Client[] = [
     name: "GMR International Airport, Hyderabad",
     cat: "aviation",
     image: imgGmrHyderabad,
+    logo: "/GMR.png",
     intro: "Our longest-running relationship: an ongoing, multi-year security and infrastructure programme covering CCTV, fire safety, access control, structured cabling and passive network infrastructure across the entire airport.",
     projects: [
       { y: 2025, w: "CCTV surveillance across the airside perimeter area for enhanced security monitoring.", p: "GMR Groups" },
@@ -96,6 +98,7 @@ const clients: Client[] = [
     name: "GMR International Airport, Bhogapuram, Vishakhapatnam",
     cat: "aviation",
     image: imgGmrBhogapuram,
+    logo: "/GMR.png",
     intro: "Deploying solar-powered, wireless CCTV infrastructure for GMR's newest greenfield airport in Andhra Pradesh.",
     projects: [
       { y: 2024, w: "Supply, installation, testing and commissioning of CCTV systems integrated with solar power and wireless technology.", p: "GMR Groups" },
@@ -136,6 +139,7 @@ const clients: Client[] = [
     name: "Tata Advanced, Tata Lockheed Martin, Tata Sikorsky & Tata Boeing",
     cat: "defence",
     image: imgTataAdvanced,
+    logo: "/Tata.png",
     intro: "Comprehensive perimeter and premises CCTV across the Tata Group's aerostructures manufacturing joint ventures.",
     projects: [
       { y: 2017, w: "Installation, testing and commissioning of a comprehensive CCTV surveillance system, ensuring enhanced security monitoring across both premises and perimeter areas.", p: "Atluri and Co." },
@@ -301,7 +305,7 @@ function ClientModal({ client, onClose }: { client: Client; onClose: () => void 
       >
         <div className="relative h-56 sm:h-64 overflow-hidden">
           <img src={client.image ?? cat.image} alt={client.name} className="absolute inset-0 w-full h-full object-cover" />
-          <div className={`absolute inset-0 bg-gradient-to-t ${cat.accent} opacity-75 mix-blend-multiply`} />
+          <div className={`absolute inset-0 bg-gradient-to-t ${cat.accent} opacity-20 mix-blend-multiply`} />
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
           <button
             onClick={onClose}
@@ -310,8 +314,10 @@ function ClientModal({ client, onClose }: { client: Client; onClose: () => void 
             <X size={16} />
           </button>
           <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8 flex items-center gap-4">
-            <div className="w-14 h-14 rounded-2xl bg-white/15 border border-white/25 flex items-center justify-center text-white font-bold text-lg shrink-0 backdrop-blur-sm">
-              {initials(client.name)}
+            <div className="w-14 h-14 rounded-2xl bg-white/15 border border-white/25 flex items-center justify-center text-white font-bold text-lg shrink-0 backdrop-blur-sm overflow-hidden">
+              {client.logo
+                ? <img src={client.logo} alt={client.name} className="w-full h-full object-contain p-2" />
+                : initials(client.name)}
             </div>
             <div>
               <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-white/15 text-white mb-2 backdrop-blur-sm">
@@ -454,13 +460,15 @@ export default function ProjectsPage() {
                         alt={client.name}
                         className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />
-                      <div className={`absolute inset-0 bg-gradient-to-t ${cat.accent} opacity-70 mix-blend-multiply`} />
+                      <div className={`absolute inset-0 bg-gradient-to-t ${cat.accent} opacity-20 mix-blend-multiply`} />
                       <div className="relative h-full flex items-start justify-between p-5">
                         <div className={cn("inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-semibold bg-white/15 text-white backdrop-blur-sm")}>
                           {cat.icon} {cat.label}
                         </div>
-                        <div className="w-11 h-11 rounded-xl bg-white/15 border border-white/25 flex items-center justify-center text-white font-bold text-sm shrink-0 backdrop-blur-sm">
-                          {initials(client.name)}
+                        <div className="w-11 h-11 rounded-xl bg-white/15 border border-white/25 flex items-center justify-center text-white font-bold text-sm shrink-0 backdrop-blur-sm overflow-hidden">
+                          {client.logo
+                            ? <img src={client.logo} alt={client.name} className="w-full h-full object-contain p-1.5" />
+                            : initials(client.name)}
                         </div>
                       </div>
                     </div>
