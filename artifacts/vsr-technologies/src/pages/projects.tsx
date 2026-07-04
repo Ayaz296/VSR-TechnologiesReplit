@@ -91,7 +91,7 @@ const clients: Client[] = [
     id: "kempegowda",
     name: "Kempegowda International Airport, Bangalore",
     cat: "aviation",
-    image: imgAviation,
+    image: imgkempegowda,
     intro: "A turnkey building-systems deployment covering fire safety, access control and building management for one of India's busiest airports.",
     projects: [
       { y: 2019, w: "Installation, testing and commissioning of Building Management System (BMS), Fire Alarm System (FAS), Public Address System (PA) and Access Control System (ACS).", p: "Siemens Limited" },
