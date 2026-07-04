@@ -52,7 +52,7 @@ const clients: Client[] = [
     id: "gmr-hyderabad",
     name: "GMR International Airport, Hyderabad",
     cat: "aviation",
-    image: "/projects/gmr-hyderabad.jpg",
+    image: "artifacts/vsr-technologies/src/assets/images/projects/gmr-hyderabad.jpg",
     intro: "Our longest-running relationship: an ongoing, multi-year security and infrastructure programme covering CCTV, fire safety, access control, structured cabling and passive network infrastructure across the entire airport.",
     projects: [
       { y: 2025, w: "CCTV surveillance across the airside perimeter area for enhanced security monitoring.", p: "GMR Groups" },
