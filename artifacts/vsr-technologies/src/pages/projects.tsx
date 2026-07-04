@@ -26,6 +26,20 @@ import imgGovernment from "@/assets/images/projects/ind-critical.png";
 import imgHealthcare from "@/assets/images/projects/industry-commercial.png";
 import imgBfsi from "@/assets/images/projects/ind-commercial.png";
 import imgGmrHyderabad from "@/assets/images/projects/gmr-hyderabad.jpg";
+import imgGmrBhogapuram from "@/assets/images/projects/gmr-bhogapuram.png";
+import imgKempegowda from "@/assets/images/projects/kempegowda.jpg";
+import imgBharatDynamics from "@/assets/images/projects/bharat-dynamics.jpg";
+import imgHal from "@/assets/images/projects/hal.jpg";
+import imgTataAdvanced from "@/assets/images/projects/tata-advanced.webp";
+import imgPiIndustries from "@/assets/images/projects/pi-industries.jpg";
+import imgIocl from "@/assets/images/projects/iocl.jpg";
+import imgNtpc from "@/assets/images/projects/ntpc.jpg";
+import imgDrReddys from "@/assets/images/projects/dr-reddys.webp";
+import imgGomtiNagar from "@/assets/images/projects/gomti-nagar.jpg";
+import imgTelanganaSecretariat from "@/assets/images/projects/telangana-secretariat.jpg";
+import imgGhmc from "@/assets/images/projects/ghmc.jpg";
+import imgAiimsGuntur from "@/assets/images/projects/aiims-guntur.jpg";
+import imgManappuram from "@/assets/images/projects/manappuram.jpg";
 
 type ProjectEntry = { y: number; w: string; p: string };
 type Client = {
@@ -81,7 +95,7 @@ const clients: Client[] = [
     id: "gmr-bhogapuram",
     name: "GMR International Airport, Bhogapuram, Vishakhapatnam",
     cat: "aviation",
-    image: imgAviation,
+    image: imgGmrBhogapuram,
     intro: "Deploying solar-powered, wireless CCTV infrastructure for GMR's newest greenfield airport in Andhra Pradesh.",
     projects: [
       { y: 2024, w: "Supply, installation, testing and commissioning of CCTV systems integrated with solar power and wireless technology.", p: "GMR Groups" },
@@ -91,7 +105,7 @@ const clients: Client[] = [
     id: "kempegowda",
     name: "Kempegowda International Airport, Bangalore",
     cat: "aviation",
-    image: imgkempegowda,
+    image: imgKempegowda,
     intro: "A turnkey building-systems deployment covering fire safety, access control and building management for one of India's busiest airports.",
     projects: [
       { y: 2019, w: "Installation, testing and commissioning of Building Management System (BMS), Fire Alarm System (FAS), Public Address System (PA) and Access Control System (ACS).", p: "Siemens Limited" },
@@ -101,7 +115,7 @@ const clients: Client[] = [
     id: "bharat-dynamics",
     name: "Bharat Dynamics Limited, Hyderabad",
     cat: "defence",
-    image: imgDefence,
+    image: imgBharatDynamics,
     intro: "Perimeter and premises-wide surveillance for a Government of India defence public sector undertaking.",
     projects: [
       { y: 2022, w: "Supply, installation, testing and commissioning of CCTV surveillance covering the entire perimeter and premises.", p: "IH Automation" },
@@ -111,7 +125,7 @@ const clients: Client[] = [
     id: "hal",
     name: "Hindustan Aeronautics Limited",
     cat: "defence",
-    image: imgDefence,
+    image: imgHal,
     intro: "Facility-wide fire detection and early-warning infrastructure at HAL.",
     projects: [
       { y: 2018, w: "Installation, testing and commissioning of the Fire Alarm System, enhancing facility-wide fire safety and early warning capabilities.", p: "Godrej Security Solutions" },
@@ -121,7 +135,7 @@ const clients: Client[] = [
     id: "tata-advanced",
     name: "Tata Advanced, Tata Lockheed Martin, Tata Sikorsky & Tata Boeing",
     cat: "defence",
-    image: imgDefence,
+    image: imgTataAdvanced,
     intro: "Comprehensive perimeter and premises CCTV across the Tata Group's aerostructures manufacturing joint ventures.",
     projects: [
       { y: 2017, w: "Installation, testing and commissioning of a comprehensive CCTV surveillance system, ensuring enhanced security monitoring across both premises and perimeter areas.", p: "Atluri and Co." },
@@ -131,7 +145,7 @@ const clients: Client[] = [
     id: "pi-industries",
     name: "PI Industries, Jambusar, Gujarat",
     cat: "industrial",
-    image: imgIndustrial,
+    image: imgPiIndustries,
     intro: "Two phases of large-scale surveillance rollout at PI Industries' agrochemical manufacturing complex in Gujarat.",
     projects: [
       { y: 2023, w: "Supply, installation, testing and commissioning of approximately 150 CCTV surveillance systems, including all associated hardware and software components.", p: "Echelon Edge" },
@@ -142,7 +156,7 @@ const clients: Client[] = [
     id: "iocl",
     name: "Indian Oil Corporation Limited",
     cat: "industrial",
-    image: imgIndustrial,
+    image: imgIocl,
     intro: "Ongoing annual maintenance of surveillance infrastructure across IOCL bottling plants in two states.",
     projects: [
       { y: 2019, w: "Annual Maintenance Contract for CCTV surveillance systems across IOCL bottling plants in Andhra Pradesh and Telangana.", p: "Godrej Security Solutions" },
@@ -152,7 +166,7 @@ const clients: Client[] = [
     id: "ntpc",
     name: "National Thermal Power Corporation, Ramagundam",
     cat: "industrial",
-    image: imgIndustrial,
+    image: imgNtpc,
     intro: "Annual maintenance of critical surveillance infrastructure at NTPC's Ramagundam power plant.",
     projects: [
       { y: 2019, w: "Annual Maintenance Contract for CCTV surveillance systems at NTPC.", p: "Godrej Security Solutions" },
@@ -162,7 +176,7 @@ const clients: Client[] = [
     id: "dr-reddys",
     name: "Dr. Reddy's Laboratories, Hyderabad",
     cat: "industrial",
-    image: imgIndustrial,
+    image: imgDrReddys,
     intro: "Perimeter access control for a leading pharmaceutical manufacturing facility.",
     projects: [
       { y: 2018, w: "Installation, testing and commissioning of power fencing and boom barriers for enhanced access control and perimeter security.", p: "Godrej Security Solutions" },
@@ -172,7 +186,7 @@ const clients: Client[] = [
     id: "gomti-nagar",
     name: "Gomti Nagar Railway Station, Lucknow, UP",
     cat: "government",
-    image: imgGovernment,
+    image: imgGomtiNagar,
     intro: "A complete station-safety upgrade covering surveillance, fire safety, access control and public announcements.",
     projects: [
       { y: 2023, w: "Installation and commissioning of CCTV, Fire Alarm System, Access Control System, and Public Address System.", p: "TNS Groups" },
@@ -182,7 +196,7 @@ const clients: Client[] = [
     id: "telangana-secretariat",
     name: "Telangana Secretariat, Hyderabad",
     cat: "government",
-    image: imgGovernment,
+    image: imgTelanganaSecretariat,
     intro: "Fire safety, public address and surveillance systems for the state government's administrative headquarters.",
     projects: [
       { y: 2022, w: "Installation, testing and commissioning of Fire Alarm System, Public Address System, and CCTV Surveillance System.", p: "Technocraft" },
@@ -192,7 +206,7 @@ const clients: Client[] = [
     id: "ghmc",
     name: "Municipal Corporation of Hyderabad",
     cat: "government",
-    image: imgGovernment,
+    image: imgGhmc,
     intro: "High-security bollards to control vehicle access at the historic Charminar in Hyderabad's old city.",
     projects: [
       { y: 2019, w: "Installation of high-security bollards to enhance perimeter protection and control vehicle access at Charminar.", p: "Bgi Engitech Pvt Ltd" },
@@ -202,7 +216,7 @@ const clients: Client[] = [
     id: "aiims-guntur",
     name: "All India Institute of Medical Sciences, Guntur",
     cat: "healthcare",
-    image: imgHealthcare,
+    image: imgAiimsGuntur,
     intro: "A full building-systems deployment across CCTV, BMS, fire alarm and access control for AIIMS Guntur.",
     projects: [
       { y: 2019, w: "Installation, testing and commissioning of CCTV, Building Management System (BMS), Fire Alarm System (FAS), and Access Control System (ACS).", p: "Tata Groups" },
@@ -212,7 +226,7 @@ const clients: Client[] = [
     id: "manappuram",
     name: "Manappuram Finance Limited",
     cat: "bfsi",
-    image: imgBfsi,
+    image: imgManappuram,
     intro: "A rare non-industrial engagement: fire safety rolled out across 200+ branch offices nationwide, backed by an extended AMC.",
     projects: [
       { y: 2018, w: "Fire Alarm System installation across 200+ offices, along with an extended Annual Maintenance Contract for support and reliability.", p: "Godrej Security Solutions" },
