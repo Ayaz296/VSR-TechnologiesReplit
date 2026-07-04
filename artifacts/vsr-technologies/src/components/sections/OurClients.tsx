@@ -1,7 +1,7 @@
 import { Link } from "wouter";
 
 const clients = [
-  { name: "GMR", logo: "/GMR.png" },
+  { name: "GMR", logo: "/GRM.png" },
   { name: "WAISL", logo: "/waisl.png" },
   { name: "Tata", logo: "/Tata.png" },
   { name: "Godrej", logo: "/Godrej.png" },
