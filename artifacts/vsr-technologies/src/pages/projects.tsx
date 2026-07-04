@@ -32,6 +32,7 @@ type Client = {
   name: string;
   cat: string;
   intro: string;
+  image?: string; // optional per-client photo — drop file in public/projects/ and set path here
   projects: ProjectEntry[];
 };
 
@@ -51,6 +52,7 @@ const clients: Client[] = [
     id: "gmr-hyderabad",
     name: "GMR International Airport, Hyderabad",
     cat: "aviation",
+    image: "/projects/gmr-hyderabad.jpg",
     intro: "Our longest-running relationship: an ongoing, multi-year security and infrastructure programme covering CCTV, fire safety, access control, structured cabling and passive network infrastructure across the entire airport.",
     projects: [
       { y: 2025, w: "CCTV surveillance across the airside perimeter area for enhanced security monitoring.", p: "GMR Groups" },
@@ -78,6 +80,7 @@ const clients: Client[] = [
     id: "gmr-bhogapuram",
     name: "GMR International Airport, Bhogapuram, Vishakhapatnam",
     cat: "aviation",
+    image: "/projects/gmr-bhogapuram.jpg",
     intro: "Deploying solar-powered, wireless CCTV infrastructure for GMR's newest greenfield airport in Andhra Pradesh.",
     projects: [
       { y: 2024, w: "Supply, installation, testing and commissioning of CCTV systems integrated with solar power and wireless technology.", p: "GMR Groups" },
@@ -87,6 +90,7 @@ const clients: Client[] = [
     id: "kempegowda",
     name: "Kempegowda International Airport, Bangalore",
     cat: "aviation",
+    image: "/projects/kempegowda.jpg",
     intro: "A turnkey building-systems deployment covering fire safety, access control and building management for one of India's busiest airports.",
     projects: [
       { y: 2019, w: "Installation, testing and commissioning of Building Management System (BMS), Fire Alarm System (FAS), Public Address System (PA) and Access Control System (ACS).", p: "Siemens Limited" },
@@ -96,6 +100,7 @@ const clients: Client[] = [
     id: "bharat-dynamics",
     name: "Bharat Dynamics Limited, Hyderabad",
     cat: "defence",
+    image: "/projects/bharat-dynamics.jpg",
     intro: "Perimeter and premises-wide surveillance for a Government of India defence public sector undertaking.",
     projects: [
       { y: 2022, w: "Supply, installation, testing and commissioning of CCTV surveillance covering the entire perimeter and premises.", p: "IH Automation" },
@@ -105,6 +110,7 @@ const clients: Client[] = [
     id: "hal",
     name: "Hindustan Aeronautics Limited",
     cat: "defence",
+    image: "/projects/hal.jpg",
     intro: "Facility-wide fire detection and early-warning infrastructure at HAL.",
     projects: [
       { y: 2018, w: "Installation, testing and commissioning of the Fire Alarm System, enhancing facility-wide fire safety and early warning capabilities.", p: "Godrej Security Solutions" },
@@ -114,6 +120,7 @@ const clients: Client[] = [
     id: "tata-advanced",
     name: "Tata Advanced, Tata Lockheed Martin, Tata Sikorsky & Tata Boeing",
     cat: "defence",
+    image: "/projects/tata-advanced.jpg",
     intro: "Comprehensive perimeter and premises CCTV across the Tata Group's aerostructures manufacturing joint ventures.",
     projects: [
       { y: 2017, w: "Installation, testing and commissioning of a comprehensive CCTV surveillance system, ensuring enhanced security monitoring across both premises and perimeter areas.", p: "Atluri and Co." },
@@ -123,6 +130,7 @@ const clients: Client[] = [
     id: "pi-industries",
     name: "PI Industries, Jambusar, Gujarat",
     cat: "industrial",
+    image: "/projects/pi-industries.jpg",
     intro: "Two phases of large-scale surveillance rollout at PI Industries' agrochemical manufacturing complex in Gujarat.",
     projects: [
       { y: 2023, w: "Supply, installation, testing and commissioning of approximately 150 CCTV surveillance systems, including all associated hardware and software components.", p: "Echelon Edge" },
@@ -133,6 +141,7 @@ const clients: Client[] = [
     id: "iocl",
     name: "Indian Oil Corporation Limited",
     cat: "industrial",
+    image: "/projects/iocl.jpg",
     intro: "Ongoing annual maintenance of surveillance infrastructure across IOCL bottling plants in two states.",
     projects: [
       { y: 2019, w: "Annual Maintenance Contract for CCTV surveillance systems across IOCL bottling plants in Andhra Pradesh and Telangana.", p: "Godrej Security Solutions" },
@@ -142,6 +151,7 @@ const clients: Client[] = [
     id: "ntpc",
     name: "National Thermal Power Corporation, Ramagundam",
     cat: "industrial",
+    image: "/projects/ntpc.jpg",
     intro: "Annual maintenance of critical surveillance infrastructure at NTPC's Ramagundam power plant.",
     projects: [
       { y: 2019, w: "Annual Maintenance Contract for CCTV surveillance systems at NTPC.", p: "Godrej Security Solutions" },
@@ -151,6 +161,7 @@ const clients: Client[] = [
     id: "dr-reddys",
     name: "Dr. Reddy's Laboratories, Hyderabad",
     cat: "industrial",
+    image: "/projects/dr-reddys.jpg",
     intro: "Perimeter access control for a leading pharmaceutical manufacturing facility.",
     projects: [
       { y: 2018, w: "Installation, testing and commissioning of power fencing and boom barriers for enhanced access control and perimeter security.", p: "Godrej Security Solutions" },
@@ -160,6 +171,7 @@ const clients: Client[] = [
     id: "gomti-nagar",
     name: "Gomti Nagar Railway Station, Lucknow, UP",
     cat: "government",
+    image: "/projects/gomti-nagar.jpg",
     intro: "A complete station-safety upgrade covering surveillance, fire safety, access control and public announcements.",
     projects: [
       { y: 2023, w: "Installation and commissioning of CCTV, Fire Alarm System, Access Control System, and Public Address System.", p: "TNS Groups" },
@@ -169,6 +181,7 @@ const clients: Client[] = [
     id: "telangana-secretariat",
     name: "Telangana Secretariat, Hyderabad",
     cat: "government",
+    image: "/projects/telangana-secretariat.jpg",
     intro: "Fire safety, public address and surveillance systems for the state government's administrative headquarters.",
     projects: [
       { y: 2022, w: "Installation, testing and commissioning of Fire Alarm System, Public Address System, and CCTV Surveillance System.", p: "Technocraft" },
@@ -178,6 +191,7 @@ const clients: Client[] = [
     id: "ghmc",
     name: "Municipal Corporation of Hyderabad",
     cat: "government",
+    image: "/projects/ghmc.jpg",
     intro: "High-security bollards to control vehicle access at the historic Charminar in Hyderabad's old city.",
     projects: [
       { y: 2019, w: "Installation of high-security bollards to enhance perimeter protection and control vehicle access at Charminar.", p: "Bgi Engitech Pvt Ltd" },
@@ -187,6 +201,7 @@ const clients: Client[] = [
     id: "aiims-guntur",
     name: "All India Institute of Medical Sciences, Guntur",
     cat: "healthcare",
+    image: "/projects/aiims-guntur.jpg",
     intro: "A full building-systems deployment across CCTV, BMS, fire alarm and access control for AIIMS Guntur.",
     projects: [
       { y: 2019, w: "Installation, testing and commissioning of CCTV, Building Management System (BMS), Fire Alarm System (FAS), and Access Control System (ACS).", p: "Tata Groups" },
@@ -196,6 +211,7 @@ const clients: Client[] = [
     id: "manappuram",
     name: "Manappuram Finance Limited",
     cat: "bfsi",
+    image: "/projects/manappuram.jpg",
     intro: "A rare non-industrial engagement: fire safety rolled out across 200+ branch offices nationwide, backed by an extended AMC.",
     projects: [
       { y: 2018, w: "Fire Alarm System installation across 200+ offices, along with an extended Annual Maintenance Contract for support and reliability.", p: "Godrej Security Solutions" },
@@ -269,7 +285,7 @@ function ClientModal({ client, onClose }: { client: Client; onClose: () => void 
         transition={{ duration: 0.25 }}
       >
         <div className="relative h-56 sm:h-64 overflow-hidden">
-          <img src={cat.image} alt={cat.label} className="absolute inset-0 w-full h-full object-cover" />
+          <img src={client.image ?? cat.image} alt={client.name} className="absolute inset-0 w-full h-full object-cover" />
           <div className={`absolute inset-0 bg-gradient-to-t ${cat.accent} opacity-75 mix-blend-multiply`} />
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
           <button
@@ -419,8 +435,8 @@ export default function ProjectsPage() {
                   >
                     <div className="relative h-44 sm:h-48 overflow-hidden">
                       <img
-                        src={cat.image}
-                        alt={cat.label}
+                        src={client.image ?? cat.image}
+                        alt={client.name}
                         className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />
                       <div className={`absolute inset-0 bg-gradient-to-t ${cat.accent} opacity-70 mix-blend-multiply`} />
