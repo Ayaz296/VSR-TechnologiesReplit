@@ -3,8 +3,13 @@ import cors from "cors";
 import pinoHttp from "pino-http";
 import router from "./routes";
 import { logger } from "./lib/logger";
+import { burstLimiter, globalLimiter } from "./middlewares/rateLimiter";
 
 const app: Express = express();
+
+// Trust the first hop of X-Forwarded-For so req.ip reflects the real
+// client address when running behind Replit's reverse proxy / CDN.
+app.set("trust proxy", 1);
 
 app.use(
   pinoHttp({
@@ -29,6 +34,8 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use("/api", router);
+// Rate limiting — burst first (fast-fail automated floods),
+// then sustained global cap. Health probes bypass both.
+app.use("/api", burstLimiter, globalLimiter, router);
 
 export default app;
